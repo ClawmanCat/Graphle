@@ -1,6 +1,6 @@
 #pragma once
 
-#include <libgraphle.hpp>
+#include <graphle.hpp>
 #include <test_datastructures.hpp>
 
 #include <array>

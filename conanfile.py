@@ -1,13 +1,13 @@
 from conans import ConanFile, CMake
 
 
-class LibGraphleConan(ConanFile):
-    name            = "libgraphle"
+class GraphleConan(ConanFile):
+    name            = "graphle"
     version         = "1.0.0"
     license         = "MIT"
-    url             = "https://github.com/ClawmanCat/LibGraphle"
+    url             = "https://github.com/ClawmanCat/Graphle"
     description     = "A C++20 header-only graph library."
-    exports_sources = "libgraphle/*", "libgraphle_test/*", "LICENSE", "CMakeLists.txt"
+    exports_sources = "graphle/*", "graphle_test/*", "LICENSE", "CMakeLists.txt"
     no_copy_source  = True
     settings        = "os", "compiler", "build_type", "arch"
     options         = { "build_tests": [True, False] }
@@ -27,7 +27,7 @@ class LibGraphleConan(ConanFile):
 
     def package(self):
         if self.options.build_tests: self.copy("*.cpp")
-        self.copy("*.hpp", src = "libgraphle", dst = "include")
+        self.copy("*.hpp", src = "graphle", dst = "include")
 
 
     def package_id(self):

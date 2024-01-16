@@ -5,4 +5,4 @@
 out/
 venv/
 
-libgraphle_test/tmp.cpp
+graphle_test/tmp.cpp
