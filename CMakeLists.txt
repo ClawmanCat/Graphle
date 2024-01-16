@@ -1,0 +1,26 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.19)
+PROJECT(LibGraphle CXX)
+
+
+# Prevent concurrent invocation.
+FILE(LOCK cmake.lock)
+
+
+# Require C++20.
+SET(CMAKE_CXX_STANDARD 20)
+SET(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+
+# Use scripts from cmake folder.
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+
+
+ADD_SUBDIRECTORY(libgraphle)
+
+
+IF (GRAPHLE_TESTS)
+    INCLUDE(CTest)
+    ENABLE_TESTING()
+
+    ADD_SUBDIRECTORY(libgraphle_test)
+ENDIF()
