@@ -80,7 +80,7 @@ which can be initialized as `deduce_some_param = graphle::meta::deduce_as<SomeTy
 
 ###### Documentation
 More extensive documentation can be found at the following locations:
-- [TODO] Graphle API reference (Doxygen)
+- [Graphle API reference (Doxygen)](https://clawmancat.github.io/Graphle/)
 - [TODO] Github Wiki
 
 
