@@ -64,7 +64,7 @@ namespace graphle::test {
             message(std::format("Assertion failure at line {} in {} ({}): {}", where.line(), where.file_name(), where.function_name(), condition))
         {}
 
-        const char* what(void) const override noexcept {
+        const char* what(void) const noexcept override {
             return message.c_str();
         }
 
