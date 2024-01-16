@@ -2,8 +2,6 @@ name: Generate Doxygen Documentation
 
 on:
   push:
-    branches: [ "master", "ci" ]
-  pull_request:
     branches: [ "master" ]
 
 jobs:
