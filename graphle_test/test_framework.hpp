@@ -5,6 +5,7 @@
 #include <iostream>
 #include <source_location>
 #include <format>
+#include <functional>
 
 
 /**
@@ -63,7 +64,7 @@ namespace graphle::test {
             message(std::format("Assertion failure at line {} in {} ({}): {}", where.line(), where.file_name(), where.function_name(), condition))
         {}
 
-        const char* what(void) const override {
+        const char* what(void) const noexcept override {
             return message.c_str();
         }
 

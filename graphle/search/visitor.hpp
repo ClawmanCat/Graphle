@@ -4,6 +4,8 @@
 #include <graph/graph.hpp>
 #include <utility/detail/functional.hpp>
 
+#include <functional>
+
 
 #define GRAPHLE_VISIT_DERIVED(F, D, ...)                            \
 [&] {                                                               \
