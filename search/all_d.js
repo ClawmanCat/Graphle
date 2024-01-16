@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['placeholder_0',['placeholder',['../structgraphle_1_1meta_1_1placeholder.html',1,'graphle::meta']]],
+  ['pointed_5fto_5fas_5fconst_1',['pointed_to_as_const',['../structgraphle_1_1meta_1_1pointed__to__as__const.html',1,'graphle::meta::pointed_to_as_const&lt; T &gt;'],['../namespacegraphle_1_1util.html#a4a575f3d922a3902e94cca6fa7c6cf0d',1,'graphle::util::pointed_to_as_const()']]],
+  ['pointed_5fto_5fas_5fconst_3c_20t_20_2a_20_3e_2',['pointed_to_as_const&lt; T * &gt;',['../structgraphle_1_1meta_1_1pointed__to__as__const_3_01T_01_5_01_4.html',1,'graphle::meta']]],
+  ['pointed_5fto_5fas_5fconst_3c_20vertex_5ftype_20_3e_3',['pointed_to_as_const&lt; vertex_type &gt;',['../structgraphle_1_1meta_1_1pointed__to__as__const.html',1,'graphle::meta']]],
+  ['pointed_5fto_5fas_5fconst_5ft_4',['pointed_to_as_const_t',['../structgraphle_1_1util_1_1pointed__to__as__const__t.html',1,'graphle::util::pointed_to_as_const_t'],['../namespacegraphle_1_1meta.html#a427fbf64fe4463e216a01abba28ced0a',1,'graphle::meta::pointed_to_as_const_t()']]],
+  ['pointer_5',['pointer',['../classgraphle_1_1detail_1_1wrapping__iterator.html#a727209459c289e8804ac307353a56f30',1,'graphle::detail::wrapping_iterator::pointer()'],['../classgraphle_1_1detail_1_1transforming__wrapping__iterator.html#a53397a8418c36c07b44044e664b0d921',1,'graphle::detail::transforming_wrapping_iterator::pointer()'],['../classgraphle_1_1util_1_1vec__of__vecs__output__iterator.html#a00b70f1b0600e24e4efa3e4b44fd4baa',1,'graphle::util::vec_of_vecs_output_iterator::pointer()']]],
+  ['pointer_5fconstness_5fmatch_6',['pointer_constness_match',['../structgraphle_1_1meta_1_1pointer__constness__match.html',1,'graphle::meta']]],
+  ['pointer_5fconstness_5fmatch_3c_20a_20_2a_2c_20b_20_2a_20_3e_7',['pointer_constness_match&lt; A *, B * &gt;',['../structgraphle_1_1meta_1_1pointer__constness__match_3_01A_01_5_00_01B_01_5_01_4.html',1,'graphle::meta']]],
+  ['pointer_5fconstness_5fmatch_3c_20a_20_2a_2c_20const_20b_20_2a_20_3e_8',['pointer_constness_match&lt; A *, const B * &gt;',['../structgraphle_1_1meta_1_1pointer__constness__match_3_01A_01_5_00_01const_01B_01_5_01_4.html',1,'graphle::meta']]],
+  ['pointer_5fconstness_5fmatch_3c_20const_20a_20_2a_2c_20b_20_2a_20_3e_9',['pointer_constness_match&lt; const A *, B * &gt;',['../structgraphle_1_1meta_1_1pointer__constness__match_3_01const_01A_01_5_00_01B_01_5_01_4.html',1,'graphle::meta']]],
+  ['pointer_5fconstness_5fmatch_3c_20const_20a_20_2a_2c_20const_20b_20_2a_20_3e_10',['pointer_constness_match&lt; const A *, const B * &gt;',['../structgraphle_1_1meta_1_1pointer__constness__match_3_01const_01A_01_5_00_01const_01B_01_5_01_4.html',1,'graphle::meta']]],
+  ['pointer_5fconstness_5fmatch_5fv_11',['pointer_constness_match_v',['../namespacegraphle_1_1meta.html#a596235e9b7c035c56f885d7ea87e2a05',1,'graphle::meta']]],
+  ['project_5fnth_12',['project_nth',['../structgraphle_1_1detail_1_1project__nth.html',1,'graphle::detail']]],
+  ['provide_5fexternal_13',['provide_external',['../classgraphle_1_1store_1_1provide__external.html',1,'graphle::store::provide_external&lt; T, ReturnCleared &gt;'],['../classgraphle_1_1store_1_1provide__external.html#a212b69bca9b06a4b2e023871f3d723cc',1,'graphle::store::provide_external::provide_external()']]],
+  ['provide_5fnewly_5fconstructed_14',['provide_newly_constructed',['../classgraphle_1_1store_1_1provide__newly__constructed.html',1,'graphle::store::provide_newly_constructed&lt; T, Args &gt;'],['../classgraphle_1_1store_1_1provide__newly__constructed.html#a1cd086887f67f1e47333dfc324a877d9',1,'graphle::store::provide_newly_constructed::provide_newly_constructed()']]],
+  ['provide_5fowned_15',['provide_owned',['../classgraphle_1_1store_1_1provide__owned.html',1,'graphle::store::provide_owned&lt; T, ReturnCleared &gt;'],['../classgraphle_1_1store_1_1provide__owned.html#afe8c528bfc1c9bd8c56d033b7a854d07',1,'graphle::store::provide_owned::provide_owned()']]],
+  ['provided_5fstorage_5ftype_16',['provided_storage_type',['../namespacegraphle_1_1store.html#ae45da3518a6b92dd322f2acd5afc8800',1,'graphle::store']]],
+  ['provided_5fstorage_5fvalue_5ftype_17',['provided_storage_value_type',['../namespacegraphle_1_1store.html#a45cd4b8b828aec2b7938760a8645129d',1,'graphle::store']]]
+];
