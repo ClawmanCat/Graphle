@@ -9,7 +9,10 @@
 #include <unordered_map>
 
 
-/** @defgroup TestGraphs Graphle Test Data Structures */
+/**
+ * @defgroup TestGraphs Graphle Test Data Structures
+ * @todo Add datastructures for non-directed graphs.
+ */
 
 
 /**
@@ -66,6 +69,7 @@ namespace graphle::test {
         constexpr auto view_as_graph(void) {
             return graph {
                 .deduce_vertex_type = graphle::meta::deduce_as<vertex>,
+                .deduce_compare_as  = graphle::meta::deduce_as<graphle::compare_by_value<vertex>>,
                 .get_vertices       = [this] { return views::all(vertices) | views::transform(util::addressof); },
                 .get_edges          = [this] { return views::all(edges) | views::transform(util::transform_edge(util::addressof)); }
             };
@@ -105,6 +109,7 @@ namespace graphle::test {
         constexpr auto view_as_graph(void) {
             return graph {
                 .deduce_vertex_type = meta::deduce_as<const vertex>,
+                .deduce_compare_as  = graphle::meta::deduce_as<graphle::compare_by_value<vertex>>,
                 .get_vertices       = [this] { return views::all(vertices) | views::transform(util::addressof); },
                 .get_out_edges      = [this] (const vertex* v) { return views::all(edges.at(*v)) | views::transform(util::as_const) | views::transform(util::addressof) | views::edge_from(v); }
             };
@@ -143,6 +148,7 @@ namespace graphle::test {
         constexpr auto view_as_graph(void) {
             return graph {
                 .deduce_vertex_type = graphle::meta::deduce_as<vertex>,
+                .deduce_compare_as  = graphle::meta::deduce_as<graphle::compare_by_value<vertex>>,
                 .get_out_edges = [] (vertex* v) {
                     return views::all(v->out)
                         | views::transform(&std::shared_ptr<vertex>::get)
@@ -184,6 +190,7 @@ namespace graphle::test {
         constexpr auto view_as_graph(void) {
             return graph {
                 .deduce_vertex_type = graphle::meta::deduce_as<vertex>,
+                .deduce_compare_as  = graphle::meta::deduce_as<graphle::compare_by_value<vertex>>,
                 .get_vertices       = [this] { return views::all(vertices) | views::transform(util::addressof); },
                 .get_out_edges      = [] (vertex* v) { return views::all(v->out) | views::edge_from(v); }
             };
@@ -228,6 +235,7 @@ namespace graphle::test {
         constexpr auto view_as_graph(void) {
             return graph {
                 .deduce_vertex_type = graphle::meta::deduce_as<vertex>,
+                .deduce_compare_as  = graphle::meta::deduce_as<graphle::compare_by_value<vertex>>,
                 .get_out_edges = [] (vertex* v) {
                     return views::all(v->out)
                         | views::transform(&std::shared_ptr<vertex>::get)
@@ -280,6 +288,7 @@ namespace graphle::test {
         constexpr auto view_as_graph(void) {
             return graph {
                 .deduce_vertex_type = graphle::meta::deduce_as<vertex>,
+                .deduce_compare_as  = graphle::meta::deduce_as<graphle::compare_by_value<vertex>>,
                 .get_vertices       = [this] { return views::all(vertices) | views::transform(util::addressof); },
                 .get_out_edges      = [] (vertex* v) { return views::all(v->out) | views::edge_from(v); },
                 .get_in_edges       = [] (vertex* v) { return views::all(v->out) | views::edge_to(v); }
@@ -293,11 +302,11 @@ namespace graphle::test {
      * List of test datastructure types.
      */
     using datastructure_list = meta::type_list<
-        //ve_list_graph,
-        //ve_map_graph
-        //out_edge_graph,
-        v_list_out_edge_graph
-        //in_out_edge_graph,
-        //v_list_in_out_edge_graph
+        ve_list_graph,
+        ve_map_graph,
+        out_edge_graph,
+        v_list_out_edge_graph,
+        in_out_edge_graph,
+        v_list_in_out_edge_graph
     >;
 }

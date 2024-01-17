@@ -1,7 +1,7 @@
 #pragma once
 
 #include <common.hpp>
-#include <meta/is_template.hpp>
+#include <meta/concepts.hpp>
 
 
 namespace graphle::meta {

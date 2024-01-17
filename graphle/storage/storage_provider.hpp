@@ -126,12 +126,12 @@ namespace graphle::store {
     };
 
     /** @copydoc is_storage_type */
-    template <typename S, typename K, typename V> struct is_storage_type<S, storage_type::UNORDERED_MAP, K, V> {
+    template <typename S, typename K, typename V, typename Hash, typename Eq> struct is_storage_type<S, storage_type::UNORDERED_MAP, K, V, Hash, Eq> {
         constexpr static inline bool value = unordered_map_storage_type<S, K, V>;
     };
 
     /** @copydoc is_storage_type */
-    template <typename S, typename K> struct is_storage_type<S, storage_type::UNORDERED_SET, K> {
+    template <typename S, typename K, typename Hash, typename Eq> struct is_storage_type<S, storage_type::UNORDERED_SET, K, Hash, Eq> {
         constexpr static inline bool value = unordered_set_storage_type<S, K>;
     };
 

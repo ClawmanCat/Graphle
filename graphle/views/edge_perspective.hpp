@@ -3,7 +3,7 @@
 #include <common.hpp>
 #include <graph/graph.hpp>
 #include <meta/const_pointer.hpp>
-#include <utility/detail/range_utils.hpp>
+#include <utility/range_utils.hpp>
 
 #include <utility>
 

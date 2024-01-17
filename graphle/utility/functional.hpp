@@ -58,7 +58,7 @@ namespace graphle::util {
      * @ingroup Utils
      * A function object that returns the address of an object.
      */
-    GRAPHLE_MAKE_NIEBLOID_IMPL(addressof, std::addressof);
+    GRAPHLE_MAKE_NIEBLOID_IMPL(addressof, [](auto&& obj) { return std::addressof(obj); });
 
     /**
      * @ingroup Utils
@@ -93,8 +93,9 @@ namespace graphle::util {
      * @todo: This would probably work better as a range view.
      */
     template <typename F> constexpr inline auto transform_edge(F&& fn) {
-        return [f = GRAPHLE_FWD(fn)] (const auto& edge) {
-            return std::pair { f(edge.first), f(edge.second) };
+        // Edge is just a pair of pointers, no need to forward.
+        return [f = GRAPHLE_FWD(fn)] (auto&& edge) {
+            return std::pair { f(GRAPHLE_FWD(edge.first)), f(GRAPHLE_FWD(edge.second)) };
         };
     }
 }

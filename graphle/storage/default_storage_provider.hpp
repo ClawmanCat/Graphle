@@ -49,22 +49,22 @@ namespace graphle::store {
 
     /**
      * @ingroup Store
-     * The default storage provider for an unordered map of objects. Constructs and returns a std::unordered_map<K, V>.
+     * The default storage provider for an unordered map of objects. Constructs and returns a std::unordered_map<K, V, Hash, Eq>.
      */
-    template <typename K, typename V> struct default_storage_provider<storage_type::UNORDERED_MAP, overload_mode::DEFAULT_IMPLEMENTATION, K, V> {
+    template <typename K, typename V, typename Hash, typename Eq> struct default_storage_provider<storage_type::UNORDERED_MAP, overload_mode::DEFAULT_IMPLEMENTATION, K, V, Hash, Eq> {
         constexpr auto operator()(void) const noexcept {
-            return std::unordered_map<K, V>{};
+            return std::unordered_map<K, V, Hash, Eq>{};
         }
     };
 
 
     /**
      * @ingroup Store
-     * The default storage provider for an unordered set of objects. Constructs and returns a std::unordered_set<K>.
+     * The default storage provider for an unordered set of objects. Constructs and returns a std::unordered_set<K, Hash, Eq>.
      */
-    template <typename K> struct default_storage_provider<storage_type::UNORDERED_SET, overload_mode::DEFAULT_IMPLEMENTATION, K> {
+    template <typename K, typename Hash, typename Eq> struct default_storage_provider<storage_type::UNORDERED_SET, overload_mode::DEFAULT_IMPLEMENTATION, K, Hash, Eq> {
         constexpr auto operator()(void) const noexcept {
-            return std::unordered_set<K>{};
+            return std::unordered_set<K, Hash, Eq>{};
         }
     };
 

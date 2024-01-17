@@ -1,8 +1,9 @@
 #pragma once
 
 #include <common.hpp>
-#include <meta/is_template.hpp>
+#include <meta/concepts.hpp>
 #include <meta/value.hpp>
+#include <graph/vertex_compare.hpp>
 #include <graph/graph_concepts.hpp>
 #include <graph/constraint_debug_helper.hpp>
 
@@ -31,6 +32,10 @@ namespace graphle {
      * @tparam GetEdges    The type of a function object returning the edges of this graph, or meta::none.
      * @tparam GetOutEdges The type of a function object returning the outgoing edges of a vertex, or meta::none.
      * @tparam GetInEdges  The type of a function object returning the ingoing edges of a vertex, or meta::none.
+     * @tparam CompareAs   A struct containing typedefs for comparators and hashers for vertices and edges.
+     *  The default value compares and hashes vertices by their address, and uses the contained vertices to compare and hash edges.
+     *  The comparators and hashers are always provided together, since they must be mutually consistent
+     *  (E.g. if vertices are compared by value they should not be hashed by address).
      * @tparam Error       Will be set to an error from @ref graph_constraint_errors if one of the constraints is not satisfied.
      *  This error will show up in any error messages involving the graph's type.
      */
@@ -41,10 +46,11 @@ namespace graphle {
         maybe_edge_getter<Vertex>        GetEdges    = meta::none,
         maybe_vertex_edge_getter<Vertex> GetOutEdges = meta::none,
         maybe_vertex_edge_getter<Vertex> GetInEdges  = meta::none,
-        typename                         Error       = decltype(detail::graph_constraints_check<Vertex, IsDirected, GetVertices, GetEdges, GetOutEdges, GetInEdges>())
+        graph_compare_traits<Vertex>     CompareAs   = compare_by_address<Vertex>,
+        typename Error                               = decltype(detail::graph_constraints_check<Vertex, IsDirected, GetVertices, GetEdges, GetOutEdges, GetInEdges>())
     > struct graph {
         using vertex_type = Vertex*;
-        using edge_type   = std::pair<Vertex*, Vertex*>;
+        using edge_type   = detail::edge_for<Vertex>;
 
 
         constexpr static inline bool is_directed     = IsDirected::value;
@@ -53,15 +59,20 @@ namespace graphle {
         constexpr static inline bool has_out_edges   = !meta::is_none_v<GetOutEdges>;
         constexpr static inline bool has_in_edges    = !meta::is_none_v<GetInEdges>;
 
-        using get_vertices_t  = GetVertices;
-        using get_edges_t     = GetEdges;
-        using get_out_edges_t = GetOutEdges;
-        using get_in_edges_t  = GetInEdges;
+        using get_vertices_t   = GetVertices;
+        using get_edges_t      = GetEdges;
+        using get_out_edges_t  = GetOutEdges;
+        using get_in_edges_t   = GetInEdges;
+        using vertex_compare_t = typename CompareAs::vertex_compare;
+        using edge_compare_t   = typename CompareAs::edge_compare;
+        using vertex_hash_t    = typename CompareAs::vertex_hash;
+        using edge_hash_t      = typename CompareAs::edge_hash;
 
 
         // Required for template argument deduction. See README for more info.
         meta::deduce_as_t<Vertex> deduce_vertex_type;
         meta::deduce_as_t<IsDirected> deduce_is_directed;
+        meta::deduce_as_t<CompareAs> deduce_compare_as;
 
         // Note: can be initialized using aggregate initialization / designated initializers.
         GetVertices get_vertices;
@@ -80,6 +91,14 @@ namespace graphle {
     template <graph_ref G> using vertex_of = typename std::remove_cvref_t<G>::vertex_type;
     /** The edge type associated with the graph type G. @ingroup Graph */
     template <graph_ref G> using edge_of   = typename std::remove_cvref_t<G>::edge_type;
+    /** The vertex comparator associated with the graph type G. @ingroup Graph */
+    template <graph_ref G> using vertex_compare_of = typename std::remove_cvref_t<G>::vertex_compare_t;
+    /** The edge comparator associated with the graph type G. @ingroup Graph */
+    template <graph_ref G> using edge_compare_of = typename std::remove_cvref_t<G>::edge_compare_t;
+    /** The vertex hasher associated with the graph type G. @ingroup Graph */
+    template <graph_ref G> using vertex_hash_of = typename std::remove_cvref_t<G>::vertex_hash_t;
+    /** The edge hasher associated with the graph type G. @ingroup Graph */
+    template <graph_ref G> using edge_hash_of = typename std::remove_cvref_t<G>::edge_hash_t;
 
 
     /** Checks whether or not a graph is directed. @ingroup Graph */
