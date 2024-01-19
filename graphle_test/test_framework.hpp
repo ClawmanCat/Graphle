@@ -13,6 +13,16 @@
 
 
 /**
+ * @ingroup Config
+ * @def GRAPHLE_TEST_DONT_CATCH_ERRORS
+ * Don't catch errors during testing so they can trigger an IDE breakpoint instead.
+ */
+#ifdef GRAPHLE_DOXYGEN
+    #define GRAPHLE_TEST_DONT_CATCH_ERRORS "Not Defined"
+#endif
+
+
+/**
  * @def TEST(Suite, Name)
  * Defines a new test with the given suite and name which will be invoked when tests are run.
  */
@@ -100,7 +110,7 @@ namespace graphle::test {
 
 
     /** Print error message for the test with the given name using the given exception. */
-    inline void emit_test_failure(std::string_view name, const std::exception& failure) {
+    inline void emit_test_failure(std::string_view name, const auto& failure) {
         printf(color_red);
         std::cout << "[Test " << name << "]: FAILED\n\t" << failure.what() << "\n";
         printf(color_restore);
@@ -129,11 +139,20 @@ namespace graphle::test {
                 auto& [test, name, scope] = test_data;
                 current = std::addressof(test_data);
 
+
+                #ifdef GRAPHLE_TEST_DONT_CATCH_ERRORS
+                    struct never_thrown_t { const char* what(void) const { return nullptr; } };
+                    using exception_t = never_thrown_t;
+                #else
+                    using exception_t = std::exception;
+                #endif
+
+
                 try {
                     std::invoke(test);
                     emit_test_success(name);
                     scope.clear();
-                } catch (const std::exception& e) {
+                } catch (const exception_t& e) {
                     has_failures = true;
 
                     while (!scope.empty()) {
