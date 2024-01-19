@@ -7,10 +7,13 @@
 #include <vector>
 #include <span>
 #include <ranges>
+#include <typeinfo>
+#include <format>
 
 
 namespace graphle::test {
-    using vertex_list = std::vector<std::size_t>;
+    using vertex_list  = std::vector<std::size_t>;
+    using vertex_order = std::vector<vertex_list>;
 
 
     /**
@@ -18,12 +21,17 @@ namespace graphle::test {
      * @tparam DataStructures A type_list of datastructures that work with the given algorithm.
      * @param src Graph data to construct the given datastructures from.
      * @param root The root vertex to start the search from.
-     * @param ordering The expected order vertices are visited in. Container is consumed by this operation.
+     * @param ordering The expected order vertices are visited in.
      * @param algorithm The search algorithm to test.
      */
     template <graphle::meta::list_of_types DataStructures, typename Algorithm>
-    inline void test_visit_order(const graphle::test::ve_list_graph& src, std::size_t root, std::span<vertex_list> ordering, Algorithm&& algorithm) {
+    inline void test_visit_order(const graphle::test::ve_list_graph& src, std::size_t root, const vertex_order& vertex_ordering, Algorithm&& algorithm) {
         DataStructures::foreach([&] <typename DS> {
+            // Intentional copy: we will remove visited elements.
+            vertex_order vertex_order_copy = vertex_ordering;
+            // Use span so we can easily pop from the front.
+            std::span ordering = vertex_order_copy;
+
             auto structure = DS::from_ve_list(src);
             auto graph     = structure.view_as_graph();
 
@@ -52,12 +60,14 @@ namespace graphle::test {
             } ();
 
 
-            std::invoke(
-                algorithm,
-                graph,
-                root_vertex,
-                visitor
-            );
+            SUBTEST_SCOPE(typeid(DS).name()) {
+                std::invoke(
+                    algorithm,
+                    graph,
+                    root_vertex,
+                    visitor
+                );
+            }
         });
     }
 }

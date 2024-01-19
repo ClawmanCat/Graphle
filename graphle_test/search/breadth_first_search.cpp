@@ -14,7 +14,7 @@ TEST(bfs, visit_tree) {
     const auto tree = graphle::test::make_tree_graph();
 
 
-    auto expected_visit_order = std::array {
+    auto expected_visit_order = graphle::test::vertex_order {
         vertex_list { 0 },
         vertex_list { 1 },
         vertex_list { 2, 5 },
@@ -36,7 +36,7 @@ TEST(bfs, visit_tree) {
     graphle::test::test_visit_order<supported_datastructures>(
         tree,
         0,
-        std::span { expected_visit_order },
+        expected_visit_order,
         [] (auto&&... args) { graphle::search::breadth_first_search(GRAPHLE_FWD(args)...); }
     );
 }

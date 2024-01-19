@@ -8,6 +8,10 @@
 #include <functional>
 
 
+#define GRAPHLE_CAT_1(A, B) A##B
+#define GRAPHLE_CAT(A, B) GRAPHLE_CAT_1(A, B)
+
+
 /**
  * @def TEST(Suite, Name)
  * Defines a new test with the given suite and name which will be invoked when tests are run.
@@ -28,6 +32,15 @@ struct test_##Suite_##Name {                                    \
 };                                                              \
                                                                 \
 void test_##Suite_##Name::main(void)
+
+
+/**
+ * @def SUBTEST_SCOPE(Name)
+ * Defines a subscope of the current test which will have a separate success or error message logged.
+ */
+#define SUBTEST_SCOPE(Name) \
+if (auto impl_scope_object = graphle::test::subtest_scope_handler { Name }; true)
+
 
 
 /**
@@ -55,6 +68,10 @@ if (bool(__VA_ARGS__)) FAIL(#__VA_ARGS__)
 namespace graphle::test {
     template <typename R, typename... A> using fn = R(*)(A...);
 
+    constexpr static inline const char* color_red     = "\x1B[31m";
+    constexpr static inline const char* color_green   = "\x1B[32m";
+    constexpr static inline const char* color_restore = "\033[0m";
+
 
     /** Exception thrown when a test fails. */
     struct assertion_failure : std::exception {
@@ -74,14 +91,25 @@ namespace graphle::test {
     };
 
 
+    /** Print success message for the test with the given name. */
+    inline void emit_test_success(std::string_view name) {
+        printf(color_green);
+        std::cout << "[Test " << name << "]: SUCCESS\n";
+        printf(color_restore);
+    }
+
+
+    /** Print error message for the test with the given name using the given exception. */
+    inline void emit_test_failure(std::string_view name, const std::exception& failure) {
+        printf(color_red);
+        std::cout << "[Test " << name << "]: FAILED\n\t" << failure.what() << "\n";
+        printf(color_restore);
+    }
+
+
     /** Registry to keep track of tests. */
     class test_registry {
     public:
-        constexpr static inline const char* color_red     = "\x1B[31m";
-        constexpr static inline const char* color_green   = "\x1B[32m";
-        constexpr static inline const char* color_restore = "\033[0m";
-
-
         static test_registry& instance(void) {
             static test_registry i { };
             return i;
@@ -97,31 +125,78 @@ namespace graphle::test {
             bool has_failures = false;
 
 
-            for (const auto& [test, name] : tests) {
+            for (auto& test_data : tests) {
+                auto& [test, name, scope] = test_data;
+                current = std::addressof(test_data);
+
                 try {
                     std::invoke(test);
-
-                    printf(color_green);
-                    std::cout << "[Test " << name << "]: SUCCESS\n";
-                    printf(color_restore);
+                    emit_test_success(name);
+                    scope.clear();
                 } catch (const std::exception& e) {
                     has_failures = true;
 
-                    printf(color_red);
-                    std::cout << "[Test " << name << "]: FAILED\n\t" << e.what() << "\n";
-                    printf(color_restore);
+                    while (!scope.empty()) {
+                        emit_test_failure(test_data.scoped_name(), e);
+                        scope.pop_back();
+                    }
+
+                    emit_test_failure(name, e);
                 }
             }
 
             return has_failures ? EXIT_FAILURE : EXIT_SUCCESS;
         }
+
+
+        void begin_subtest(std::string name) {
+            current->subtest_scope.push_back(std::move(name));
+        }
+
+
+        void end_subtest(void) {
+            emit_test_success(current->scoped_name());
+            current->subtest_scope.pop_back();
+        }
+
+
+        const auto& current_test(void) const {
+            return *current;
+        }
     private:
         struct test_data {
             fn<void> test;
             std::string name;
+            std::vector<std::string> subtest_scope;
+
+
+            [[nodiscard]] std::string scoped_name(void) const {
+                std::string result = name;
+
+                for (const auto& scope : subtest_scope) {
+                    result += "::";
+                    result += scope;
+                }
+
+                return result;
+            }
         };
 
+
         std::vector<test_data> tests;
+        test_data* current = nullptr;
+    };
+
+
+    /** RAII object to start and end a subtest scope. */
+    struct subtest_scope_handler {
+        explicit subtest_scope_handler(std::string name) {
+            test_registry::instance().begin_subtest(std::move(name));
+        }
+
+        ~subtest_scope_handler(void) {
+            if (!std::uncaught_exceptions()) test_registry::instance().end_subtest();
+        }
     };
 }
 
