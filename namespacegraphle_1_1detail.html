@@ -117,6 +117,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:aaabd6bc7bcf17e8eaea89a0653d7e895"><td class="memTemplParams" colspan="2">template&lt;typename V &gt; </td></tr>
+<tr class="memitem:aaabd6bc7bcf17e8eaea89a0653d7e895"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1detail.html#aaabd6bc7bcf17e8eaea89a0653d7e895">edge_for</a> = std::pair&lt; V *, V * &gt;</td></tr>
+<tr class="separator:aaabd6bc7bcf17e8eaea89a0653d7e895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57ce67ce55c82025bb4a2bfa99ad1199"><td class="memTemplParams" colspan="2">template&lt;rng::range R&gt; </td></tr>
 <tr class="memitem:a57ce67ce55c82025bb4a2bfa99ad1199"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1detail.html#a57ce67ce55c82025bb4a2bfa99ad1199">const_iterator_t</a> = decltype(rng::cbegin(std::declval&lt; R &amp; &gt;()))</td></tr>
 <tr class="separator:a57ce67ce55c82025bb4a2bfa99ad1199"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,9 +129,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ga0a4006bea3a5bd7a8961d1aca9af514b"><td class="memTemplParams" colspan="2">template&lt;typename Vertex , typename IsDirected , typename GetVertices , typename GetEdges , typename GetOutEdges , typename GetInEdges &gt; </td></tr>
 <tr class="memitem:ga0a4006bea3a5bd7a8961d1aca9af514b"><td class="memTemplItemLeft" align="right" valign="top">consteval auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__graph__constraint__errors.html#ga0a4006bea3a5bd7a8961d1aca9af514b">graph_constraints_check</a> (void)</td></tr>
 <tr class="separator:ga0a4006bea3a5bd7a8961d1aca9af514b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga51f7de6de31cb81429b315ceb537f916"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacegraphle_1_1store.html#a9f32831fc191b00ef8df55d9e84b08fd">store::storage_type</a> ST, graph_ref G, search::search_visitor_ref&lt; G &gt; V, typename EmplacePP , typename TakePP , store::storage_provider_ref&lt; ST, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; &gt; PP = store::default_provided_t&lt;ST, vertex_of&lt;G&gt;&gt;, store::storage_provider_ref&lt; <a class="el" href="namespacegraphle_1_1store.html#a9f32831fc191b00ef8df55d9e84b08fda7bca917442aa402e298ef0cab179a81a">store::storage_type::UNORDERED_SET</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; &gt; PS = store::default_provided_t&lt;store::storage_type::UNORDERED_SET, vertex_of&lt;G&gt;&gt;&gt; </td></tr>
-<tr class="memitem:ga51f7de6de31cb81429b315ceb537f916"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Search.html#ga51f7de6de31cb81429b315ceb537f916">search</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; root, V &amp;&amp;visitor, EmplacePP &amp;&amp;emplace, TakePP &amp;&amp;take, PP &amp;&amp;pending_provider=<a class="el" href="namespacegraphle_1_1store.html#ac81f46d1c48cd3ec577979af67e2c580">store::get_default_storage_provider</a>&lt; ST, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; &gt;(), PS &amp;&amp;set_provider=<a class="el" href="namespacegraphle_1_1store.html#ac81f46d1c48cd3ec577979af67e2c580">store::get_default_storage_provider</a>&lt; <a class="el" href="namespacegraphle_1_1store.html#a9f32831fc191b00ef8df55d9e84b08fda7bca917442aa402e298ef0cab179a81a">store::storage_type::UNORDERED_SET</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; &gt;())</td></tr>
-<tr class="separator:ga51f7de6de31cb81429b315ceb537f916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac473ed94a8cfe21f5c89342969a0eb5e"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacegraphle_1_1store.html#a9f32831fc191b00ef8df55d9e84b08fd">store::storage_type</a> ST, graph_ref G, search::search_visitor_ref&lt; G &gt; V, typename EmplacePP , typename TakePP , store::storage_provider_ref&lt; ST, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; &gt; PP = store::default_provided_t&lt;ST, vertex_of&lt;G&gt;&gt;, store::storage_provider_ref&lt; <a class="el" href="namespacegraphle_1_1store.html#a9f32831fc191b00ef8df55d9e84b08fda7bca917442aa402e298ef0cab179a81a">store::storage_type::UNORDERED_SET</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt;, <a class="el" href="group__Graph.html#ga5ac77b7272ffc84e55d31a08e4345d77">vertex_hash_of</a>&lt; G &gt;, <a class="el" href="group__Graph.html#ga620fe45bc620b4ae6bcc0f088e85e5b0">vertex_compare_of</a>&lt; G &gt; &gt; PS = store::default_provided_t&lt;store::storage_type::UNORDERED_SET, vertex_of&lt;G&gt;, vertex_hash_of&lt;G&gt;, vertex_compare_of&lt;G&gt;&gt;&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; in_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gac473ed94a8cfe21f5c89342969a0eb5e"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Search.html#gac473ed94a8cfe21f5c89342969a0eb5e">search</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; root, V &amp;&amp;visitor, EmplacePP &amp;&amp;emplace, TakePP &amp;&amp;take, PP &amp;&amp;pending_provider=<a class="el" href="namespacegraphle_1_1store.html#ac81f46d1c48cd3ec577979af67e2c580">store::get_default_storage_provider</a>&lt; ST, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; &gt;(), PS &amp;&amp;set_provider=<a class="el" href="namespacegraphle_1_1store.html#ac81f46d1c48cd3ec577979af67e2c580">store::get_default_storage_provider</a>&lt; <a class="el" href="namespacegraphle_1_1store.html#a9f32831fc191b00ef8df55d9e84b08fda7bca917442aa402e298ef0cab179a81a">store::storage_type::UNORDERED_SET</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt;, <a class="el" href="group__Graph.html#ga5ac77b7272ffc84e55d31a08e4345d77">vertex_hash_of</a>&lt; G &gt;, <a class="el" href="group__Graph.html#ga620fe45bc620b4ae6bcc0f088e85e5b0">vertex_compare_of</a>&lt; G &gt; &gt;())</td></tr>
+<tr class="separator:gac473ed94a8cfe21f5c89342969a0eb5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Graphle implementation details. </p>
@@ -149,6 +153,24 @@ template&lt;rng::range R&gt; </div>
 <p >Returns the type of the const iterator of the range R. This is a C++23 feature so we have to provide our own. </p>
 
 <p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00018">18</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aaabd6bc7bcf17e8eaea89a0653d7e895" name="aaabd6bc7bcf17e8eaea89a0653d7e895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaabd6bc7bcf17e8eaea89a0653d7e895">&#9670;&#160;</a></span>edge_for</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacegraphle_1_1detail.html#aaabd6bc7bcf17e8eaea89a0653d7e895">graphle::detail::edge_for</a> = typedef std::pair&lt;V*, V*&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vertex__compare_8hpp_source.html#l00009">9</a> of file <a class="el" href="vertex__compare_8hpp_source.html">vertex_compare.hpp</a>.</p>
 
 </div>
 </div>

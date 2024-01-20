@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['edge_5fduplication_5fview_0',['edge_duplication_view',['../classgraphle_1_1detail_1_1edge__duplication__view.html#a81da34bf9630a7ecba68f624c3f131f1',1,'graphle::detail::edge_duplication_view']]],
-  ['edge_5ffrom_5fvertex_5fview_1',['edge_from_vertex_view',['../classgraphle_1_1detail_1_1edge__from__vertex__view.html#a0b16bce337b39c7f8a7174d4d0b16877',1,'graphle::detail::edge_from_vertex_view']]],
-  ['end_2',['end',['../classgraphle_1_1detail_1_1edge__duplication__view.html#a30edba391879b6920a4dc5deee00a11b',1,'graphle::detail::edge_duplication_view::end()'],['../classgraphle_1_1detail_1_1edge__from__vertex__view.html#acd6e660d8471a69ce1186ff1a7a9df46',1,'graphle::detail::edge_from_vertex_view::end()'],['../classgraphle_1_1detail_1_1vertex__perspective__view.html#a5c8bba8180e967166f5d2a42448de45c',1,'graphle::detail::vertex_perspective_view::end()']]]
+  ['depth_5ffirst_5fsearch_0',['depth_first_search',['../group__Search.html#ga1214c0ad2a6d8b69330a49e5b23ce314',1,'graphle::search']]],
+  ['discover_5fbranch_5fbase_1',['discover_branch_base',['../classgraphle_1_1search_1_1search__visitor.html#a6a090f02c1832418af3fe2daa2e4967b',1,'graphle::search::search_visitor']]],
+  ['discover_5fedge_5fto_5fknown_5fvertex_5fbase_2',['discover_edge_to_known_vertex_base',['../classgraphle_1_1search_1_1search__visitor.html#a5795c8fd2c90723e2da7ead796e47213',1,'graphle::search::search_visitor']]],
+  ['discover_5fedge_5fto_5fnew_5fvertex_5fbase_3',['discover_edge_to_new_vertex_base',['../classgraphle_1_1search_1_1search__visitor.html#a1a916676d125cc129d11561b5be414f3',1,'graphle::search::search_visitor']]],
+  ['discover_5fleaf_5fbase_4',['discover_leaf_base',['../classgraphle_1_1search_1_1search__visitor.html#a01695c528330837d8467ef0cfbd9677a',1,'graphle::search::search_visitor']]],
+  ['discover_5fvertex_5fbase_5',['discover_vertex_base',['../classgraphle_1_1search_1_1search__visitor.html#a0d4fcdfd20f15ea13fecad5a81f7d03e',1,'graphle::search::search_visitor']]]
 ];

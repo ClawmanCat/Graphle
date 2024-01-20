@@ -82,11 +82,10 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="common_8hpp_source.html">common.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="graph_2graph_8hpp_source.html">graph/graph.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="edges_8hpp_source.html">graph/edges.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="search__impl_8hpp_source.html">search/search_impl.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="storage__provider_8hpp_source.html">storage/storage_provider.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="default__storage__provider_8hpp_source.html">storage/default_storage_provider.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="storage__utils_8hpp_source.html">utility/detail/storage_utils.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="storage__utils_8hpp_source.html">utility/storage_utils.hpp</a>&gt;</code><br />
 </div>
 <p><a href="depth__first__search_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -99,10 +98,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga52537be5f9dbc87c1dfd433de21eb50a"><td class="memTemplParams" colspan="2">template&lt;graph_ref G, search_visitor_ref&lt; G &gt; V, store::storage_provider_ref&lt; store::storage_type::VECTOR, vertex_of&lt; G &gt; &gt; PV = store::default_provided_t&lt;store::storage_type::VECTOR, vertex_of&lt;G&gt;&gt;, store::storage_provider_ref&lt; store::storage_type::UNORDERED_SET, vertex_of&lt; G &gt; &gt; PS = store::default_provided_t&lt;store::storage_type::UNORDERED_SET, vertex_of&lt;G&gt;&gt;&gt; <br />
-requires (edge_provider&lt;G&gt; || out_edge_provider&lt;G&gt;)</td></tr>
-<tr class="memitem:ga52537be5f9dbc87c1dfd433de21eb50a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Search.html#ga52537be5f9dbc87c1dfd433de21eb50a">graphle::search::depth_first_search</a> (G &amp;&amp;graph, vertex_of&lt; G &gt; root, V &amp;&amp;visitor, PV &amp;&amp;stack_provider=store::get_default_storage_provider&lt; store::storage_type::VECTOR, vertex_of&lt; G &gt; &gt;(), PS &amp;&amp;set_provider=store::get_default_storage_provider&lt; store::storage_type::UNORDERED_SET, vertex_of&lt; G &gt; &gt;())</td></tr>
-<tr class="separator:ga52537be5f9dbc87c1dfd433de21eb50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1214c0ad2a6d8b69330a49e5b23ce314"><td class="memTemplParams" colspan="2">template&lt;graph_ref G, search_visitor_ref&lt; G &gt; V, store::storage_provider_ref&lt; store::storage_type::VECTOR, vertex_of&lt; G &gt; &gt; PV = store::default_provided_t&lt;store::storage_type::VECTOR, vertex_of&lt;G&gt;&gt;, store::storage_provider_ref&lt; store::storage_type::UNORDERED_SET, vertex_of&lt; G &gt;, vertex_hash_of&lt; G &gt;, vertex_compare_of&lt; G &gt; &gt; PS = store::default_provided_t&lt;store::storage_type::UNORDERED_SET, vertex_of&lt;G&gt;, vertex_hash_of&lt;G&gt;, vertex_compare_of&lt;G&gt;&gt;&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; in_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:ga1214c0ad2a6d8b69330a49e5b23ce314"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Search.html#ga1214c0ad2a6d8b69330a49e5b23ce314">graphle::search::depth_first_search</a> (G &amp;&amp;graph, vertex_of&lt; G &gt; root, V &amp;&amp;visitor, PV &amp;&amp;stack_provider=store::get_default_storage_provider&lt; store::storage_type::VECTOR, vertex_of&lt; G &gt; &gt;(), PS &amp;&amp;set_provider=store::get_default_storage_provider&lt; store::storage_type::UNORDERED_SET, vertex_of&lt; G &gt;, vertex_hash_of&lt; G &gt;, vertex_compare_of&lt; G &gt; &gt;())</td></tr>
+<tr class="separator:ga1214c0ad2a6d8b69330a49e5b23ce314"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

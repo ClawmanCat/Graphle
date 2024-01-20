@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['if_5fconstexpr_0',['if_constexpr',['../namespacegraphle_1_1meta.html#a34195f06947bd564b2493d6f624dd8a2',1,'graphle::meta']]],
-  ['in_5fdegree_1',['in_degree',['../group__Utils.html#gaba0c643c4ba64c4cc85076778e52d7db',1,'graphle::util']]],
-  ['instance_2',['instance',['../classgraphle_1_1test_1_1test__registry.html#a37cf087a0367b98cf0b851190106bf31',1,'graphle::test::test_registry']]],
-  ['is_5fbranch_3',['is_branch',['../group__Utils.html#ga9ce8326973ed5820733fd58a535ffcfb',1,'graphle::util']]],
-  ['is_5fleaf_4',['is_leaf',['../group__Utils.html#gab539c6879b88d48cb1656a61de17994c',1,'graphle::util']]],
-  ['is_5froot_5',['is_root',['../group__Utils.html#ga46b57f3263b328d7a0af190fab60a8c9',1,'graphle::util']]]
+  ['get_5fdefault_5fstorage_5fprovider_0',['get_default_storage_provider',['../namespacegraphle_1_1store.html#ac81f46d1c48cd3ec577979af67e2c580',1,'graphle::store']]],
+  ['graph_5fconstraints_5fcheck_1',['graph_constraints_check',['../group__graph__constraint__errors.html#ga0a4006bea3a5bd7a8961d1aca9af514b',1,'graphle::detail']]],
+  ['graphle_5fmake_5fniebloid_2',['GRAPHLE_MAKE_NIEBLOID',['../group__TestGraphs.html#gaa97ce5b939518d14683969c03ed1d428',1,'graphle::test::GRAPHLE_MAKE_NIEBLOID(to_vertex, [](const auto &amp;v) { return V { v.vertex_id };}, typename V)'],['../group__TestGraphs.html#ga4c8401e4bbdae72539896fda3464b123',1,'graphle::test::GRAPHLE_MAKE_NIEBLOID(to_edge,([](const auto &amp;e) { return std::pair { to_vertex&lt; V &gt;(e.first), to_vertex&lt; V &gt;(e.second) };}), typename V)']]]
 ];

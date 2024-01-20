@@ -74,7 +74,6 @@ $(function() {
 <a href="#concepts">Concepts</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Graph</div></div>
 </div><!--header-->
@@ -82,12 +81,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1in__edge__provider.html">graphle::in_edge_provider</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1out__edge__provider.html">graphle::out_edge_provider</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1edge__provider.html">graphle::edge_provider</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1graph__type.html">graphle::graph_type</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1graph__ref.html">graphle::graph_ref</a></td></tr>
@@ -114,10 +107,12 @@ Concepts</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1edge__value__getter.html">graphle::edge_value_getter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1graph__value__getter.html">graphle::graph_value_getter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1graph.html">graphle::graph&lt; Vertex, IsDirected, GetVertices, GetEdges, GetOutEdges, GetInEdges, Error &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1graph.html">graphle::graph&lt; Vertex, IsDirected, GetVertices, GetEdges, GetOutEdges, GetInEdges, CompareAs, Error &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -128,18 +123,18 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ga0b72d01e7e9fdd81efded042f5c10b61"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
 <tr class="memitem:ga0b72d01e7e9fdd81efded042f5c10b61"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga0b72d01e7e9fdd81efded042f5c10b61">graphle::edge_of</a> = typename std::remove_cvref_t&lt; G &gt;::edge_type</td></tr>
 <tr class="separator:ga0b72d01e7e9fdd81efded042f5c10b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga6fa42a6b28ea4fedd9f635bca466dd84"><td class="memTemplParams" colspan="2">template&lt;in_edge_provider G&gt; </td></tr>
-<tr class="memitem:ga6fa42a6b28ea4fedd9f635bca466dd84"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga6fa42a6b28ea4fedd9f635bca466dd84">graphle::find_in_edges</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga6fa42a6b28ea4fedd9f635bca466dd84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2c8791c8ec46ad43a1ae3f5aa6d0ceca"><td class="memTemplParams" colspan="2">template&lt;out_edge_provider G&gt; </td></tr>
-<tr class="memitem:ga2c8791c8ec46ad43a1ae3f5aa6d0ceca"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga2c8791c8ec46ad43a1ae3f5aa6d0ceca">graphle::find_out_edges</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga2c8791c8ec46ad43a1ae3f5aa6d0ceca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab7a5137761be71f7e8b70bc5ea287a72"><td class="memTemplParams" colspan="2">template&lt;edge_provider G&gt; </td></tr>
-<tr class="memitem:gab7a5137761be71f7e8b70bc5ea287a72"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#gab7a5137761be71f7e8b70bc5ea287a72">graphle::find_edges</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:gab7a5137761be71f7e8b70bc5ea287a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga620fe45bc620b4ae6bcc0f088e85e5b0"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga620fe45bc620b4ae6bcc0f088e85e5b0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga620fe45bc620b4ae6bcc0f088e85e5b0">graphle::vertex_compare_of</a> = typename std::remove_cvref_t&lt; G &gt;::vertex_compare_t</td></tr>
+<tr class="separator:ga620fe45bc620b4ae6bcc0f088e85e5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga628e7c1dc406f3138ccdc1790d392caf"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga628e7c1dc406f3138ccdc1790d392caf"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga628e7c1dc406f3138ccdc1790d392caf">graphle::edge_compare_of</a> = typename std::remove_cvref_t&lt; G &gt;::edge_compare_t</td></tr>
+<tr class="separator:ga628e7c1dc406f3138ccdc1790d392caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ac77b7272ffc84e55d31a08e4345d77"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga5ac77b7272ffc84e55d31a08e4345d77"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga5ac77b7272ffc84e55d31a08e4345d77">graphle::vertex_hash_of</a> = typename std::remove_cvref_t&lt; G &gt;::vertex_hash_t</td></tr>
+<tr class="separator:ga5ac77b7272ffc84e55d31a08e4345d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2622c67e6e217feecbcec0f9b1723aaa"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga2622c67e6e217feecbcec0f9b1723aaa"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga2622c67e6e217feecbcec0f9b1723aaa">graphle::edge_hash_of</a> = typename std::remove_cvref_t&lt; G &gt;::edge_hash_t</td></tr>
+<tr class="separator:ga2622c67e6e217feecbcec0f9b1723aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -161,6 +156,44 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga628e7c1dc406f3138ccdc1790d392caf" name="ga628e7c1dc406f3138ccdc1790d392caf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga628e7c1dc406f3138ccdc1790d392caf">&#9670;&#160;</a></span>edge_compare_of</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;graph_ref G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group__Graph.html#ga628e7c1dc406f3138ccdc1790d392caf">graphle::edge_compare_of</a> = typedef typename std::remove_cvref_t&lt;G&gt;::edge_compare_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The edge comparator associated with the graph type G. </p>
+
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00097">97</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ga2622c67e6e217feecbcec0f9b1723aaa" name="ga2622c67e6e217feecbcec0f9b1723aaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2622c67e6e217feecbcec0f9b1723aaa">&#9670;&#160;</a></span>edge_hash_of</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;graph_ref G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group__Graph.html#ga2622c67e6e217feecbcec0f9b1723aaa">graphle::edge_hash_of</a> = typedef typename std::remove_cvref_t&lt;G&gt;::edge_hash_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The edge hasher associated with the graph type G. </p>
+
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00101">101</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+
+</div>
+</div>
 <a id="ga0b72d01e7e9fdd81efded042f5c10b61" name="ga0b72d01e7e9fdd81efded042f5c10b61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga0b72d01e7e9fdd81efded042f5c10b61">&#9670;&#160;</a></span>edge_of</h2>
 
@@ -176,7 +209,45 @@ template&lt;graph_ref G&gt; </div>
 </div><div class="memdoc">
 <p >The edge type associated with the graph type G. </p>
 
-<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00082">82</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00093">93</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ga620fe45bc620b4ae6bcc0f088e85e5b0" name="ga620fe45bc620b4ae6bcc0f088e85e5b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga620fe45bc620b4ae6bcc0f088e85e5b0">&#9670;&#160;</a></span>vertex_compare_of</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;graph_ref G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group__Graph.html#ga620fe45bc620b4ae6bcc0f088e85e5b0">graphle::vertex_compare_of</a> = typedef typename std::remove_cvref_t&lt;G&gt;::vertex_compare_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The vertex comparator associated with the graph type G. </p>
+
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00095">95</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ga5ac77b7272ffc84e55d31a08e4345d77" name="ga5ac77b7272ffc84e55d31a08e4345d77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5ac77b7272ffc84e55d31a08e4345d77">&#9670;&#160;</a></span>vertex_hash_of</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;graph_ref G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group__Graph.html#ga5ac77b7272ffc84e55d31a08e4345d77">graphle::vertex_hash_of</a> = typedef typename std::remove_cvref_t&lt;G&gt;::vertex_hash_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The vertex hasher associated with the graph type G. </p>
+
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00099">99</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
 
 </div>
 </div>
@@ -195,131 +266,7 @@ template&lt;graph_ref G&gt; </div>
 </div><div class="memdoc">
 <p >The vertex type associated with the graph type G. </p>
 
-<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00080">80</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="gab7a5137761be71f7e8b70bc5ea287a72" name="gab7a5137761be71f7e8b70bc5ea287a72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab7a5137761be71f7e8b70bc5ea287a72">&#9670;&#160;</a></span>find_edges()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;edge_provider G&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto graphle::find_edges </td>
-          <td>(</td>
-          <td class="paramtype">G &amp;&amp;&#160;</td>
-          <td class="paramname"><em>graph</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt;&#160;</td>
-          <td class="paramname"><em>vertex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >Returns a view of all edges of the given vertex. </p>
-
-<p class="definition">Definition at line <a class="el" href="edges_8hpp_source.html#l00060">60</a> of file <a class="el" href="edges_8hpp_source.html">edges.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ga6fa42a6b28ea4fedd9f635bca466dd84" name="ga6fa42a6b28ea4fedd9f635bca466dd84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6fa42a6b28ea4fedd9f635bca466dd84">&#9670;&#160;</a></span>find_in_edges()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;in_edge_provider G&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto graphle::find_in_edges </td>
-          <td>(</td>
-          <td class="paramtype">G &amp;&amp;&#160;</td>
-          <td class="paramname"><em>graph</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt;&#160;</td>
-          <td class="paramname"><em>vertex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >Returns a view of all in-edges of the given vertex. The graph must be directed. </p>
-
-<p class="definition">Definition at line <a class="el" href="edges_8hpp_source.html#l00034">34</a> of file <a class="el" href="edges_8hpp_source.html">edges.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ga2c8791c8ec46ad43a1ae3f5aa6d0ceca" name="ga2c8791c8ec46ad43a1ae3f5aa6d0ceca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2c8791c8ec46ad43a1ae3f5aa6d0ceca">&#9670;&#160;</a></span>find_out_edges()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;out_edge_provider G&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto graphle::find_out_edges </td>
-          <td>(</td>
-          <td class="paramtype">G &amp;&amp;&#160;</td>
-          <td class="paramname"><em>graph</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt;&#160;</td>
-          <td class="paramname"><em>vertex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >Returns a view of all out-edges of the given vertex. The graph must be directed. </p>
-
-<p class="definition">Definition at line <a class="el" href="edges_8hpp_source.html#l00047">47</a> of file <a class="el" href="edges_8hpp_source.html">edges.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00091">91</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
 
 </div>
 </div>
@@ -347,7 +294,7 @@ template&lt;graph_ref G&gt; </div>
 </div><div class="memdoc">
 <p >Checks whether or not a graph provides a list of edges. </p>
 
-<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00090">90</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00109">109</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +321,7 @@ template&lt;graph_ref G&gt; </div>
 </div><div class="memdoc">
 <p >Checks whether or not a graph provides a list of in edges for a vertex. </p>
 
-<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00094">94</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00113">113</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
 
 </div>
 </div>
@@ -401,7 +348,7 @@ template&lt;graph_ref G&gt; </div>
 </div><div class="memdoc">
 <p >Checks whether or not a graph provides a list of out edges for a vertex. </p>
 
-<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00092">92</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00111">111</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
 
 </div>
 </div>
@@ -428,7 +375,7 @@ template&lt;graph_ref G&gt; </div>
 </div><div class="memdoc">
 <p >Checks whether or not a graph provides a list of vertices. </p>
 
-<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00088">88</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00107">107</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
 
 </div>
 </div>
@@ -455,7 +402,7 @@ template&lt;graph_ref G&gt; </div>
 </div><div class="memdoc">
 <p >Checks whether or not a graph is directed. </p>
 
-<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00086">86</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="graph_2graph_8hpp_source.html#l00105">105</a> of file <a class="el" href="graph_2graph_8hpp_source.html">graph.hpp</a>.</p>
 
 </div>
 </div>

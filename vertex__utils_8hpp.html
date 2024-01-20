@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Graphle: graphle/graph/edges.hpp File Reference</title>
+<title>Graphle: graphle/utility/vertex_utils.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,47 +70,33 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_195fca98312fc49ef658ce321dbaf79f.html">graphle</a></li><li class="navelem"><a class="el" href="dir_f3cd5a7b9d56c0a121f93d8cedc3cf54.html">graph</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_195fca98312fc49ef658ce321dbaf79f.html">graphle</a></li><li class="navelem"><a class="el" href="dir_c119cdb236923022a414caaf080b3708.html">utility</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#concepts">Concepts</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">edges.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">vertex_utils.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="common_8hpp_source.html">common.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="graph_2graph_8hpp_source.html">graph/graph.hpp</a>&gt;</code><br />
 </div>
-<p><a href="edges_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="vertex__utils_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacegraphle"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraphle.html">graphle</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
-Concepts</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1in__edge__provider.html">graphle::in_edge_provider</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1out__edge__provider.html">graphle::out_edge_provider</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptgraphle_1_1edge__provider.html">graphle::edge_provider</a></td></tr>
+<tr class="memitem:namespacegraphle_1_1util"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1util.html">graphle::util</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga6fa42a6b28ea4fedd9f635bca466dd84"><td class="memTemplParams" colspan="2">template&lt;in_edge_provider G&gt; </td></tr>
-<tr class="memitem:ga6fa42a6b28ea4fedd9f635bca466dd84"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga6fa42a6b28ea4fedd9f635bca466dd84">graphle::find_in_edges</a> (G &amp;&amp;graph, vertex_of&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga6fa42a6b28ea4fedd9f635bca466dd84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2c8791c8ec46ad43a1ae3f5aa6d0ceca"><td class="memTemplParams" colspan="2">template&lt;out_edge_provider G&gt; </td></tr>
-<tr class="memitem:ga2c8791c8ec46ad43a1ae3f5aa6d0ceca"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga2c8791c8ec46ad43a1ae3f5aa6d0ceca">graphle::find_out_edges</a> (G &amp;&amp;graph, vertex_of&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga2c8791c8ec46ad43a1ae3f5aa6d0ceca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab7a5137761be71f7e8b70bc5ea287a72"><td class="memTemplParams" colspan="2">template&lt;edge_provider G&gt; </td></tr>
-<tr class="memitem:gab7a5137761be71f7e8b70bc5ea287a72"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#gab7a5137761be71f7e8b70bc5ea287a72">graphle::find_edges</a> (G &amp;&amp;graph, vertex_of&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:gab7a5137761be71f7e8b70bc5ea287a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0587f30332a1d37e83c7224a6dd0b0f9"><td class="memTemplParams" colspan="2">template&lt;graph_ref G, typename F &gt; </td></tr>
+<tr class="memitem:a0587f30332a1d37e83c7224a6dd0b0f9"><td class="memTemplItemLeft" align="right" valign="top">constexpr vertex_of&lt; G &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1util.html#a0587f30332a1d37e83c7224a6dd0b0f9">graphle::util::find_vertex</a> (G &amp;&amp;graph, F &amp;&amp;pred)</td></tr>
+<tr class="separator:a0587f30332a1d37e83c7224a6dd0b0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

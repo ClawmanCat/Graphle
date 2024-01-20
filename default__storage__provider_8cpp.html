@@ -92,12 +92,16 @@ Functions</h2></td></tr>
 <tr class="separator:a08f697699ed53894ab5475f4c18eed70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cf4506d86ac1d68a08a0478e134249a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="default__storage__provider_8cpp.html#a1cf4506d86ac1d68a08a0478e134249a">TEST</a> (default_storage_provider, unordered_set)</td></tr>
 <tr class="separator:a1cf4506d86ac1d68a08a0478e134249a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62d49a4e52dd92961b9fa15f55740284"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="default__storage__provider_8cpp.html#a62d49a4e52dd92961b9fa15f55740284">TEST</a> (default_storage_provider, unordered_set_with_user_compare)</td></tr>
+<tr class="separator:a62d49a4e52dd92961b9fa15f55740284"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cec1283618312fdbab3e32b2289383a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="default__storage__provider_8cpp.html#a1cec1283618312fdbab3e32b2289383a">TEST</a> (default_storage_provider, unordered_map)</td></tr>
 <tr class="separator:a1cec1283618312fdbab3e32b2289383a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9874e6b808ade6f8b0ba933568e9dcda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="default__storage__provider_8cpp.html#a9874e6b808ade6f8b0ba933568e9dcda">TEST</a> (default_storage_provider, unordered_map_with_user_compare)</td></tr>
+<tr class="separator:a9874e6b808ade6f8b0ba933568e9dcda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a08f697699ed53894ab5475f4c18eed70" name="a08f697699ed53894ab5475f4c18eed70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08f697699ed53894ab5475f4c18eed70">&#9670;&#160;</a></span>TEST() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a08f697699ed53894ab5475f4c18eed70">&#9670;&#160;</a></span>TEST() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,7 +132,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a1cec1283618312fdbab3e32b2289383a" name="a1cec1283618312fdbab3e32b2289383a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cec1283618312fdbab3e32b2289383a">&#9670;&#160;</a></span>TEST() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cec1283618312fdbab3e32b2289383a">&#9670;&#160;</a></span>TEST() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,14 +156,45 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="test"><dt><b><a class="el" href="test.html#_test000008">Test:</a></b></dt><dd>default_storage_provider::unordered_map Check that the default storage provider for unordered map types fulfils the associated requirements. </dd></dl>
+<dl class="test"><dt><b><a class="el" href="test.html#_test000009">Test:</a></b></dt><dd>default_storage_provider::unordered_map Check that the default storage provider for unordered map types fulfils the associated requirements. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="default__storage__provider_8cpp_source.html#l00044">44</a> of file <a class="el" href="default__storage__provider_8cpp_source.html">default_storage_provider.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="default__storage__provider_8cpp_source.html#l00054">54</a> of file <a class="el" href="default__storage__provider_8cpp_source.html">default_storage_provider.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9874e6b808ade6f8b0ba933568e9dcda" name="a9874e6b808ade6f8b0ba933568e9dcda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9874e6b808ade6f8b0ba933568e9dcda">&#9670;&#160;</a></span>TEST() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">default_storage_provider&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unordered_map_with_user_compare&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="test"><dt><b><a class="el" href="test.html#_test000010">Test:</a></b></dt><dd>default_storage_provider::unordered_map Check that the default storage provider for unordered map types with manually specified hasher and equality fulfils the associated requirements. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="default__storage__provider_8cpp_source.html#l00064">64</a> of file <a class="el" href="default__storage__provider_8cpp_source.html">default_storage_provider.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a1cf4506d86ac1d68a08a0478e134249a" name="a1cf4506d86ac1d68a08a0478e134249a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cf4506d86ac1d68a08a0478e134249a">&#9670;&#160;</a></span>TEST() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cf4506d86ac1d68a08a0478e134249a">&#9670;&#160;</a></span>TEST() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,8 +224,39 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a62d49a4e52dd92961b9fa15f55740284" name="a62d49a4e52dd92961b9fa15f55740284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62d49a4e52dd92961b9fa15f55740284">&#9670;&#160;</a></span>TEST() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">default_storage_provider&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unordered_set_with_user_compare&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="test"><dt><b><a class="el" href="test.html#_test000008">Test:</a></b></dt><dd>default_storage_provider::unordered_set Check that the default storage provider for unordered set types with manually specified hasher and equality fulfils the associated requirements. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="default__storage__provider_8cpp_source.html#l00044">44</a> of file <a class="el" href="default__storage__provider_8cpp_source.html">default_storage_provider.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a1ccd9ad35498b658b02a6d47129e3a18" name="a1ccd9ad35498b658b02a6d47129e3a18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ccd9ad35498b658b02a6d47129e3a18">&#9670;&#160;</a></span>TEST() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ccd9ad35498b658b02a6d47129e3a18">&#9670;&#160;</a></span>TEST() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

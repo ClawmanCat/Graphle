@@ -90,9 +90,9 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename K, typename V&gt;<br />
-struct graphle::store::default_storage_provider&lt; storage_type::UNORDERED_MAP, overload_mode::DEFAULT_IMPLEMENTATION, K, V &gt;</div><p >The default storage provider for an unordered map of objects. Constructs and returns a std::unordered_map&lt;K, V&gt;. </p>
+struct graphle::store::default_storage_provider&lt; storage_type::UNORDERED_MAP, overload_mode::DEFAULT_IMPLEMENTATION, K, V &gt;</div><p >The default storage provider for an unordered map of objects with deduced hasher and equality. Constructs and returns a std::unordered_map&lt;K, V, std::hash&lt;K&gt;, std::equal_to&lt;K&gt;&gt;. </p>
 
-<p class="definition">Definition at line <a class="el" href="default__storage__provider_8hpp_source.html#l00054">54</a> of file <a class="el" href="default__storage__provider_8hpp_source.html">default_storage_provider.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="default__storage__provider_8hpp_source.html#l00066">66</a> of file <a class="el" href="default__storage__provider_8hpp_source.html">default_storage_provider.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="afb17e01af0b7a563e1b98092bd015e39" name="afb17e01af0b7a563e1b98092bd015e39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb17e01af0b7a563e1b98092bd015e39">&#9670;&#160;</a></span>operator()()</h2>
@@ -120,7 +120,7 @@ template&lt;typename K , typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="default__storage__provider_8hpp_source.html#l00055">55</a> of file <a class="el" href="default__storage__provider_8hpp_source.html">default_storage_provider.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="default__storage__provider_8hpp_source.html#l00067">67</a> of file <a class="el" href="default__storage__provider_8hpp_source.html">default_storage_provider.hpp</a>.</p>
 
 </div>
 </div>

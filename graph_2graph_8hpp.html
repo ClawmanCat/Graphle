@@ -84,8 +84,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="common_8hpp_source.html">common.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="is__template_8hpp_source.html">meta/is_template.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="concepts_8hpp_source.html">meta/concepts.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="value_8hpp_source.html">meta/value.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="vertex__compare_8hpp_source.html">graph/vertex_compare.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="graph__concepts_8hpp_source.html">graph/graph_concepts.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="constraint__debug__helper_8hpp_source.html">graph/constraint_debug_helper.hpp</a>&gt;</code><br />
 <code>#include &lt;ranges&gt;</code><br />
@@ -96,7 +97,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1graph.html">graphle::graph&lt; Vertex, IsDirected, GetVertices, GetEdges, GetOutEdges, GetInEdges, Error &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1graph.html">graphle::graph&lt; Vertex, IsDirected, GetVertices, GetEdges, GetOutEdges, GetInEdges, CompareAs, Error &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -131,6 +132,18 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ga0b72d01e7e9fdd81efded042f5c10b61"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
 <tr class="memitem:ga0b72d01e7e9fdd81efded042f5c10b61"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga0b72d01e7e9fdd81efded042f5c10b61">graphle::edge_of</a> = typename std::remove_cvref_t&lt; G &gt;::edge_type</td></tr>
 <tr class="separator:ga0b72d01e7e9fdd81efded042f5c10b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga620fe45bc620b4ae6bcc0f088e85e5b0"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga620fe45bc620b4ae6bcc0f088e85e5b0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga620fe45bc620b4ae6bcc0f088e85e5b0">graphle::vertex_compare_of</a> = typename std::remove_cvref_t&lt; G &gt;::vertex_compare_t</td></tr>
+<tr class="separator:ga620fe45bc620b4ae6bcc0f088e85e5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga628e7c1dc406f3138ccdc1790d392caf"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga628e7c1dc406f3138ccdc1790d392caf"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga628e7c1dc406f3138ccdc1790d392caf">graphle::edge_compare_of</a> = typename std::remove_cvref_t&lt; G &gt;::edge_compare_t</td></tr>
+<tr class="separator:ga628e7c1dc406f3138ccdc1790d392caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ac77b7272ffc84e55d31a08e4345d77"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga5ac77b7272ffc84e55d31a08e4345d77"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga5ac77b7272ffc84e55d31a08e4345d77">graphle::vertex_hash_of</a> = typename std::remove_cvref_t&lt; G &gt;::vertex_hash_t</td></tr>
+<tr class="separator:ga5ac77b7272ffc84e55d31a08e4345d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2622c67e6e217feecbcec0f9b1723aaa"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga2622c67e6e217feecbcec0f9b1723aaa"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Graph.html#ga2622c67e6e217feecbcec0f9b1723aaa">graphle::edge_hash_of</a> = typename std::remove_cvref_t&lt; G &gt;::edge_hash_t</td></tr>
+<tr class="separator:ga2622c67e6e217feecbcec0f9b1723aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>

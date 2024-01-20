@@ -76,6 +76,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">graphle::util Namespace Reference</div></div>
@@ -88,6 +89,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1util_1_1as__const__t.html">as_const_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1util_1_1edge__field__filter.html">edge_field_filter</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1util_1_1indirect__t.html">indirect_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1util_1_1no__op__t.html">no_op_t</a></td></tr>
@@ -99,25 +102,45 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1util_1_1vec__of__vecs__output__iterator.html">vec_of_vecs_output_iterator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga12484a66f9c30aa3f49e361bb973570d"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga12484a66f9c30aa3f49e361bb973570d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga12484a66f9c30aa3f49e361bb973570d">edge_from_filter</a> = <a class="el" href="structgraphle_1_1util_1_1edge__field__filter.html">edge_field_filter</a>&lt; G, &amp;<a class="el" href="group__Graph.html#ga0b72d01e7e9fdd81efded042f5c10b61">edge_of</a>&lt; G &gt;::first &gt;</td></tr>
+<tr class="separator:ga12484a66f9c30aa3f49e361bb973570d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ea66e6b446294d1e392c699ee44272e"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga3ea66e6b446294d1e392c699ee44272e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga3ea66e6b446294d1e392c699ee44272e">edge_to_filter</a> = <a class="el" href="structgraphle_1_1util_1_1edge__field__filter.html">edge_field_filter</a>&lt; G, &amp;<a class="el" href="group__Graph.html#ga0b72d01e7e9fdd81efded042f5c10b61">edge_of</a>&lt; G &gt;::second &gt;</td></tr>
+<tr class="separator:ga3ea66e6b446294d1e392c699ee44272e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaba0c643c4ba64c4cc85076778e52d7db"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
-requires ( in_edges_graph&lt;G&gt; || // Either provide in-edges (out_edges_graph&lt;G&gt; &amp;&amp; !directed_graph&lt;G&gt;) || // Or out-edges on a non-directed <a class="el" href="structgraphle_1_1graph.html">graph</a> edge_list_graph&lt;G&gt; // Or a list of all edges )</td></tr>
-<tr class="memitem:gaba0c643c4ba64c4cc85076778e52d7db"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gaba0c643c4ba64c4cc85076778e52d7db">in_degree</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:gaba0c643c4ba64c4cc85076778e52d7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2855a96f59583b55f2150cc0a43a35a5"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
-requires ( out_edges_graph&lt;G&gt; || // Either provide out-edges (in_edges_graph&lt;G&gt; &amp;&amp; !directed_graph&lt;G&gt;) || // Or in-edges on a non-directed <a class="el" href="structgraphle_1_1graph.html">graph</a> edge_list_graph&lt;G&gt; // Or a list of all edges )</td></tr>
-<tr class="memitem:ga2855a96f59583b55f2150cc0a43a35a5"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga2855a96f59583b55f2150cc0a43a35a5">out_degree</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga2855a96f59583b55f2150cc0a43a35a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga46b57f3263b328d7a0af190fab60a8c9"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; </td></tr>
-<tr class="memitem:ga46b57f3263b328d7a0af190fab60a8c9"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga46b57f3263b328d7a0af190fab60a8c9">is_root</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga46b57f3263b328d7a0af190fab60a8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9ce8326973ed5820733fd58a535ffcfb"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; </td></tr>
-<tr class="memitem:ga9ce8326973ed5820733fd58a535ffcfb"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga9ce8326973ed5820733fd58a535ffcfb">is_branch</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga9ce8326973ed5820733fd58a535ffcfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab539c6879b88d48cb1656a61de17994c"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; </td></tr>
-<tr class="memitem:gab539c6879b88d48cb1656a61de17994c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gab539c6879b88d48cb1656a61de17994c">is_leaf</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:gab539c6879b88d48cb1656a61de17994c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1155554f020ce72ac193a13ce1fb634"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || in_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; out_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gac1155554f020ce72ac193a13ce1fb634"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gac1155554f020ce72ac193a13ce1fb634">in_edges</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gac1155554f020ce72ac193a13ce1fb634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9fba6bd1370952b028cb475312c0150"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; in_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gac9fba6bd1370952b028cb475312c0150"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gac9fba6bd1370952b028cb475312c0150">out_edges</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gac9fba6bd1370952b028cb475312c0150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6735238d0d51f95f8c9a1d41efce46b"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || in_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; out_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gad6735238d0d51f95f8c9a1d41efce46b"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gad6735238d0d51f95f8c9a1d41efce46b">in_degree</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gad6735238d0d51f95f8c9a1d41efce46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf35a7700bae6e31e2cc8699277211539"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; in_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gaf35a7700bae6e31e2cc8699277211539"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gaf35a7700bae6e31e2cc8699277211539">out_degree</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gaf35a7700bae6e31e2cc8699277211539"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a0b4f84ebfbd6b346c7d2753e99e949"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; <br />
+requires (edge_list_graph&lt;G&gt; || in_edges_graph&lt;G&gt;)</td></tr>
+<tr class="memitem:ga9a0b4f84ebfbd6b346c7d2753e99e949"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga9a0b4f84ebfbd6b346c7d2753e99e949">is_root</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:ga9a0b4f84ebfbd6b346c7d2753e99e949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf11a0d3e3ca22f507b41829f658bce63"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; <br />
+requires (edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt;)</td></tr>
+<tr class="memitem:gaf11a0d3e3ca22f507b41829f658bce63"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gaf11a0d3e3ca22f507b41829f658bce63">is_branch</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gaf11a0d3e3ca22f507b41829f658bce63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00b4417fa74452bd2f1a490f09dc2b2a"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; <br />
+requires (edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt;)</td></tr>
+<tr class="memitem:ga00b4417fa74452bd2f1a490f09dc2b2a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga00b4417fa74452bd2f1a490f09dc2b2a">is_leaf</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:ga00b4417fa74452bd2f1a490f09dc2b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6d4bdd465bc3661e66a0fc282112d7f6"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:ga6d4bdd465bc3661e66a0fc282112d7f6"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga6d4bdd465bc3661e66a0fc282112d7f6">transform_edge</a> (F &amp;&amp;fn)</td></tr>
 <tr class="separator:ga6d4bdd465bc3661e66a0fc282112d7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,6 +152,12 @@ requires requires (C c) { c.front(), c.pop_front(); }</td></tr>
 requires requires (C c) { c.back(), c.pop_back(); }</td></tr>
 <tr class="memitem:ab0c0bef3883c3a4fcdc1219e1a7cbbd4"><td class="memTemplItemLeft" align="right" valign="top">constexpr rng::range_value_t&lt; C &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1util.html#ab0c0bef3883c3a4fcdc1219e1a7cbbd4">take_back</a> (C &amp;container)</td></tr>
 <tr class="separator:ab0c0bef3883c3a4fcdc1219e1a7cbbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a588e6f7f28d0f3abd8835bf27d6ef8d7"><td class="memTemplParams" colspan="2">template&lt;typename R &gt; </td></tr>
+<tr class="memitem:a588e6f7f28d0f3abd8835bf27d6ef8d7"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1util.html#a588e6f7f28d0f3abd8835bf27d6ef8d7">empty_range_of</a> (R &amp;&amp;range)</td></tr>
+<tr class="separator:a588e6f7f28d0f3abd8835bf27d6ef8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0587f30332a1d37e83c7224a6dd0b0f9"><td class="memTemplParams" colspan="2">template&lt;graph_ref G, typename F &gt; </td></tr>
+<tr class="memitem:a0587f30332a1d37e83c7224a6dd0b0f9"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1util.html#a0587f30332a1d37e83c7224a6dd0b0f9">find_vertex</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, F &amp;&amp;pred)</td></tr>
+<tr class="separator:a0587f30332a1d37e83c7224a6dd0b0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -148,6 +177,87 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Utility methods. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a588e6f7f28d0f3abd8835bf27d6ef8d7" name="a588e6f7f28d0f3abd8835bf27d6ef8d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a588e6f7f28d0f3abd8835bf27d6ef8d7">&#9670;&#160;</a></span>empty_range_of()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto graphle::util::empty_range_of </td>
+          <td>(</td>
+          <td class="paramtype">R &amp;&amp;&#160;</td>
+          <td class="paramname"><em>range</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Returns a view of the given range with no elements, i.e. the subrange (range.end(), range.end()). </p>
+
+<p class="definition">Definition at line <a class="el" href="storage__utils_8hpp_source.html#l00030">30</a> of file <a class="el" href="storage__utils_8hpp_source.html">storage_utils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0587f30332a1d37e83c7224a6dd0b0f9" name="a0587f30332a1d37e83c7224a6dd0b0f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0587f30332a1d37e83c7224a6dd0b0f9">&#9670;&#160;</a></span>find_vertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;graph_ref G, typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; graphle::util::find_vertex </td>
+          <td>(</td>
+          <td class="paramtype">G &amp;&amp;&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F &amp;&amp;&#160;</td>
+          <td class="paramname"><em>pred</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Finds the first vertex matching the given predicate, or nullptr if no such vertex exists.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graph</td><td>The graph to search </td></tr>
+    <tr><td class="paramname">pred</td><td>A function object invocable as pred(vertex_of&lt;G&gt;) -&gt; bool. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Either a vertex matching the given predicate or nullptr.</dd></dl>
+<dl class="section user"><dt>Graph Requirements:</dt><dd>~~~ vertex_list_graph&lt;G&gt; ~~~ </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="vertex__utils_8hpp_source.html#l00018">18</a> of file <a class="el" href="vertex__utils_8hpp_source.html">vertex_utils.hpp</a>.</p>
+
+</div>
+</div>
 <a id="ab0c0bef3883c3a4fcdc1219e1a7cbbd4" name="ab0c0bef3883c3a4fcdc1219e1a7cbbd4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0c0bef3883c3a4fcdc1219e1a7cbbd4">&#9670;&#160;</a></span>take_back()</h2>
 

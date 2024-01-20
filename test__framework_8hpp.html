@@ -98,6 +98,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1test_1_1test__registry.html">graphle::test::test_registry</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1test_1_1subtest__scope__handler.html">graphle::test::subtest_scope_handler</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -108,8 +110,16 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a15e473943e1b48dd31b19b5f1ff9815e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__framework_8hpp.html#a15e473943e1b48dd31b19b5f1ff9815e">GRAPHLE_CAT_1</a>(A,  B)&#160;&#160;&#160;A##B</td></tr>
+<tr class="separator:a15e473943e1b48dd31b19b5f1ff9815e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b3fe83b598d1879691eb808e0b71175"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__framework_8hpp.html#a4b3fe83b598d1879691eb808e0b71175">GRAPHLE_CAT</a>(A,  B)&#160;&#160;&#160;<a class="el" href="test__framework_8hpp.html#a15e473943e1b48dd31b19b5f1ff9815e">GRAPHLE_CAT_1</a>(A, B)</td></tr>
+<tr class="separator:a4b3fe83b598d1879691eb808e0b71175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab365e833aac556459e3ede26cea4b68e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Config.html#gab365e833aac556459e3ede26cea4b68e">GRAPHLE_TEST_DONT_CATCH_ERRORS</a>&#160;&#160;&#160;&quot;Not Defined&quot;</td></tr>
+<tr class="separator:gab365e833aac556459e3ede26cea4b68e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a896d13d40ebd31bb2ec96cace375f45d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__framework_8hpp.html#a896d13d40ebd31bb2ec96cace375f45d">TEST</a>(Suite,  Name)</td></tr>
 <tr class="separator:a896d13d40ebd31bb2ec96cace375f45d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74fd460af2fef5575cb95a178eb94284"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__framework_8hpp.html#a74fd460af2fef5575cb95a178eb94284">SUBTEST_SCOPE</a>(Name)&#160;&#160;&#160;if (auto impl_scope_object = <a class="el" href="structgraphle_1_1test_1_1subtest__scope__handler.html">graphle::test::subtest_scope_handler</a> { Name }; true)</td></tr>
+<tr class="separator:a74fd460af2fef5575cb95a178eb94284"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d1eaf65528f86b445cf6e45b2d72c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__framework_8hpp.html#ac8d1eaf65528f86b445cf6e45b2d72c9">FAIL</a>(...)&#160;&#160;&#160;throw <a class="el" href="structgraphle_1_1test_1_1assertion__failure.html">graphle::test::assertion_failure</a> { __VA_ARGS__ }</td></tr>
 <tr class="separator:ac8d1eaf65528f86b445cf6e45b2d72c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea9df00928c39a44d058a9e655354df4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__framework_8hpp.html#aea9df00928c39a44d058a9e655354df4">ASSERT_TRUE</a>(...)&#160;&#160;&#160;if (!bool(__VA_ARGS__)) <a class="el" href="test__framework_8hpp.html#ac8d1eaf65528f86b445cf6e45b2d72c9">FAIL</a>(#__VA_ARGS__)</td></tr>
@@ -125,6 +135,10 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a88e2f9895a57d409257ad800be20b0e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1test.html#a88e2f9895a57d409257ad800be20b0e2">graphle::test::emit_test_success</a> (std::string_view name)</td></tr>
+<tr class="separator:a88e2f9895a57d409257ad800be20b0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf5a39513eaba61ad1d2feba8ea7da81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1test.html#abf5a39513eaba61ad1d2feba8ea7da81">graphle::test::emit_test_failure</a> (std::string_view name, const auto &amp;failure)</td></tr>
+<tr class="separator:abf5a39513eaba61ad1d2feba8ea7da81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__framework_8hpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -146,7 +160,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Fails the current test if the given condition is true. </p>
 
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00051">51</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00074">74</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
 
 </div>
 </div>
@@ -167,7 +181,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Fails the current test if the given condition is not true. </p>
 
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00044">44</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00067">67</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
 
 </div>
 </div>
@@ -188,7 +202,88 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Fails the current test with the given message. </p>
 
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00037">37</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00060">60</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4b3fe83b598d1879691eb808e0b71175" name="a4b3fe83b598d1879691eb808e0b71175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b3fe83b598d1879691eb808e0b71175">&#9670;&#160;</a></span>GRAPHLE_CAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GRAPHLE_CAT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">A, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">B&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="test__framework_8hpp.html#a15e473943e1b48dd31b19b5f1ff9815e">GRAPHLE_CAT_1</a>(A, B)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00012">12</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a15e473943e1b48dd31b19b5f1ff9815e" name="a15e473943e1b48dd31b19b5f1ff9815e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15e473943e1b48dd31b19b5f1ff9815e">&#9670;&#160;</a></span>GRAPHLE_CAT_1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GRAPHLE_CAT_1</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">A, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">B&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;A##B</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00011">11</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a74fd460af2fef5575cb95a178eb94284" name="a74fd460af2fef5575cb95a178eb94284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74fd460af2fef5575cb95a178eb94284">&#9670;&#160;</a></span>SUBTEST_SCOPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUBTEST_SCOPE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Name</td><td>)</td>
+          <td>&#160;&#160;&#160;if (auto impl_scope_object = <a class="el" href="structgraphle_1_1test_1_1subtest__scope__handler.html">graphle::test::subtest_scope_handler</a> { Name }; true)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Defines a subscope of the current test which will have a separate success or error message logged. </p>
+
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00051">51</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
 
 </div>
 </div>
@@ -232,10 +327,10 @@ Functions</h2></td></tr>
 <div class="line">};                                                              \</div>
 <div class="line">                                                                \</div>
 <div class="line"><span class="keywordtype">void</span> test_##Suite_##Name::main(<span class="keywordtype">void</span>)</div>
-<div class="ttc" id="atest__framework_8hpp_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="test__framework_8hpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition:</b> <a href="test__framework_8hpp_source.html#l00130">test_framework.hpp:130</a></div></div>
+<div class="ttc" id="atest__framework_8hpp_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="test__framework_8hpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition:</b> <a href="test__framework_8hpp_source.html#l00224">test_framework.hpp:224</a></div></div>
 </div><!-- fragment --><p >Defines a new test with the given suite and name which will be invoked when tests are run. </p>
 
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00015">15</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00029">29</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
 
 </div>
 </div>
@@ -257,7 +352,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p >Test framework entry point. Runs all registered tests. </p>
 
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00130">130</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00224">224</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
 
 </div>
 </div>

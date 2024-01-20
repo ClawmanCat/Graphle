@@ -72,6 +72,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Graph utility classes, functions and objects</div></div>
 </div><!--header-->
@@ -79,6 +80,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1util_1_1edge__field__filter.html">graphle::util::edge_field_filter&lt; G, Field &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1util_1_1no__op__t.html">graphle::util::no_op_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1util_1_1addressof__t.html">graphle::util::addressof_t</a></td></tr>
@@ -92,39 +95,98 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1util_1_1transpose__edge__t.html">graphle::util::transpose_edge_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga12484a66f9c30aa3f49e361bb973570d"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga12484a66f9c30aa3f49e361bb973570d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga12484a66f9c30aa3f49e361bb973570d">graphle::util::edge_from_filter</a> = <a class="el" href="structgraphle_1_1util_1_1edge__field__filter.html">edge_field_filter</a>&lt; G, &amp;<a class="el" href="group__Graph.html#ga0b72d01e7e9fdd81efded042f5c10b61">edge_of</a>&lt; G &gt;::first &gt;</td></tr>
+<tr class="separator:ga12484a66f9c30aa3f49e361bb973570d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ea66e6b446294d1e392c699ee44272e"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; </td></tr>
+<tr class="memitem:ga3ea66e6b446294d1e392c699ee44272e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga3ea66e6b446294d1e392c699ee44272e">graphle::util::edge_to_filter</a> = <a class="el" href="structgraphle_1_1util_1_1edge__field__filter.html">edge_field_filter</a>&lt; G, &amp;<a class="el" href="group__Graph.html#ga0b72d01e7e9fdd81efded042f5c10b61">edge_of</a>&lt; G &gt;::second &gt;</td></tr>
+<tr class="separator:ga3ea66e6b446294d1e392c699ee44272e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaba0c643c4ba64c4cc85076778e52d7db"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
-requires ( in_edges_graph&lt;G&gt; || // Either provide in-edges (out_edges_graph&lt;G&gt; &amp;&amp; !directed_graph&lt;G&gt;) || // Or out-edges on a non-directed <a class="el" href="structgraphle_1_1graph.html">graph</a> edge_list_graph&lt;G&gt; // Or a list of all edges )</td></tr>
-<tr class="memitem:gaba0c643c4ba64c4cc85076778e52d7db"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gaba0c643c4ba64c4cc85076778e52d7db">graphle::util::in_degree</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:gaba0c643c4ba64c4cc85076778e52d7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2855a96f59583b55f2150cc0a43a35a5"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
-requires ( out_edges_graph&lt;G&gt; || // Either provide out-edges (in_edges_graph&lt;G&gt; &amp;&amp; !directed_graph&lt;G&gt;) || // Or in-edges on a non-directed <a class="el" href="structgraphle_1_1graph.html">graph</a> edge_list_graph&lt;G&gt; // Or a list of all edges )</td></tr>
-<tr class="memitem:ga2855a96f59583b55f2150cc0a43a35a5"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga2855a96f59583b55f2150cc0a43a35a5">graphle::util::out_degree</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga2855a96f59583b55f2150cc0a43a35a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga46b57f3263b328d7a0af190fab60a8c9"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; </td></tr>
-<tr class="memitem:ga46b57f3263b328d7a0af190fab60a8c9"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga46b57f3263b328d7a0af190fab60a8c9">graphle::util::is_root</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga46b57f3263b328d7a0af190fab60a8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9ce8326973ed5820733fd58a535ffcfb"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; </td></tr>
-<tr class="memitem:ga9ce8326973ed5820733fd58a535ffcfb"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga9ce8326973ed5820733fd58a535ffcfb">graphle::util::is_branch</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:ga9ce8326973ed5820733fd58a535ffcfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab539c6879b88d48cb1656a61de17994c"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; </td></tr>
-<tr class="memitem:gab539c6879b88d48cb1656a61de17994c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gab539c6879b88d48cb1656a61de17994c">graphle::util::is_leaf</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
-<tr class="separator:gab539c6879b88d48cb1656a61de17994c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1155554f020ce72ac193a13ce1fb634"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || in_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; out_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gac1155554f020ce72ac193a13ce1fb634"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gac1155554f020ce72ac193a13ce1fb634">graphle::util::in_edges</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gac1155554f020ce72ac193a13ce1fb634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9fba6bd1370952b028cb475312c0150"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; in_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gac9fba6bd1370952b028cb475312c0150"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gac9fba6bd1370952b028cb475312c0150">graphle::util::out_edges</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gac9fba6bd1370952b028cb475312c0150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6735238d0d51f95f8c9a1d41efce46b"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || in_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; out_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gad6735238d0d51f95f8c9a1d41efce46b"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gad6735238d0d51f95f8c9a1d41efce46b">graphle::util::in_degree</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gad6735238d0d51f95f8c9a1d41efce46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf35a7700bae6e31e2cc8699277211539"><td class="memTemplParams" colspan="2">template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; in_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gaf35a7700bae6e31e2cc8699277211539"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gaf35a7700bae6e31e2cc8699277211539">graphle::util::out_degree</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gaf35a7700bae6e31e2cc8699277211539"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a0b4f84ebfbd6b346c7d2753e99e949"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; <br />
+requires (edge_list_graph&lt;G&gt; || in_edges_graph&lt;G&gt;)</td></tr>
+<tr class="memitem:ga9a0b4f84ebfbd6b346c7d2753e99e949"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga9a0b4f84ebfbd6b346c7d2753e99e949">graphle::util::is_root</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:ga9a0b4f84ebfbd6b346c7d2753e99e949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf11a0d3e3ca22f507b41829f658bce63"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; <br />
+requires (edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt;)</td></tr>
+<tr class="memitem:gaf11a0d3e3ca22f507b41829f658bce63"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#gaf11a0d3e3ca22f507b41829f658bce63">graphle::util::is_branch</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:gaf11a0d3e3ca22f507b41829f658bce63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00b4417fa74452bd2f1a490f09dc2b2a"><td class="memTemplParams" colspan="2">template&lt;directed_graph G&gt; <br />
+requires (edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt;)</td></tr>
+<tr class="memitem:ga00b4417fa74452bd2f1a490f09dc2b2a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga00b4417fa74452bd2f1a490f09dc2b2a">graphle::util::is_leaf</a> (G &amp;&amp;<a class="el" href="structgraphle_1_1graph.html">graph</a>, <a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt; <a class="el" href="structvertex.html">vertex</a>)</td></tr>
+<tr class="separator:ga00b4417fa74452bd2f1a490f09dc2b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6d4bdd465bc3661e66a0fc282112d7f6"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:ga6d4bdd465bc3661e66a0fc282112d7f6"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Utils.html#ga6d4bdd465bc3661e66a0fc282112d7f6">graphle::util::transform_edge</a> (F &amp;&amp;fn)</td></tr>
 <tr class="separator:ga6d4bdd465bc3661e66a0fc282112d7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga12484a66f9c30aa3f49e361bb973570d" name="ga12484a66f9c30aa3f49e361bb973570d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12484a66f9c30aa3f49e361bb973570d">&#9670;&#160;</a></span>edge_from_filter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;graph_ref G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group__Utils.html#ga12484a66f9c30aa3f49e361bb973570d">graphle::util::edge_from_filter</a> = typedef <a class="el" href="structgraphle_1_1util_1_1edge__field__filter.html">edge_field_filter</a>&lt;G, &amp;<a class="el" href="group__Graph.html#ga0b72d01e7e9fdd81efded042f5c10b61">edge_of</a>&lt;G&gt;::first&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Filter that keeps all edges coming from the given vertex. </p>
+
+<p class="definition">Definition at line <a class="el" href="edge__utils_8hpp_source.html#l00022">22</a> of file <a class="el" href="edge__utils_8hpp_source.html">edge_utils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ga3ea66e6b446294d1e392c699ee44272e" name="ga3ea66e6b446294d1e392c699ee44272e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3ea66e6b446294d1e392c699ee44272e">&#9670;&#160;</a></span>edge_to_filter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;graph_ref G&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="group__Utils.html#ga3ea66e6b446294d1e392c699ee44272e">graphle::util::edge_to_filter</a> = typedef <a class="el" href="structgraphle_1_1util_1_1edge__field__filter.html">edge_field_filter</a>&lt;G, &amp;<a class="el" href="group__Graph.html#ga0b72d01e7e9fdd81efded042f5c10b61">edge_of</a>&lt;G&gt;::second&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Filter that keeps all edges going to the given vertex. </p>
+
+<p class="definition">Definition at line <a class="el" href="edge__utils_8hpp_source.html#l00024">24</a> of file <a class="el" href="edge__utils_8hpp_source.html">edge_utils.hpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gaba0c643c4ba64c4cc85076778e52d7db" name="gaba0c643c4ba64c4cc85076778e52d7db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaba0c643c4ba64c4cc85076778e52d7db">&#9670;&#160;</a></span>in_degree()</h2>
+<a id="gad6735238d0d51f95f8c9a1d41efce46b" name="gad6735238d0d51f95f8c9a1d41efce46b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6735238d0d51f95f8c9a1d41efce46b">&#9670;&#160;</a></span>in_degree()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;graph_ref G&gt; <br />
-requires ( in_edges_graph&lt;G&gt; || // Either provide in-edges (out_edges_graph&lt;G&gt; &amp;&amp; !directed_graph&lt;G&gt;) || // Or out-edges on a non-directed <a class="el" href="structgraphle_1_1graph.html">graph</a> edge_list_graph&lt;G&gt; // Or a list of all edges )</div>
+requires ( edge_list_graph&lt;G&gt; || in_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; out_edges_graph&lt;G&gt;) )</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -153,19 +215,78 @@ requires ( in_edges_graph&lt;G&gt; || // Either provide in-edges (out_edges_grap
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Returns the in-degree of the given vertex (i.e. the number of edges going into the vertex). </p>
+<p >Returns the in-degree of the given vertex (i.e. the number of edges going into the vertex). If the graph is non-directed, this is the same as the out-degree.</p>
+<dl class="section user"><dt>Graph Requirements:</dt><dd><div class="fragment"><div class="line"> {</div>
+<div class="line">}</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1edge__list__graph.html">edge_list_graph&lt;G&gt;</a> ||</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1in__edges__graph.html">in_edges_graph&lt;G&gt;</a>  ||</div>
+<div class="line"> (<a class="code hl_concept" href="conceptgraphle_1_1non__directed__graph.html">non_directed_graph&lt;G&gt;</a> &amp;&amp; <a class="code hl_concept" href="conceptgraphle_1_1out__edges__graph.html">out_edges_graph&lt;G&gt;</a>)</div>
+<div class="ttc" id="aconceptgraphle_1_1edge__list__graph_html"><div class="ttname"><a href="conceptgraphle_1_1edge__list__graph.html">graphle::edge_list_graph</a></div><div class="ttdef"><b>Definition:</b> <a href="graph_2graph_8hpp_source.html#l00122">graph.hpp:122</a></div></div>
+<div class="ttc" id="aconceptgraphle_1_1in__edges__graph_html"><div class="ttname"><a href="conceptgraphle_1_1in__edges__graph.html">graphle::in_edges_graph</a></div><div class="ttdef"><b>Definition:</b> <a href="graph_2graph_8hpp_source.html#l00126">graph.hpp:126</a></div></div>
+<div class="ttc" id="aconceptgraphle_1_1non__directed__graph_html"><div class="ttname"><a href="conceptgraphle_1_1non__directed__graph.html">graphle::non_directed_graph</a></div><div class="ttdef"><b>Definition:</b> <a href="graph_2graph_8hpp_source.html#l00118">graph.hpp:118</a></div></div>
+<div class="ttc" id="aconceptgraphle_1_1out__edges__graph_html"><div class="ttname"><a href="conceptgraphle_1_1out__edges__graph.html">graphle::out_edges_graph</a></div><div class="ttdef"><b>Definition:</b> <a href="graph_2graph_8hpp_source.html#l00124">graph.hpp:124</a></div></div>
+</div><!-- fragment --> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="degree_8hpp_source.html#l00019">19</a> of file <a class="el" href="degree_8hpp_source.html">degree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="edge__utils_8hpp_source.html#l00108">108</a> of file <a class="el" href="edge__utils_8hpp_source.html">edge_utils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ga9ce8326973ed5820733fd58a535ffcfb" name="ga9ce8326973ed5820733fd58a535ffcfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9ce8326973ed5820733fd58a535ffcfb">&#9670;&#160;</a></span>is_branch()</h2>
+<a id="gac1155554f020ce72ac193a13ce1fb634" name="gac1155554f020ce72ac193a13ce1fb634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac1155554f020ce72ac193a13ce1fb634">&#9670;&#160;</a></span>in_edges()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;directed_graph G&gt; </div>
+template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || in_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; out_edges_graph&lt;G&gt;) )</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto graphle::util::in_edges </td>
+          <td>(</td>
+          <td class="paramtype">G &amp;&amp;&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt;&#160;</td>
+          <td class="paramname"><em>vertex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Returns a range of all in edges of the given vertex. If the graph is non-directed, this is the same set of edges as the out edges.</p>
+<dl class="section user"><dt>Graph Requirements:</dt><dd><div class="fragment"><div class="line"> {</div>
+<div class="line">}</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1edge__list__graph.html">edge_list_graph&lt;G&gt;</a> ||</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1in__edges__graph.html">in_edges_graph&lt;G&gt;</a>  ||</div>
+<div class="line"> (<a class="code hl_concept" href="conceptgraphle_1_1non__directed__graph.html">non_directed_graph&lt;G&gt;</a> &amp;&amp; <a class="code hl_concept" href="conceptgraphle_1_1out__edges__graph.html">out_edges_graph&lt;G&gt;</a>)</div>
+</div><!-- fragment --> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="edge__utils_8hpp_source.html#l00042">42</a> of file <a class="el" href="edge__utils_8hpp_source.html">edge_utils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="gaf11a0d3e3ca22f507b41829f658bce63" name="gaf11a0d3e3ca22f507b41829f658bce63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf11a0d3e3ca22f507b41829f658bce63">&#9670;&#160;</a></span>is_branch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;directed_graph G&gt; <br />
+requires (edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt;)</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -194,19 +315,28 @@ template&lt;directed_graph G&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Returns whether or not the given vertex is a branch vertex (i.e. a vertex with at least one outgoing edge). </p>
+<p >Returns whether or not the given vertex is a branch vertex (i.e. a vertex with at least one outgoing edge).</p>
+<dl class="section user"><dt>Graph Requirements:</dt><dd><div class="fragment"><div class="line"> {</div>
+<div class="line">}</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1directed__graph.html">directed_graph&lt;G&gt;</a> &amp;&amp; (</div>
+<div class="line">     <a class="code hl_concept" href="conceptgraphle_1_1edge__list__graph.html">edge_list_graph&lt;G&gt;</a> ||</div>
+<div class="line">     <a class="code hl_concept" href="conceptgraphle_1_1out__edges__graph.html">out_edges_graph&lt;G&gt;</a></div>
+<div class="line"> )</div>
+<div class="ttc" id="aconceptgraphle_1_1directed__graph_html"><div class="ttname"><a href="conceptgraphle_1_1directed__graph.html">graphle::directed_graph</a></div><div class="ttdef"><b>Definition:</b> <a href="graph_2graph_8hpp_source.html#l00116">graph.hpp:116</a></div></div>
+</div><!-- fragment --> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="degree_8hpp_source.html#l00076">76</a> of file <a class="el" href="degree_8hpp_source.html">degree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="edge__utils_8hpp_source.html#l00188">188</a> of file <a class="el" href="edge__utils_8hpp_source.html">edge_utils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="gab539c6879b88d48cb1656a61de17994c" name="gab539c6879b88d48cb1656a61de17994c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab539c6879b88d48cb1656a61de17994c">&#9670;&#160;</a></span>is_leaf()</h2>
+<a id="ga00b4417fa74452bd2f1a490f09dc2b2a" name="ga00b4417fa74452bd2f1a490f09dc2b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga00b4417fa74452bd2f1a490f09dc2b2a">&#9670;&#160;</a></span>is_leaf()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;directed_graph G&gt; </div>
+template&lt;directed_graph G&gt; <br />
+requires (edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt;)</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -235,19 +365,27 @@ template&lt;directed_graph G&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Returns whether or not the given vertex is a leaf vertex (i.e. a vertex with no outgoing edges). </p>
+<p >Returns whether or not the given vertex is a leaf vertex (i.e. a vertex with no outgoing edges).</p>
+<dl class="section user"><dt>Graph Requirements:</dt><dd><div class="fragment"><div class="line"> {</div>
+<div class="line">}</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1directed__graph.html">directed_graph&lt;G&gt;</a> &amp;&amp; (</div>
+<div class="line">     <a class="code hl_concept" href="conceptgraphle_1_1edge__list__graph.html">edge_list_graph&lt;G&gt;</a> ||</div>
+<div class="line">     <a class="code hl_concept" href="conceptgraphle_1_1out__edges__graph.html">out_edges_graph&lt;G&gt;</a></div>
+<div class="line"> )</div>
+</div><!-- fragment --> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="degree_8hpp_source.html#l00085">85</a> of file <a class="el" href="degree_8hpp_source.html">degree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="edge__utils_8hpp_source.html#l00205">205</a> of file <a class="el" href="edge__utils_8hpp_source.html">edge_utils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ga46b57f3263b328d7a0af190fab60a8c9" name="ga46b57f3263b328d7a0af190fab60a8c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga46b57f3263b328d7a0af190fab60a8c9">&#9670;&#160;</a></span>is_root()</h2>
+<a id="ga9a0b4f84ebfbd6b346c7d2753e99e949" name="ga9a0b4f84ebfbd6b346c7d2753e99e949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a0b4f84ebfbd6b346c7d2753e99e949">&#9670;&#160;</a></span>is_root()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;directed_graph G&gt; </div>
+template&lt;directed_graph G&gt; <br />
+requires (edge_list_graph&lt;G&gt; || in_edges_graph&lt;G&gt;)</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -276,20 +414,27 @@ template&lt;directed_graph G&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Returns whether or not the given vertex is a root vertex (i.e. a vertex with no ingoing edges). </p>
+<p >Returns whether or not the given vertex is a root vertex (i.e. a vertex with no ingoing edges).</p>
+<dl class="section user"><dt>Graph Requirements:</dt><dd><div class="fragment"><div class="line"> {</div>
+<div class="line">}</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1directed__graph.html">directed_graph&lt;G&gt;</a> &amp;&amp; (</div>
+<div class="line">     <a class="code hl_concept" href="conceptgraphle_1_1edge__list__graph.html">edge_list_graph&lt;G&gt;</a> ||</div>
+<div class="line">     <a class="code hl_concept" href="conceptgraphle_1_1in__edges__graph.html">in_edges_graph&lt;G&gt;</a></div>
+<div class="line"> )</div>
+</div><!-- fragment --> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="degree_8hpp_source.html#l00067">67</a> of file <a class="el" href="degree_8hpp_source.html">degree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="edge__utils_8hpp_source.html#l00171">171</a> of file <a class="el" href="edge__utils_8hpp_source.html">edge_utils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ga2855a96f59583b55f2150cc0a43a35a5" name="ga2855a96f59583b55f2150cc0a43a35a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2855a96f59583b55f2150cc0a43a35a5">&#9670;&#160;</a></span>out_degree()</h2>
+<a id="gaf35a7700bae6e31e2cc8699277211539" name="gaf35a7700bae6e31e2cc8699277211539"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf35a7700bae6e31e2cc8699277211539">&#9670;&#160;</a></span>out_degree()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;graph_ref G&gt; <br />
-requires ( out_edges_graph&lt;G&gt; || // Either provide out-edges (in_edges_graph&lt;G&gt; &amp;&amp; !directed_graph&lt;G&gt;) || // Or in-edges on a non-directed <a class="el" href="structgraphle_1_1graph.html">graph</a> edge_list_graph&lt;G&gt; // Or a list of all edges )</div>
+requires ( edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; in_edges_graph&lt;G&gt;) )</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -318,9 +463,63 @@ requires ( out_edges_graph&lt;G&gt; || // Either provide out-edges (in_edges_gra
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Returns the out-degree of the given vertex (i.e. the number of edges going out of the vertex). </p>
+<p >Returns the out-degree of the given vertex (i.e. the number of edges going out of the vertex). If the graph is non-directed, this is the same as the in-degree.</p>
+<dl class="section user"><dt>Graph Requirements:</dt><dd><div class="fragment"><div class="line"> {</div>
+<div class="line">}</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1edge__list__graph.html">edge_list_graph&lt;G&gt;</a> ||</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1out__edges__graph.html">out_edges_graph&lt;G&gt;</a> ||</div>
+<div class="line"> (<a class="code hl_concept" href="conceptgraphle_1_1non__directed__graph.html">non_directed_graph&lt;G&gt;</a> &amp;&amp; <a class="code hl_concept" href="conceptgraphle_1_1in__edges__graph.html">in_edges_graph&lt;G&gt;</a>)</div>
+</div><!-- fragment --> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="degree_8hpp_source.html#l00045">45</a> of file <a class="el" href="degree_8hpp_source.html">degree.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="edge__utils_8hpp_source.html#l00141">141</a> of file <a class="el" href="edge__utils_8hpp_source.html">edge_utils.hpp</a>.</p>
+
+</div>
+</div>
+<a id="gac9fba6bd1370952b028cb475312c0150" name="gac9fba6bd1370952b028cb475312c0150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac9fba6bd1370952b028cb475312c0150">&#9670;&#160;</a></span>out_edges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;graph_ref G&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; in_edges_graph&lt;G&gt;) )</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto graphle::util::out_edges </td>
+          <td>(</td>
+          <td class="paramtype">G &amp;&amp;&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__Graph.html#gac0ef79056611686eca037f968bc49eac">vertex_of</a>&lt; G &gt;&#160;</td>
+          <td class="paramname"><em>vertex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Returns a range of all out edges of the given vertex. If the graph is non-directed, this is the same set of edges as the in edges.</p>
+<dl class="section user"><dt>Graph Requirements:</dt><dd><div class="fragment"><div class="line"> {</div>
+<div class="line">}</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1edge__list__graph.html">edge_list_graph&lt;G&gt;</a> ||</div>
+<div class="line"> <a class="code hl_concept" href="conceptgraphle_1_1out__edges__graph.html">out_edges_graph&lt;G&gt;</a> ||</div>
+<div class="line"> (<a class="code hl_concept" href="conceptgraphle_1_1non__directed__graph.html">non_directed_graph&lt;G&gt;</a> &amp;&amp; <a class="code hl_concept" href="conceptgraphle_1_1in__edges__graph.html">in_edges_graph&lt;G&gt;</a>)</div>
+</div><!-- fragment --> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="edge__utils_8hpp_source.html#l00075">75</a> of file <a class="el" href="edge__utils_8hpp_source.html">edge_utils.hpp</a>.</p>
 
 </div>
 </div>

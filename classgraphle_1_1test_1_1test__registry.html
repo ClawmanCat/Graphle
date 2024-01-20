@@ -78,7 +78,6 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classgraphle_1_1test_1_1test__registry-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">graphle::test::test_registry Class Reference</div></div>
 </div><!--header-->
@@ -92,26 +91,107 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a48a972a275891df358ee96ceaf0d9157"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5843edd5898b5e5f40d3b4cd1482cc99"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1test_1_1test__registry.html#a5843edd5898b5e5f40d3b4cd1482cc99">run_tests</a> (void)</td></tr>
 <tr class="separator:a5843edd5898b5e5f40d3b4cd1482cc99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f3c5a14e37be7b0d4a50bf66d66732c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1test_1_1test__registry.html#a3f3c5a14e37be7b0d4a50bf66d66732c">begin_subtest</a> (std::string name)</td></tr>
+<tr class="separator:a3f3c5a14e37be7b0d4a50bf66d66732c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08843650e171be28840bada6426436e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1test_1_1test__registry.html#a08843650e171be28840bada6426436e6">end_subtest</a> (void)</td></tr>
+<tr class="separator:a08843650e171be28840bada6426436e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb36b96c58d366fc250844d0f13d2276"><td class="memItemLeft" align="right" valign="top">const auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1test_1_1test__registry.html#aeb36b96c58d366fc250844d0f13d2276">current_test</a> (void) const</td></tr>
+<tr class="separator:aeb36b96c58d366fc250844d0f13d2276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a37cf087a0367b98cf0b851190106bf31"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classgraphle_1_1test_1_1test__registry.html">test_registry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1test_1_1test__registry.html#a37cf087a0367b98cf0b851190106bf31">instance</a> (void)</td></tr>
 <tr class="separator:a37cf087a0367b98cf0b851190106bf31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9f6303c158692047eac00a6d133a0289"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1test_1_1test__registry.html#a9f6303c158692047eac00a6d133a0289">color_red</a> = &quot;\x1B[31m&quot;</td></tr>
-<tr class="separator:a9f6303c158692047eac00a6d133a0289"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a562539ceee4a575e7c6f3bbd407d9974"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1test_1_1test__registry.html#a562539ceee4a575e7c6f3bbd407d9974">color_green</a> = &quot;\x1B[32m&quot;</td></tr>
-<tr class="separator:a562539ceee4a575e7c6f3bbd407d9974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c3497b0063ad32b3297691651122263"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1test_1_1test__registry.html#a9c3497b0063ad32b3297691651122263">color_restore</a> = &quot;\033[0m&quot;</td></tr>
-<tr class="separator:a9c3497b0063ad32b3297691651122263"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Registry to keep track of tests. </p>
 
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00078">78</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00121">121</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3f3c5a14e37be7b0d4a50bf66d66732c" name="a3f3c5a14e37be7b0d4a50bf66d66732c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f3c5a14e37be7b0d4a50bf66d66732c">&#9670;&#160;</a></span>begin_subtest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphle::test::test_registry::begin_subtest </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00171">171</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aeb36b96c58d366fc250844d0f13d2276" name="aeb36b96c58d366fc250844d0f13d2276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb36b96c58d366fc250844d0f13d2276">&#9670;&#160;</a></span>current_test()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto &amp; graphle::test::test_registry::current_test </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00182">182</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a08843650e171be28840bada6426436e6" name="a08843650e171be28840bada6426436e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08843650e171be28840bada6426436e6">&#9670;&#160;</a></span>end_subtest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphle::test::test_registry::end_subtest </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00176">176</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a37cf087a0367b98cf0b851190106bf31" name="a37cf087a0367b98cf0b851190106bf31"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a37cf087a0367b98cf0b851190106bf31">&#9670;&#160;</a></span>instance()</h2>
 
@@ -136,7 +216,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00085">85</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00123">123</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
 
 </div>
 </div>
@@ -180,7 +260,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00091">91</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00129">129</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
 
 </div>
 </div>
@@ -208,80 +288,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00096">96</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a562539ceee4a575e7c6f3bbd407d9974" name="a562539ceee4a575e7c6f3bbd407d9974"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a562539ceee4a575e7c6f3bbd407d9974">&#9670;&#160;</a></span>color_green</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const char* graphle::test::test_registry::color_green = &quot;\x1B[32m&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00081">81</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9f6303c158692047eac00a6d133a0289" name="a9f6303c158692047eac00a6d133a0289"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f6303c158692047eac00a6d133a0289">&#9670;&#160;</a></span>color_red</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const char* graphle::test::test_registry::color_red = &quot;\x1B[31m&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00080">80</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9c3497b0063ad32b3297691651122263" name="a9c3497b0063ad32b3297691651122263"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c3497b0063ad32b3297691651122263">&#9670;&#160;</a></span>color_restore</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const char* graphle::test::test_registry::color_restore = &quot;\033[0m&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00082">82</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__framework_8hpp_source.html#l00134">134</a> of file <a class="el" href="test__framework_8hpp_source.html">test_framework.hpp</a>.</p>
 
 </div>
 </div>

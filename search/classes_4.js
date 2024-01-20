@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hash_3c_20t_20_3e_0',['hash&lt; T &gt;',['../structstd_1_1hash_3_01T_01_4.html',1,'std']]]
+  ['graph_0',['graph',['../structgraphle_1_1graph.html',1,'graphle']]],
+  ['graphle_5fview_5fbase_1',['graphle_view_base',['../structgraphle_1_1detail_1_1graphle__view__base.html',1,'graphle::detail']]]
 ];

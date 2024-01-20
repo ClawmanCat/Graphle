@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['find_5fedges_0',['find_edges',['../group__Graph.html#gab7a5137761be71f7e8b70bc5ea287a72',1,'graphle']]],
-  ['find_5fin_5fedges_1',['find_in_edges',['../group__Graph.html#ga6fa42a6b28ea4fedd9f635bca466dd84',1,'graphle']]],
-  ['find_5fout_5fedges_2',['find_out_edges',['../group__Graph.html#ga2c8791c8ec46ad43a1ae3f5aa6d0ceca',1,'graphle']]],
-  ['finish_5fsearch_5fbase_3',['finish_search_base',['../classgraphle_1_1search_1_1search__visitor.html#a2cb94181067b05af38e159221b288e02',1,'graphle::search::search_visitor']]],
-  ['foreach_4',['foreach',['../structgraphle_1_1meta_1_1type__list.html#a61934eb01c2b36312dd9ed7c0dcc1bd0',1,'graphle::meta::type_list']]],
-  ['from_5fve_5flist_5',['from_ve_list',['../structgraphle_1_1test_1_1ve__list__graph.html#a3b807656e132df81c8e45bc51feacadf',1,'graphle::test::ve_list_graph::from_ve_list()'],['../structgraphle_1_1test_1_1ve__map__graph.html#ab4d9dfc9118b81e1b71fcd2cc448ab9d',1,'graphle::test::ve_map_graph::from_ve_list()'],['../structgraphle_1_1test_1_1out__edge__graph.html#ad1921124028488d8eafe6b1444716ffc',1,'graphle::test::out_edge_graph::from_ve_list()'],['../structgraphle_1_1test_1_1v__list__out__edge__graph.html#a18fbea713be06f4e60ded1ca115d7b46',1,'graphle::test::v_list_out_edge_graph::from_ve_list()'],['../structgraphle_1_1test_1_1in__out__edge__graph.html#ae625f596e54ccd15b440512e8917cf1b',1,'graphle::test::in_out_edge_graph::from_ve_list()'],['../structgraphle_1_1test_1_1v__list__in__out__edge__graph.html#ab53c6a21b807933536a67fcc7437b077',1,'graphle::test::v_list_in_out_edge_graph::from_ve_list()']]]
+  ['edge_5fduplication_5fview_0',['edge_duplication_view',['../classgraphle_1_1detail_1_1edge__duplication__view.html#a81da34bf9630a7ecba68f624c3f131f1',1,'graphle::detail::edge_duplication_view']]],
+  ['edge_5ffrom_5fvertex_5fview_1',['edge_from_vertex_view',['../classgraphle_1_1detail_1_1edge__from__vertex__view.html#a0b16bce337b39c7f8a7174d4d0b16877',1,'graphle::detail::edge_from_vertex_view']]],
+  ['emit_5ftest_5ffailure_2',['emit_test_failure',['../namespacegraphle_1_1test.html#abf5a39513eaba61ad1d2feba8ea7da81',1,'graphle::test']]],
+  ['emit_5ftest_5fsuccess_3',['emit_test_success',['../namespacegraphle_1_1test.html#a88e2f9895a57d409257ad800be20b0e2',1,'graphle::test']]],
+  ['empty_5frange_5fof_4',['empty_range_of',['../namespacegraphle_1_1util.html#a588e6f7f28d0f3abd8835bf27d6ef8d7',1,'graphle::util']]],
+  ['end_5',['end',['../classgraphle_1_1detail_1_1edge__duplication__view.html#a30edba391879b6920a4dc5deee00a11b',1,'graphle::detail::edge_duplication_view::end()'],['../classgraphle_1_1detail_1_1edge__from__vertex__view.html#acd6e660d8471a69ce1186ff1a7a9df46',1,'graphle::detail::edge_from_vertex_view::end()'],['../classgraphle_1_1detail_1_1vertex__perspective__view.html#a5c8bba8180e967166f5d2a42448de45c',1,'graphle::detail::vertex_perspective_view::end()']]],
+  ['end_5fsubtest_6',['end_subtest',['../classgraphle_1_1test_1_1test__registry.html#a08843650e171be28840bada6426436e6',1,'graphle::test::test_registry']]]
 ];

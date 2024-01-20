@@ -83,14 +83,14 @@ $(function() {
 <div class="textblock"><code>#include &lt;<a class="el" href="common_8hpp_source.html">common.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="graph_2graph_8hpp_source.html">graph/graph.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="graph__concepts_8hpp_source.html">graph/graph_concepts.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="edges_8hpp_source.html">graph/edges.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="storage__provider_8hpp_source.html">storage/storage_provider.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="default__storage__provider_8hpp_source.html">storage/default_storage_provider.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="degree_8hpp_source.html">utility/degree.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="storage__utils_8hpp_source.html">utility/detail/storage_utils.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="edge__utils_8hpp_source.html">utility/edge_utils.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="storage__utils_8hpp_source.html">utility/storage_utils.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="if__constexpr_8hpp_source.html">meta/if_constexpr.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="edge__perspective_8hpp_source.html">views/edge_perspective.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="visitor_8hpp_source.html">search/visitor.hpp</a>&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div>
 <p><a href="search__impl_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -103,9 +103,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga51f7de6de31cb81429b315ceb537f916"><td class="memTemplParams" colspan="2">template&lt;store::storage_type ST, graph_ref G, search::search_visitor_ref&lt; G &gt; V, typename EmplacePP , typename TakePP , store::storage_provider_ref&lt; ST, vertex_of&lt; G &gt; &gt; PP = store::default_provided_t&lt;ST, vertex_of&lt;G&gt;&gt;, store::storage_provider_ref&lt; store::storage_type::UNORDERED_SET, vertex_of&lt; G &gt; &gt; PS = store::default_provided_t&lt;store::storage_type::UNORDERED_SET, vertex_of&lt;G&gt;&gt;&gt; </td></tr>
-<tr class="memitem:ga51f7de6de31cb81429b315ceb537f916"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Search.html#ga51f7de6de31cb81429b315ceb537f916">graphle::detail::search</a> (G &amp;&amp;graph, vertex_of&lt; G &gt; root, V &amp;&amp;visitor, EmplacePP &amp;&amp;emplace, TakePP &amp;&amp;take, PP &amp;&amp;pending_provider=store::get_default_storage_provider&lt; ST, vertex_of&lt; G &gt; &gt;(), PS &amp;&amp;set_provider=store::get_default_storage_provider&lt; store::storage_type::UNORDERED_SET, vertex_of&lt; G &gt; &gt;())</td></tr>
-<tr class="separator:ga51f7de6de31cb81429b315ceb537f916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac473ed94a8cfe21f5c89342969a0eb5e"><td class="memTemplParams" colspan="2">template&lt;store::storage_type ST, graph_ref G, search::search_visitor_ref&lt; G &gt; V, typename EmplacePP , typename TakePP , store::storage_provider_ref&lt; ST, vertex_of&lt; G &gt; &gt; PP = store::default_provided_t&lt;ST, vertex_of&lt;G&gt;&gt;, store::storage_provider_ref&lt; store::storage_type::UNORDERED_SET, vertex_of&lt; G &gt;, vertex_hash_of&lt; G &gt;, vertex_compare_of&lt; G &gt; &gt; PS = store::default_provided_t&lt;store::storage_type::UNORDERED_SET, vertex_of&lt;G&gt;, vertex_hash_of&lt;G&gt;, vertex_compare_of&lt;G&gt;&gt;&gt; <br />
+requires ( edge_list_graph&lt;G&gt; || out_edges_graph&lt;G&gt; || (non_directed_graph&lt;G&gt; &amp;&amp; in_edges_graph&lt;G&gt;) )</td></tr>
+<tr class="memitem:gac473ed94a8cfe21f5c89342969a0eb5e"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__Search.html#gac473ed94a8cfe21f5c89342969a0eb5e">graphle::detail::search</a> (G &amp;&amp;graph, vertex_of&lt; G &gt; root, V &amp;&amp;visitor, EmplacePP &amp;&amp;emplace, TakePP &amp;&amp;take, PP &amp;&amp;pending_provider=store::get_default_storage_provider&lt; ST, vertex_of&lt; G &gt; &gt;(), PS &amp;&amp;set_provider=store::get_default_storage_provider&lt; store::storage_type::UNORDERED_SET, vertex_of&lt; G &gt;, vertex_hash_of&lt; G &gt;, vertex_compare_of&lt; G &gt; &gt;())</td></tr>
+<tr class="separator:gac473ed94a8cfe21f5c89342969a0eb5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

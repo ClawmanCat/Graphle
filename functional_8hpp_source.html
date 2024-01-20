@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Graphle: graphle/utility/detail/functional.hpp Source File</title>
+<title>Graphle: graphle/utility/functional.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,7 +70,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_195fca98312fc49ef658ce321dbaf79f.html">graphle</a></li><li class="navelem"><a class="el" href="dir_c119cdb236923022a414caaf080b3708.html">utility</a></li><li class="navelem"><a class="el" href="dir_5aa5989ac24b03988dd86f2e13e1c26b.html">detail</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_195fca98312fc49ef658ce321dbaf79f.html">graphle</a></li><li class="navelem"><a class="el" href="dir_c119cdb236923022a414caaf080b3708.html">utility</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -107,7 +107,7 @@ $(function() {
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegraphle_1_1util.html">graphle::util</a> {</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structgraphle_1_1util_1_1no__op__t.html#ad07118130d4f7331d0b6c926f9bbcae0">   55</a></span>    <a class="code hl_define" href="functional_8hpp.html#a2d2023a4a7776cbe6748393c323194b6">GRAPHLE_MAKE_NIEBLOID_IMPL</a>(<a class="code hl_variable" href="namespacegraphle_1_1util.html#a3ce1f31956eadae1b4e2bc750c78e69e">no_op</a>, [] (<span class="keyword">auto</span>&amp;&amp;...) {});</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structgraphle_1_1util_1_1addressof__t.html#a901c2b4f82874e000595a2ad08b6e267">   61</a></span>    <a class="code hl_define" href="functional_8hpp.html#a2d2023a4a7776cbe6748393c323194b6">GRAPHLE_MAKE_NIEBLOID_IMPL</a>(<a class="code hl_variable" href="namespacegraphle_1_1util.html#a9fdd336a452e1e9a08f105de2ca45257">addressof</a>, std::addressof);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structgraphle_1_1util_1_1addressof__t.html#a901c2b4f82874e000595a2ad08b6e267">   61</a></span>    <a class="code hl_define" href="functional_8hpp.html#a2d2023a4a7776cbe6748393c323194b6">GRAPHLE_MAKE_NIEBLOID_IMPL</a>(<a class="code hl_variable" href="namespacegraphle_1_1util.html#a9fdd336a452e1e9a08f105de2ca45257">addressof</a>, [](<span class="keyword">auto</span>&amp;&amp; obj) { <span class="keywordflow">return</span> std::addressof(obj); });</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structgraphle_1_1util_1_1indirect__t.html#a330ebaf25a5410fbf8240d65b8202589">   67</a></span>    <a class="code hl_define" href="functional_8hpp.html#a2d2023a4a7776cbe6748393c323194b6">GRAPHLE_MAKE_NIEBLOID_IMPL</a>(<a class="code hl_variable" href="namespacegraphle_1_1util.html#ab13ed5913d68db827bc6304c0677196a">indirect</a>, [] (<span class="keyword">auto</span>&amp;&amp; pointer) -&gt; <span class="keyword">decltype</span>(<span class="keyword">auto</span>) { <span class="keywordflow">return</span> *pointer; });</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
@@ -120,11 +120,12 @@ $(function() {
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="group__Utils.html#ga6d4bdd465bc3661e66a0fc282112d7f6">   95</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt; <span class="keyword">constexpr</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_function" href="group__Utils.html#ga6d4bdd465bc3661e66a0fc282112d7f6">transform_edge</a>(F&amp;&amp; fn) {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">return</span> [f = <a class="code hl_define" href="common_8hpp.html#ab02a39845e4df3629aa597ede799979e">GRAPHLE_FWD</a>(fn)] (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; edge) {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordflow">return</span> std::pair { f(edge.first), f(edge.second) };</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        };</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="comment">// Edge is just a pair of pointers, no need to forward.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">return</span> [f = <a class="code hl_define" href="common_8hpp.html#ab02a39845e4df3629aa597ede799979e">GRAPHLE_FWD</a>(fn)] (<span class="keyword">auto</span>&amp;&amp; edge) {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">return</span> std::pair { f(<a class="code hl_define" href="common_8hpp.html#ab02a39845e4df3629aa597ede799979e">GRAPHLE_FWD</a>(edge.first)), f(<a class="code hl_define" href="common_8hpp.html#ab02a39845e4df3629aa597ede799979e">GRAPHLE_FWD</a>(edge.second)) };</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        };</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
 <div class="ttc" id="acommon_8hpp_html"><div class="ttname"><a href="common_8hpp.html">common.hpp</a></div></div>
 <div class="ttc" id="acommon_8hpp_html_ab02a39845e4df3629aa597ede799979e"><div class="ttname"><a href="common_8hpp.html#ab02a39845e4df3629aa597ede799979e">GRAPHLE_FWD</a></div><div class="ttdeci">#define GRAPHLE_FWD(...)</div><div class="ttdef"><b>Definition:</b> <a href="common_8hpp_source.html#l00014">common.hpp:14</a></div></div>
 <div class="ttc" id="afunctional_8hpp_html_a2d2023a4a7776cbe6748393c323194b6"><div class="ttname"><a href="functional_8hpp.html#a2d2023a4a7776cbe6748393c323194b6">GRAPHLE_MAKE_NIEBLOID_IMPL</a></div><div class="ttdeci">#define GRAPHLE_MAKE_NIEBLOID_IMPL(Name, Function,...)</div><div class="ttdef"><b>Definition:</b> <a href="functional_8hpp_source.html#l00042">functional.hpp:42</a></div></div>
