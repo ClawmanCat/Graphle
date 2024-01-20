@@ -3,14 +3,15 @@
 #include <common.hpp>
 #include <graph/graph.hpp>
 #include <graph/graph_concepts.hpp>
-#include <graph/edges.hpp>
 #include <storage/storage_provider.hpp>
 #include <storage/default_storage_provider.hpp>
-#include <utility/degree.hpp>
-#include <utility/detail/storage_utils.hpp>
+#include <utility/edge_utils.hpp>
+#include <utility/storage_utils.hpp>
 #include <meta/if_constexpr.hpp>
 #include <views/edge_perspective.hpp>
 #include <search/visitor.hpp>
+
+#include <utility>
 
 
 namespace graphle::detail {
@@ -28,6 +29,12 @@ namespace graphle::detail {
      * @param pending_provider An optional storage-provider which can provide storage of type ST for the algorithm to use.
      * @param set_provider An optional storage-provider which can provide a unordered-set-like type for the algorithm to use.
      * @return True if the algorithm finished normally or false if the visitor caused the algorithm to return early.
+     *
+     * @graph_requires{
+     *  edge_list_graph<G> ||
+     *  out_edges_graph<G> ||
+     *  (non_directed_graph<G> && in_edges_graph<G>)
+     * }
      */
     template <
         store::storage_type ST,
@@ -37,16 +44,20 @@ namespace graphle::detail {
         typename TakePP,
         store::storage_provider_ref<ST, vertex_of<G>> PP
             = store::default_provided_t<ST, vertex_of<G>>,
-        store::storage_provider_ref<store::storage_type::UNORDERED_SET, vertex_of<G>> PS
-            = store::default_provided_t<store::storage_type::UNORDERED_SET, vertex_of<G>>
-    > constexpr inline bool search(
+        store::storage_provider_ref<store::storage_type::UNORDERED_SET, vertex_of<G>, vertex_hash_of<G>, vertex_compare_of<G>> PS
+            = store::default_provided_t<store::storage_type::UNORDERED_SET, vertex_of<G>, vertex_hash_of<G>, vertex_compare_of<G>>
+    > requires (
+        edge_list_graph<G> ||
+        out_edges_graph<G> ||
+        (non_directed_graph<G> && in_edges_graph<G>)
+    ) constexpr inline bool search(
         G&& graph,
         vertex_of<G> root,
         V&& visitor,
         EmplacePP&& emplace,
         TakePP&& take,
         PP&& pending_provider = store::get_default_storage_provider<ST, vertex_of<G>>(),
-        PS&& set_provider     = store::get_default_storage_provider<store::storage_type::UNORDERED_SET, vertex_of<G>>()
+        PS&& set_provider     = store::get_default_storage_provider<store::storage_type::UNORDERED_SET, vertex_of<G>, vertex_hash_of<G>, vertex_compare_of<G>>()
     ) {
         using VR  = search::visitor_result;
         using NVR = search::nonlocal_visitor_result;
@@ -60,8 +71,6 @@ namespace graphle::detail {
 
         decltype(auto) seen = set_provider();
         seen.emplace(root);
-
-        bool root_visited = false;
 
 
         while (!rng::empty(pending)) {
@@ -94,13 +103,7 @@ namespace graphle::detail {
             }
 
 
-            auto edges = [&] {
-                if constexpr (graph_is_directed<G>) return find_out_edges(graph, next);
-                else return find_edges(graph, next) | views::from_vertex_perspective(next);
-            } ();
-
-
-            for (auto edge : edges) {
+            for (auto edge : util::out_edges(graph, next)) {
                 if (seen.contains(edge.second)) {
                     switch (visitor.discover_edge_to_known_vertex_base(edge, graph)) {
                         case VR::STOP_SEARCH: return false;

@@ -2,7 +2,7 @@
 
 #include <common.hpp>
 #include <graph/graph.hpp>
-#include <utility/detail/functional.hpp>
+#include <utility/functional.hpp>
 
 #include <functional>
 

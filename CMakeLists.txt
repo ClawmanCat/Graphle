@@ -11,6 +11,11 @@ SET(CMAKE_CXX_STANDARD 20)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
+# CMake Options
+OPTION(GRAPHLE_TESTS "Enable generation of targets for unit tests." OFF)
+OPTION(GRAPHLE_TESTS_THROW "Do not catch exceptions from unit tests so they can be intercepted by the IDE debugger." OFF)
+
+
 # Use scripts from cmake folder.
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 

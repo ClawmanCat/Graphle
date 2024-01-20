@@ -2,13 +2,12 @@
 
 #include <common.hpp>
 #include <graph/graph.hpp>
-#include <graph/edges.hpp>
 #include <search/depth_first_search.hpp>
 #include <storage/storage_provider.hpp>
 #include <storage/default_storage_provider.hpp>
 #include <storage/storage_provider_helpers.hpp>
-#include <utility/detail/storage_utils.hpp>
-#include <utility/detail/vec_of_vecs_output_iterator.hpp>
+#include <utility/storage_utils.hpp>
+#include <utility/vec_of_vecs_output_iterator.hpp>
 
 #include <concepts>
 #include <iterator>
@@ -17,7 +16,7 @@
 
 namespace graphle::alg {
     namespace detail {
-        template <graph_ref G> using out_edge_range_t = decltype(find_out_edges(std::declval<G>(), std::declval<vertex_of<G>>()));
+        template <graph_ref G> using out_edge_range_t = decltype(util::out_edges(std::declval<G>(), std::declval<vertex_of<G>>()));
 
 
         template <graph_ref G> struct tarjan_vertex_data {
@@ -25,7 +24,7 @@ namespace graphle::alg {
                 index(index),
                 low_link(index),
                 stacked(true),
-                edges(find_out_edges(graph, vertex)),
+                edges(util::out_edges(graph, vertex)),
                 edge_iterator(rng::begin(edges))
             {}
 
@@ -58,16 +57,28 @@ namespace graphle::alg {
      * @param stack_provider An optional storage-provider which can provide a vector-like type for the algorithm to use.
      * @param min_stack_provider An optional storage-provider which can provide a vector-like type for the algorithm to use.
      * @param map_provider An optional storage-provider which can provide a unordered-map-like type for the algorithm to use.
+     *
+     * @graph_requires{
+     *  directed_graph<G>    &&
+     *  vertex_list_graph<G> &&
+     *  (
+     *      edge_list_graph<G> ||
+     *      out_edges_graph<G>
+     *  )
+     * }
      */
     template <
         directed_graph G,
         typename Target,
-        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> PV,
-        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> PVM,
-        store::storage_provider_ref<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>> PM
+        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> PV
+            = store::default_provided_t<store::storage_type::VECTOR, vertex_of<G>>,
+        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> PVM
+            = store::default_provided_t<store::storage_type::VECTOR, vertex_of<G>>,
+        store::storage_provider_ref<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>, vertex_hash_of<G>, vertex_compare_of<G>> PM
+            = store::default_provided_t<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>, vertex_hash_of<G>, vertex_compare_of<G>>
     > requires (
-        out_edge_provider<G> &&
         vertex_list_graph<G> &&
+        (edge_list_graph<G> || out_edges_graph<G>) &&
         std::output_iterator<std::remove_cvref_t<Target>, typename std::remove_cvref_t<Target>::value_type> &&
         std::output_iterator<typename std::remove_cvref_t<Target>::value_type, vertex_of<G>>
     ) constexpr inline void strongly_connected_components(
@@ -76,7 +87,7 @@ namespace graphle::alg {
         std::size_t min_size     = 0,
         PV&&  stack_provider     = store::get_default_storage_provider<store::storage_type::VECTOR, vertex_of<G>>(),
         PVM&& min_stack_provider = store::get_default_storage_provider<store::storage_type::VECTOR, vertex_of<G>>(),
-        PM&&  map_provider       = store::get_default_storage_provider<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>>()
+        PM&&  map_provider       = store::get_default_storage_provider<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>, vertex_hash_of<G>, vertex_compare_of<G>>()
     ) {
         decltype(auto) call_stack = stack_provider();
         decltype(auto) low_stack  = min_stack_provider();
@@ -128,7 +139,7 @@ namespace graphle::alg {
                             std::size_t count = 0;
 
                             for (auto w : low_stack | views::reverse) {
-                                if (w != v) ++count;
+                                if (!vertex_compare_of<G>(v, w)) ++count;
                                 else break;
                             }
 
@@ -149,10 +160,10 @@ namespace graphle::alg {
                             decltype(auto) scc_target = *target;
 
                             do *scc_target++ = unstack();
-                            while (w != v);
+                            while (!vertex_compare_of<G>(v, w));
                         } else {
                             do unstack();
-                            while (w != v);
+                            while (!vertex_compare_of<G>(v, w));
                         }
                     }
                 }
@@ -185,17 +196,31 @@ namespace graphle::alg {
      *  where VectorInner is the storage type provided by InnerPR (std::vector by default)
      *  The value category of the returned value is equal to that of the outer_ret_provider,
      *  i.e. if outer_ret_provider() returns a reference, this function returns a reference also.
+     *
+     * @graph_requires{
+     *  directed_graph<G>    &&
+     *  vertex_list_graph<G> &&
+     *  (
+     *      edge_list_graph<G> ||
+     *      out_edges_graph<G>
+     *  )
+     * }
      */
     template <
         directed_graph G,
-        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> InnerPR,
-        store::storage_provider_ref<store::storage_type::VECTOR, store::provided_storage_value_type<InnerPR>> OuterPR,
-        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> PV,
-        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> PVM,
-        store::storage_provider_ref<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>> PM
+        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> InnerPR
+            = store::default_provided_t<store::storage_type::VECTOR, vertex_of<G>>,
+        store::storage_provider_ref<store::storage_type::VECTOR, store::provided_storage_value_type<InnerPR>> OuterPR
+            = store::default_provided_t<store::storage_type::VECTOR, store::provided_storage_value_type<InnerPR>>,
+        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> PV
+            = store::default_provided_t<store::storage_type::VECTOR, vertex_of<G>>,
+        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> PVM
+            = store::default_provided_t<store::storage_type::VECTOR, vertex_of<G>>,
+        store::storage_provider_ref<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>, vertex_hash_of<G>, vertex_compare_of<G>> PM
+            = store::default_provided_t<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>, vertex_hash_of<G>, vertex_compare_of<G>>
     > requires (
-        out_edge_provider<G> &&
-        vertex_list_graph<G>
+        vertex_list_graph<G> &&
+        (edge_list_graph<G> || out_edges_graph<G>)
     ) constexpr inline decltype(auto) strongly_connected_components(
         G&& graph,
         std::size_t min_size                          = 0,
@@ -203,7 +228,7 @@ namespace graphle::alg {
         OuterPR&& outer_ret_provider                  = store::get_default_storage_provider<store::storage_type::VECTOR, store::provided_storage_value_type<InnerPR>>(),
         PV&&  stack_provider                          = store::get_default_storage_provider<store::storage_type::VECTOR, vertex_of<G>>(),
         PVM&& min_stack_provider                      = store::get_default_storage_provider<store::storage_type::VECTOR, vertex_of<G>>(),
-        PM&&  map_provider                            = store::get_default_storage_provider<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>>()
+        PM&&  map_provider                            = store::get_default_storage_provider<store::storage_type::UNORDERED_MAP, vertex_of<G>, detail::tarjan_vertex_data<G>, vertex_hash_of<G>, vertex_compare_of<G>>()
     ) {
         decltype(auto) result = outer_ret_provider();
 

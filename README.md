@@ -112,4 +112,4 @@ That being said, each compiler has some unique compatibility problems that need 
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MSVC     | `/Zc:preprocessor` is required to enable support for `__VA_OPT__`. This is set automatically, but may cause issues for code that relies on the quirks of the legacy MSVC preprocessor. |
 | Clang    | Before version 17, Clang is not able to correctly parse code using designated initializers.                                                                                            |
-| GCC      | No issues are currently known.                                                                                                                                                         |
+| GCC      | Not currently working. Will investigate once I have access to a Linux machine.                                                                                                         |

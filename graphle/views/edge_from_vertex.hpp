@@ -2,7 +2,7 @@
 
 #include <common.hpp>
 #include <graph/graph.hpp>
-#include <utility/detail/range_utils.hpp>
+#include <utility/range_utils.hpp>
 
 #include <utility>
 

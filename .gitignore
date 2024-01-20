@@ -6,3 +6,4 @@ out/
 venv/
 
 graphle_test/tmp.cpp
+diff.txt

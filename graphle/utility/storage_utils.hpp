@@ -24,4 +24,10 @@ namespace graphle::util {
 
         return value;
     }
+
+
+    /** Returns a view of the given range with no elements, i.e. the subrange (range.end(), range.end()). */
+    template <typename R> constexpr inline auto empty_range_of(R&& range) {
+        return rng::subrange(range.end(), range.end());
+    }
 }
