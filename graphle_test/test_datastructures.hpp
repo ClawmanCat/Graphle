@@ -52,6 +52,37 @@ namespace graphle::test {
 
 
     /**
+     * Returns the projected value of the container 'container' at key 'key' if it exists,
+     * or the empty range (projection(container.begin())->end(), projection(container.begin())->end()) otherwise.
+     * Dumb workaround for some of the test containers that use [set|map].at() to get the edges for a vertex,
+     * but that do not have a key for every vertex.
+     * This will fail if the provided container is empty, but it never is for our test datastructures.
+     * @param container A set- or map-like container.
+     * @param key The key to find.
+     * @param projection A projection from the containers value type to the stored range type.
+     * @return The range projection(*container.at(key)) if the container has the given key or an empty range with the same type otherwise.
+     */
+    template <typename C, typename K, typename P> constexpr inline auto range_at_key_or_dummy(C& container, const K& key, P&& projection = std::identity {}) {
+        auto it = container.find(key);
+
+
+        if (it == container.end()) {
+            auto& dummy = std::invoke(projection, container.begin());
+            return std::ranges::subrange(dummy.end(), dummy.end());
+        } else {
+            auto& range = std::invoke(projection, *it);
+            return std::ranges::subrange(range.begin(), range.end());
+        }
+    }
+
+
+    /** Wrapper for @ref range_at_key_or_dummy for map-like types. */
+    template <typename M, typename K> constexpr inline auto range_at_map_key_or_dummy(M& map, const K& key) {
+        return range_at_key_or_dummy(map, key, &std::ranges::range_value_t<M>::second);
+    }
+
+
+    /**
      * @ingroup TestGraphs
      * Graph of the form G { vertices = V[], edges = E[] }
      */
@@ -111,7 +142,7 @@ namespace graphle::test {
                 .deduce_vertex_type = meta::deduce_as<const vertex>,
                 .deduce_compare_as  = graphle::meta::deduce_as<graphle::compare_by_value<vertex>>,
                 .get_vertices       = [this] { return views::all(vertices) | views::transform(util::addressof); },
-                .get_out_edges      = [this] (const vertex* v) { return views::all(edges.at(*v)) | views::transform(util::as_const) | views::transform(util::addressof) | views::edge_from(v); }
+                .get_out_edges      = [this] (const vertex* v) { return range_at_map_key_or_dummy(edges, *v) | views::transform(util::as_const) | views::transform(util::addressof) | views::edge_from(v); }
             };
         }
     };

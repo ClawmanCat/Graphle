@@ -60,11 +60,35 @@ namespace graphle::store {
 
     /**
      * @ingroup Store
+     * The default storage provider for an unordered map of objects with deduced hasher and equality.
+     * Constructs and returns a std::unordered_map<K, V, std::hash<K>, std::equal_to<K>>.
+     */
+    template <typename K, typename V> struct default_storage_provider<storage_type::UNORDERED_MAP, overload_mode::DEFAULT_IMPLEMENTATION, K, V> {
+        constexpr auto operator()(void) const noexcept {
+            return std::unordered_map<K, V, std::hash<K>, std::equal_to<K>>{};
+        }
+    };
+
+
+    /**
+     * @ingroup Store
      * The default storage provider for an unordered set of objects. Constructs and returns a std::unordered_set<K, Hash, Eq>.
      */
     template <typename K, typename Hash, typename Eq> struct default_storage_provider<storage_type::UNORDERED_SET, overload_mode::DEFAULT_IMPLEMENTATION, K, Hash, Eq> {
         constexpr auto operator()(void) const noexcept {
             return std::unordered_set<K, Hash, Eq>{};
+        }
+    };
+
+
+    /**
+     * @ingroup Store
+     * The default storage provider for an unordered set of objects with deduced hasher and equality.
+     * Constructs and returns a std::unordered_set<K, std::hash<K>, std::equal_to<K>>.
+     */
+    template <typename K> struct default_storage_provider<storage_type::UNORDERED_SET, overload_mode::DEFAULT_IMPLEMENTATION, K> {
+        constexpr auto operator()(void) const noexcept {
+            return std::unordered_set<K, std::hash<K>, std::equal_to<K>>{};
         }
     };
 
