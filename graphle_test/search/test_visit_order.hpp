@@ -54,13 +54,18 @@ namespace graphle::test {
             };
 
 
-            auto root_vertex = [&] {
-                if constexpr (requires { structure.root; }) return structure.root.get();
-                else return graphle::util::find_vertex(graph, [&] (const auto* v) { return v->vertex_id == root; });
-            } ();
-
-
             SUBTEST_SCOPE(typeid(DS).name()) {
+                auto root_vertex = [&] {
+                    if constexpr (vertex_list_graph<decltype(graph)>) {
+                        return util::find_vertex(graph, [&] (auto v) { return v->vertex_id == root; });
+                    } else if constexpr (requires { structure.root; }) {
+                        if (structure.root->vertex_id == root) return structure.root.get();
+                    }
+
+                    FAIL("Cannot find root vertex for the given graph type.");
+                } ();
+
+
                 std::invoke(
                     algorithm,
                     graph,

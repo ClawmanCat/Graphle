@@ -31,6 +31,11 @@ namespace graphle::meta {
     /** @copydoc deduce_as_t */
     template <typename T> constexpr inline deduce_as_t<T> deduce_as = {};
 
+    /** Equivalent to deduce_as_t but always deduces as an lvalue. */
+    template <typename T> using deduce_as_lvalue_t = deduce_as_t<std::remove_reference_t<T>>;
+    /** @copydoc deduce_as_lvalue_t */
+    template <typename T> constexpr inline deduce_as_lvalue_t<T> deduce_as_lvalue = {};
+
 
     /** Checks if a type is meta::none */
     template <typename T> struct is_none : std::bool_constant<std::is_same_v<T, none>> { };
