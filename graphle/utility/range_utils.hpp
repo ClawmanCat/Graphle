@@ -5,13 +5,14 @@
 
 #include <concepts>
 #include <iterator>
+#include <optional>
 
 
 // Boilerplate code for std::ranges compatibility.
 // Custom views should instantiate the Niebloid range_adapter in the appropriate views namespace.
 namespace graphle::detail {
-    /** Base class for all Graphle views so they can be matched by our operator|. */
-    struct graphle_view_base {};
+    /** Returns the iterator traits for the iterator of the given range. */
+    template <typename R> using range_iterator_traits = std::iterator_traits<rng::iterator_t<R>>;
 
 
     /** Returns the type of the const iterator of the range R. This is a C++23 feature so we have to provide our own. */
@@ -83,6 +84,21 @@ namespace graphle::detail {
 
 
     /**
+     * Boilerplate range adaptor for std::ranges compatibility for view type G which does not take a range as its first constructor argument.
+     * @tparam G The template of a view type accepting the types in GArgs as its arguments.
+     * @tparam GArgs A list of types passed to G as template arguments (if empty, CTAD will be used).
+     */
+    template <template <typename...> typename G, typename... GArgs> struct primary_range_adaptor {
+        template <typename... Args> /* requires-clause omitted to allow template argument deduction. */
+        constexpr auto operator()(Args&&... args) const {
+            // If no explicit template arguments are provided, allow template argument deduction.
+            if constexpr (sizeof...(GArgs) == 0) return G { GRAPHLE_FWD(args)... };
+            else return G<GArgs...> { GRAPHLE_FWD(args)... };
+        }
+    };
+
+
+    /**
      * CRTP base class for (at least forward-) iterators that wrap some other iterator.
      *
      * Derived class should provide the following methods:
@@ -95,13 +111,13 @@ namespace graphle::detail {
      *
      * @tparam Derived The CRTP-derived iterator class.
      * @tparam Iterator The iterator type that is wrapped by Derived.
-     * @tparam T The type returned by get().
+     * @tparam T The type returned by get() (Including reference qualifiers).
      */
     template <typename Derived, typename Iterator, typename T> class wrapping_iterator {
     public:
         using value_type        = std::remove_reference_t<T>;
         using reference         = T;
-        using pointer           = std::add_pointer_t<reference>;
+        using pointer           = std::conditional_t<std::is_reference_v<reference>, value_type*, std::optional<T>>;
         using difference_type   = typename std::iterator_traits<Iterator>::difference_type;
         using iterator_category = std::common_type_t<typename std::iterator_traits<Iterator>::iterator_category, std::random_access_iterator_tag>;
 
@@ -115,7 +131,11 @@ namespace graphle::detail {
         }
 
         [[nodiscard]] pointer operator->(void) const requires is_forward {
-            return std::addressof(derived().get());
+            using result_t = decltype(derived().get());
+
+            // If get returns an lvalue we cannot just return its address so provide an optional instead to achieve pointer-like semantics.
+            if constexpr (std::is_reference_v<result_t>) return std::addressof(derived().get());
+            else return std::optional<result_t> { derived().get() };
         }
 
         [[nodiscard]] reference operator[](difference_type d) const requires is_random_access {
@@ -207,7 +227,8 @@ namespace graphle::detail {
 
 /**
  * @ingroup Views
- * Range pipe operator for all Graphle views (Types deriving from graphle::detail::graphle_view_base).
+ * Range pipe operator for all non-primary Graphle views
+ * (Types using graphle::detail::range_adapter which take a range as their first argument).
  */
 template <std::ranges::viewable_range R, template <typename...> typename G, typename... Args>
 constexpr auto operator|(R&& range, const graphle::detail::range_adaptor_closure<G, Args...>& closure) {

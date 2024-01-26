@@ -39,3 +39,4 @@
 #include <views/duplicate_transposed_edges.hpp>
 #include <views/edge_from_vertex.hpp>
 #include <views/edge_perspective.hpp>
+#include <views/maybe_exists.hpp>

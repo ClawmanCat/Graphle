@@ -10,7 +10,7 @@
 namespace graphle {
     namespace detail {
         template <rng::input_range R, typename ProjectBound, typename ProjectRange> requires (rng::view<R> && is_vertex<rng::range_value_t<R>>)
-        class edge_from_vertex_view : public graphle_view_base, public rng::view_interface<edge_from_vertex_view<R, ProjectBound, ProjectRange>> {
+        class edge_from_vertex_view : public rng::view_interface<edge_from_vertex_view<R, ProjectBound, ProjectRange>> {
         public:
             using vertex_type = typename rng::range_value_t<R>;
             using edge_type   = std::pair<vertex_type, vertex_type>;

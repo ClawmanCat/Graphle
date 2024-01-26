@@ -70,7 +70,7 @@ namespace graphle::util {
      * @ingroup Utils
      * A function object that makes its argument const.
      */
-    GRAPHLE_MAKE_NIEBLOID_IMPL(as_const, std::as_const);
+    GRAPHLE_MAKE_NIEBLOID_IMPL(as_const, [](auto&& obj) -> decltype(auto) { return std::as_const(obj); });
 
     /**
      * @ingroup Utils
