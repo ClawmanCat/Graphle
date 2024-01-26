@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['no_5fop_5ft_0',['no_op_t',['../structgraphle_1_1util_1_1no__op__t.html',1,'graphle::util']]],
-  ['none_1',['none',['../structgraphle_1_1meta_1_1none.html',1,'graphle::meta']]]
+  ['maybe_5fexists_5fview_0',['maybe_exists_view',['../classgraphle_1_1detail_1_1maybe__exists__view.html',1,'graphle::detail']]]
 ];

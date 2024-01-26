@@ -103,8 +103,8 @@ Public Types</h2></td></tr>
 <tr class="separator:a992203b7c98183526176f091ed387786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01e623fdc3d88721a1485ceee3135221"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a01e623fdc3d88721a1485ceee3135221">reference</a> = T</td></tr>
 <tr class="separator:a01e623fdc3d88721a1485ceee3135221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a727209459c289e8804ac307353a56f30"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a727209459c289e8804ac307353a56f30">pointer</a> = std::add_pointer_t&lt; <a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a01e623fdc3d88721a1485ceee3135221">reference</a> &gt;</td></tr>
-<tr class="separator:a727209459c289e8804ac307353a56f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a666c37be3632e5e9474234503bbb221a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a666c37be3632e5e9474234503bbb221a">pointer</a> = std::conditional_t&lt; std::is_reference_v&lt; <a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a01e623fdc3d88721a1485ceee3135221">reference</a> &gt;, <a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a992203b7c98183526176f091ed387786">value_type</a> *, std::optional&lt; T &gt; &gt;</td></tr>
+<tr class="separator:a666c37be3632e5e9474234503bbb221a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9700cbb2a95200d2cfc890fe237f3a28"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a9700cbb2a95200d2cfc890fe237f3a28">difference_type</a> = typename std::iterator_traits&lt; Iterator &gt;::difference_type</td></tr>
 <tr class="separator:a9700cbb2a95200d2cfc890fe237f3a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad18a9f528a8470ca0dc73dd874cf6d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a7ad18a9f528a8470ca0dc73dd874cf6d">iterator_category</a> = std::common_type_t&lt; typename std::iterator_traits&lt; Iterator &gt;::iterator_category, std::random_access_iterator_tag &gt;</td></tr>
@@ -114,7 +114,7 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a18d71aebb2141ec4da2da1928a08145d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a01e623fdc3d88721a1485ceee3135221">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a18d71aebb2141ec4da2da1928a08145d">operator*</a> (void) const</td></tr>
 <tr class="separator:a18d71aebb2141ec4da2da1928a08145d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc88e106af9e27aa58707b8b27b314ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a727209459c289e8804ac307353a56f30">pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#abc88e106af9e27aa58707b8b27b314ef">operator-&gt;</a> (void) const</td></tr>
+<tr class="memitem:abc88e106af9e27aa58707b8b27b314ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a666c37be3632e5e9474234503bbb221a">pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#abc88e106af9e27aa58707b8b27b314ef">operator-&gt;</a> (void) const</td></tr>
 <tr class="separator:abc88e106af9e27aa58707b8b27b314ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ec9846cac81bdb032be0b1069528211"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a01e623fdc3d88721a1485ceee3135221">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a9ec9846cac81bdb032be0b1069528211">operator[]</a> (<a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a9700cbb2a95200d2cfc890fe237f3a28">difference_type</a> d) const</td></tr>
 <tr class="separator:a9ec9846cac81bdb032be0b1069528211"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,12 +162,12 @@ class graphle::detail::wrapping_iterator&lt; Derived, Iterator, T &gt;</div><p >
   <table class="tparams">
     <tr><td class="paramname">Derived</td><td>The CRTP-derived iterator class. </td></tr>
     <tr><td class="paramname">Iterator</td><td>The iterator type that is wrapped by Derived. </td></tr>
-    <tr><td class="paramname">T</td><td>The type returned by get(). </td></tr>
+    <tr><td class="paramname">T</td><td>The type returned by get() (Including reference qualifiers). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00100">100</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00116">116</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9700cbb2a95200d2cfc890fe237f3a28" name="a9700cbb2a95200d2cfc890fe237f3a28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9700cbb2a95200d2cfc890fe237f3a28">&#9670;&#160;</a></span>difference_type</h2>
@@ -183,7 +183,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00105">105</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00121">121</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -201,12 +201,12 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00106">106</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00122">122</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a727209459c289e8804ac307353a56f30" name="a727209459c289e8804ac307353a56f30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a727209459c289e8804ac307353a56f30">&#9670;&#160;</a></span>pointer</h2>
+<a id="a666c37be3632e5e9474234503bbb221a" name="a666c37be3632e5e9474234503bbb221a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a666c37be3632e5e9474234503bbb221a">&#9670;&#160;</a></span>pointer</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,12 +214,12 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 template&lt;typename Derived , typename Iterator , typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html">graphle::detail::wrapping_iterator</a>&lt; Derived, Iterator, T &gt;::pointer =  std::add_pointer_t&lt;<a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a01e623fdc3d88721a1485ceee3135221">reference</a>&gt;</td>
+          <td class="memname">using <a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html">graphle::detail::wrapping_iterator</a>&lt; Derived, Iterator, T &gt;::pointer =  std::conditional_t&lt;std::is_reference_v&lt;<a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a01e623fdc3d88721a1485ceee3135221">reference</a>&gt;, <a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a992203b7c98183526176f091ed387786">value_type</a>*, std::optional&lt;T&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00104">104</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00120">120</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -237,7 +237,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00103">103</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00119">119</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -255,7 +255,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00102">102</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00118">118</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +286,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00113">113</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00129">129</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -316,7 +316,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00128">128</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00148">148</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -346,7 +346,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00126">126</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00146">146</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -376,7 +376,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00129">129</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00149">149</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -406,7 +406,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00127">127</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00147">147</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -422,7 +422,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a727209459c289e8804ac307353a56f30">pointer</a> <a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html">graphle::detail::wrapping_iterator</a>&lt; Derived, Iterator, T &gt;::operator-&gt; </td>
+          <td class="memname"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html#a666c37be3632e5e9474234503bbb221a">pointer</a> <a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html">graphle::detail::wrapping_iterator</a>&lt; Derived, Iterator, T &gt;::operator-&gt; </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -436,7 +436,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00117">117</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00133">133</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -466,7 +466,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00121">121</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00141">141</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -507,7 +507,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00134">134</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00154">154</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -547,7 +547,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00132">132</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00152">152</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -587,7 +587,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00135">135</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00155">155</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -627,7 +627,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00133">133</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00153">153</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -654,7 +654,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00109">109</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00125">125</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -680,7 +680,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00108">108</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00124">124</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -706,7 +706,7 @@ template&lt;typename Derived , typename Iterator , typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00110">110</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00126">126</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>

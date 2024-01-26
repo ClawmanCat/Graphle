@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['search_5fvisitor_0',['search_visitor',['../classgraphle_1_1search_1_1search__visitor.html',1,'graphle::search']]],
-  ['search_5fvisitor_3c_20visitor_5ffrom_5farguments_3c_20graph_2c_20util_3a_3ano_5fop_5ft_2c_20util_3a_3ano_5fop_5ft_2c_20util_3a_3ano_5fop_5ft_2c_20util_3a_3ano_5fop_5ft_2c_20util_3a_3ano_5fop_5ft_2c_20util_3a_3ano_5fop_5ft_2c_20util_3a_3ano_5fop_5ft_20_3e_2c_20graph_20_3e_1',['search_visitor&lt; visitor_from_arguments&lt; Graph, util::no_op_t, util::no_op_t, util::no_op_t, util::no_op_t, util::no_op_t, util::no_op_t, util::no_op_t &gt;, Graph &gt;',['../classgraphle_1_1search_1_1search__visitor.html',1,'graphle::search']]],
-  ['subtest_5fscope_5fhandler_2',['subtest_scope_handler',['../structgraphle_1_1test_1_1subtest__scope__handler.html',1,'graphle::test']]]
+  ['range_5fadaptor_0',['range_adaptor',['../structgraphle_1_1detail_1_1range__adaptor.html',1,'graphle::detail']]],
+  ['range_5fadaptor_5fclosure_1',['range_adaptor_closure',['../structgraphle_1_1detail_1_1range__adaptor__closure.html',1,'graphle::detail']]],
+  ['rebind_5fstorage_5fprovider_2',['rebind_storage_provider',['../structgraphle_1_1store_1_1rebind__storage__provider.html',1,'graphle::store']]],
+  ['rebind_5fstorage_5fprovider_3c_20p_3c_20st_2c_20args_2e_2e_2e_20_3e_20_3e_3',['rebind_storage_provider&lt; P&lt; ST, Args... &gt; &gt;',['../structgraphle_1_1store_1_1rebind__storage__provider_3_01P_3_01ST_00_01Args_8_8_8_01_4_01_4.html',1,'graphle::store']]]
 ];

@@ -86,18 +86,19 @@ $(function() {
 <code>#include &lt;<a class="el" href="type__list_8hpp_source.html">meta/type_list.hpp</a>&gt;</code><br />
 <code>#include &lt;concepts&gt;</code><br />
 <code>#include &lt;iterator&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
 </div>
 <p><a href="range__utils_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1detail_1_1graphle__view__base.html">graphle::detail::graphle_view_base</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1detail_1_1project__nth.html">graphle::detail::project_nth&lt; N &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1detail_1_1range__adaptor__closure.html">graphle::detail::range_adaptor_closure&lt; G, L, Args &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1detail_1_1range__adaptor.html">graphle::detail::range_adaptor&lt; G, GArgs &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgraphle_1_1detail_1_1primary__range__adaptor.html">graphle::detail::primary_range_adaptor&lt; G, GArgs &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphle_1_1detail_1_1wrapping__iterator.html">graphle::detail::wrapping_iterator&lt; Derived, Iterator, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,6 +114,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:ac4893cda3c4ebf0d33e202fa7ca242bb"><td class="memTemplParams" colspan="2">template&lt;typename R &gt; </td></tr>
+<tr class="memitem:ac4893cda3c4ebf0d33e202fa7ca242bb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1detail.html#ac4893cda3c4ebf0d33e202fa7ca242bb">graphle::detail::range_iterator_traits</a> = std::iterator_traits&lt; rng::iterator_t&lt; R &gt; &gt;</td></tr>
+<tr class="separator:ac4893cda3c4ebf0d33e202fa7ca242bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57ce67ce55c82025bb4a2bfa99ad1199"><td class="memTemplParams" colspan="2">template&lt;rng::range R&gt; </td></tr>
 <tr class="memitem:a57ce67ce55c82025bb4a2bfa99ad1199"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1detail.html#a57ce67ce55c82025bb4a2bfa99ad1199">graphle::detail::const_iterator_t</a> = decltype(rng::cbegin(std::declval&lt; R &amp; &gt;()))</td></tr>
 <tr class="separator:a57ce67ce55c82025bb4a2bfa99ad1199"><td class="memSeparator" colspan="2">&#160;</td></tr>

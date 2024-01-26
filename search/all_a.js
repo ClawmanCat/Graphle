@@ -10,6 +10,9 @@ var searchData=
   ['make_5fsize_5fone_5fgraph_7',['make_size_one_graph',['../group__TestData.html#ga6c7efcae14ce0e1feedf5e1be995bf78',1,'graphle::test']]],
   ['make_5ftree_5fgraph_8',['make_tree_graph',['../group__TestData.html#ga2e7cb05f0a59578c284ceb18e816b261',1,'graphle::test']]],
   ['map_9',['map',['../structgraphle_1_1meta_1_1type__list.html#a8e7f314b6993195703549df0393bc083',1,'graphle::meta::type_list']]],
-  ['message_10',['message',['../structgraphle_1_1test_1_1assertion__failure.html#a36027af415e269f1e69ba6cf204fbbd7',1,'graphle::test::assertion_failure']]],
-  ['meta_2ehpp_11',['meta.hpp',['../meta_8hpp.html',1,'']]]
+  ['maybe_5fexists_10',['maybe_exists',['../group__Views.html#ga0a8e01e179f68514633de3f547b16113',1,'graphle::views']]],
+  ['maybe_5fexists_2ehpp_11',['maybe_exists.hpp',['../maybe__exists_8hpp.html',1,'']]],
+  ['maybe_5fexists_5fview_12',['maybe_exists_view',['../classgraphle_1_1detail_1_1maybe__exists__view.html',1,'graphle::detail::maybe_exists_view&lt; R &gt;'],['../classgraphle_1_1detail_1_1maybe__exists__view.html#a4f0a7f2e6125a645a2dcf9c0e4ee03d9',1,'graphle::detail::maybe_exists_view::maybe_exists_view(meta::deduce_as_t&lt; R &gt;)'],['../classgraphle_1_1detail_1_1maybe__exists__view.html#a5aa8ad62e0ae6c54e550ee3aaccc2dd0',1,'graphle::detail::maybe_exists_view::maybe_exists_view(R base_range)']]],
+  ['message_13',['message',['../structgraphle_1_1test_1_1assertion__failure.html#a36027af415e269f1e69ba6cf204fbbd7',1,'graphle::test::assertion_failure']]],
+  ['meta_2ehpp_14',['meta.hpp',['../meta_8hpp.html',1,'']]]
 ];

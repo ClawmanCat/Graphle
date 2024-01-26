@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Graphle: graphle::detail::project_nth&lt; N &gt; Struct Template Reference</title>
+<title>Graphle: graphle::detail::primary_range_adaptor&lt; G, GArgs &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,14 +70,14 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacegraphle.html">graphle</a></li><li class="navelem"><a class="el" href="namespacegraphle_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="structgraphle_1_1detail_1_1project__nth.html">project_nth</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacegraphle.html">graphle</a></li><li class="navelem"><a class="el" href="namespacegraphle_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="structgraphle_1_1detail_1_1primary__range__adaptor.html">primary_range_adaptor</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="structgraphle_1_1detail_1_1project__nth-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">graphle::detail::project_nth&lt; N &gt; Struct Template Reference</div></div>
+<a href="structgraphle_1_1detail_1_1primary__range__adaptor-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">graphle::detail::primary_range_adaptor&lt; G, GArgs &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -85,34 +85,40 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a59b0bf3f92fafa5616a1c60aa60258e9"><td class="memTemplParams" colspan="2">template&lt;typename TupleLike &gt; </td></tr>
-<tr class="memitem:a59b0bf3f92fafa5616a1c60aa60258e9"><td class="memTemplItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structgraphle_1_1detail_1_1project__nth.html#a59b0bf3f92fafa5616a1c60aa60258e9">operator()</a> (TupleLike &amp;&amp;tpl) const</td></tr>
-<tr class="separator:a59b0bf3f92fafa5616a1c60aa60258e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1941be050f33dbacf62a44f06388cd62"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a1941be050f33dbacf62a44f06388cd62"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structgraphle_1_1detail_1_1primary__range__adaptor.html#a1941be050f33dbacf62a44f06388cd62">operator()</a> (Args &amp;&amp;... args) const</td></tr>
+<tr class="separator:a1941be050f33dbacf62a44f06388cd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;std::size_t N&gt;<br />
-struct graphle::detail::project_nth&lt; N &gt;</div><p >Projection that returns the Nth element of a tuple-like type. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;template&lt; typename... &gt; typename G, typename... GArgs&gt;<br />
+struct graphle::detail::primary_range_adaptor&lt; G, GArgs &gt;</div><p >Boilerplate range adaptor for std::ranges compatibility for view type G which does not take a range as its first constructor argument. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">G</td><td>The template of a view type accepting the types in GArgs as its arguments. </td></tr>
+    <tr><td class="paramname">GArgs</td><td>A list of types passed to G as template arguments (if empty, CTAD will be used). </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00023">23</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00091">91</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a59b0bf3f92fafa5616a1c60aa60258e9" name="a59b0bf3f92fafa5616a1c60aa60258e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59b0bf3f92fafa5616a1c60aa60258e9">&#9670;&#160;</a></span>operator()()</h2>
+<a id="a1941be050f33dbacf62a44f06388cd62" name="a1941be050f33dbacf62a44f06388cd62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1941be050f33dbacf62a44f06388cd62">&#9670;&#160;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t N&gt; </div>
+template&lt;template&lt; typename... &gt; typename G, typename... GArgs&gt; </div>
 <div class="memtemplate">
-template&lt;typename TupleLike &gt; </div>
+template&lt;typename... Args&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr decltype(auto) <a class="el" href="structgraphle_1_1detail_1_1project__nth.html">graphle::detail::project_nth</a>&lt; N &gt;::operator() </td>
+          <td class="memname">constexpr auto <a class="el" href="structgraphle_1_1detail_1_1primary__range__adaptor.html">graphle::detail::primary_range_adaptor</a>&lt; G, GArgs &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">TupleLike &amp;&amp;&#160;</td>
-          <td class="paramname"><em>tpl</em></td><td>)</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -123,7 +129,7 @@ template&lt;typename TupleLike &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00024">24</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00093">93</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>

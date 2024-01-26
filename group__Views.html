@@ -95,6 +95,8 @@ Variables</h2></td></tr>
 <tr class="separator:gab07c412d164156b6848143ad367b03f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga12f2e7af6a6765eaa6cfa188a5936b99"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Views.html#ga12f2e7af6a6765eaa6cfa188a5936b99">graphle::views::to_vertex_perspective</a></td></tr>
 <tr class="separator:ga12f2e7af6a6765eaa6cfa188a5936b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0a8e01e179f68514633de3f547b16113"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Views.html#ga0a8e01e179f68514633de3f547b16113">graphle::views::maybe_exists</a> = <a class="el" href="structgraphle_1_1detail_1_1primary__range__adaptor.html">detail::primary_range_adaptor</a>&lt;<a class="el" href="classgraphle_1_1detail_1_1maybe__exists__view.html">detail::maybe_exists_view</a>&gt; {}</td></tr>
+<tr class="separator:ga0a8e01e179f68514633de3f547b16113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -133,9 +135,9 @@ template&lt;std::ranges::viewable_range R, template&lt; typename... &gt; typenam
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Range pipe operator for all Graphle views (Types deriving from <a class="el" href="structgraphle_1_1detail_1_1graphle__view__base.html">graphle::detail::graphle_view_base</a>). </p>
+<p >Range pipe operator for all non-primary Graphle views (Types using graphle::detail::range_adapter which take a range as their first argument). </p>
 
-<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00213">213</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="range__utils_8hpp_source.html#l00234">234</a> of file <a class="el" href="range__utils_8hpp_source.html">range_utils.hpp</a>.</p>
 
 </div>
 </div>
@@ -251,6 +253,37 @@ template&lt;std::ranges::viewable_range R, template&lt; typename... &gt; typenam
 </div><!-- fragment --><p >View that transposes every edge that includes the vertex V such that V is the first element of that edge. </p>
 
 <p class="definition">Definition at line <a class="el" href="edge__perspective_8hpp_source.html#l00064">64</a> of file <a class="el" href="edge__perspective_8hpp_source.html">edge_perspective.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ga0a8e01e179f68514633de3f547b16113" name="ga0a8e01e179f68514633de3f547b16113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0a8e01e179f68514633de3f547b16113">&#9670;&#160;</a></span>maybe_exists</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto graphle::views::maybe_exists = <a class="el" href="structgraphle_1_1detail_1_1primary__range__adaptor.html">detail::primary_range_adaptor</a>&lt;<a class="el" href="classgraphle_1_1detail_1_1maybe__exists__view.html">detail::maybe_exists_view</a>&gt; {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >View that either wraps a provided view or is an empty view. This can be used to provide a wrapper around a range that might not exist, e.g.: </p><div class="fragment"><div class="line">std::unordered_map&lt;Key, std::vector&lt;T&gt;&gt; my_values;</div>
+<div class="line"><span class="keyword">using </span>view_type = <span class="keyword">decltype</span>(ranges::all(my_values.at(key)));</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> values_for_key = my_values.contains(key)</div>
+<div class="line">    ? <a class="code hl_variable" href="group__Views.html#ga0a8e01e179f68514633de3f547b16113">views::maybe_exists</a>(ranges::all(my_values.at(key)))</div>
+<div class="line">    : views::<a class="code hl_variable" href="group__Views.html#ga0a8e01e179f68514633de3f547b16113">maybe_exists</a>(meta::deduce_type&lt;view_type&gt;);</div>
+<div class="ttc" id="agroup__Views_html_ga0a8e01e179f68514633de3f547b16113"><div class="ttname"><a href="group__Views.html#ga0a8e01e179f68514633de3f547b16113">graphle::views::maybe_exists</a></div><div class="ttdeci">constexpr auto maybe_exists</div><div class="ttdef"><b>Definition:</b> <a href="maybe__exists_8hpp_source.html#l00074">maybe_exists.hpp:74</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="maybe__exists_8hpp_source.html#l00074">74</a> of file <a class="el" href="maybe__exists_8hpp_source.html">maybe_exists.hpp</a>.</p>
 
 </div>
 </div>

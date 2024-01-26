@@ -2,8 +2,8 @@ var searchData=
 [
   ['range_5fadaptor_0',['range_adaptor',['../structgraphle_1_1detail_1_1range__adaptor.html',1,'graphle::detail']]],
   ['range_5fadaptor_5fclosure_1',['range_adaptor_closure',['../structgraphle_1_1detail_1_1range__adaptor__closure.html',1,'graphle::detail::range_adaptor_closure&lt; G, L, Args &gt;'],['../structgraphle_1_1detail_1_1range__adaptor__closure.html#a0cbaa2b05df8572549fb5226562bc3ed',1,'graphle::detail::range_adaptor_closure::range_adaptor_closure()']]],
-  ['range_5fat_5fkey_5for_5fdummy_2',['range_at_key_or_dummy',['../namespacegraphle_1_1test.html#a9f49d62e3b88122e22530245850924a3',1,'graphle::test']]],
-  ['range_5fat_5fmap_5fkey_5for_5fdummy_3',['range_at_map_key_or_dummy',['../namespacegraphle_1_1test.html#a3fa92d527a428fc9331f41612be5c6eb',1,'graphle::test']]],
+  ['range_5fat_5fmap_5fkey_2',['range_at_map_key',['../namespacegraphle_1_1test.html#a767e66140cd735e6ab469f152c199be8',1,'graphle::test']]],
+  ['range_5fiterator_5ftraits_3',['range_iterator_traits',['../namespacegraphle_1_1detail.html#ac4893cda3c4ebf0d33e202fa7ca242bb',1,'graphle::detail']]],
   ['range_5futils_2ehpp_4',['range_utils.hpp',['../range__utils_8hpp.html',1,'']]],
   ['readme_2emd_5',['README.md',['../README_8md.html',1,'']]],
   ['rebind_5fstorage_5fprovider_6',['rebind_storage_provider',['../structgraphle_1_1store_1_1rebind__storage__provider.html',1,'graphle::store']]],

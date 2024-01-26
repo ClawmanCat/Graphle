@@ -144,6 +144,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a423bfc8cb323ec1ea27188d6f7f3e66a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a423bfc8cb323ec1ea27188d6f7f3e66a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1meta.html#a423bfc8cb323ec1ea27188d6f7f3e66a">deduce_as_t</a> = <a class="el" href="namespacegraphle_1_1meta.html#a0f3d4713bc9c42c39b805d1aedcf7c60">type</a>&lt; T &gt;</td></tr>
 <tr class="separator:a423bfc8cb323ec1ea27188d6f7f3e66a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e3f0da3e4a77fdb1e63f03a648cf557"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9e3f0da3e4a77fdb1e63f03a648cf557"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1meta.html#a9e3f0da3e4a77fdb1e63f03a648cf557">deduce_as_lvalue_t</a> = <a class="el" href="namespacegraphle_1_1meta.html#a423bfc8cb323ec1ea27188d6f7f3e66a">deduce_as_t</a>&lt; std::remove_reference_t&lt; T &gt; &gt;</td></tr>
+<tr class="separator:a9e3f0da3e4a77fdb1e63f03a648cf557"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -162,6 +165,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a5fbb03e25a0bdf4c07c14d08409b0549"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a5fbb03e25a0bdf4c07c14d08409b0549"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacegraphle_1_1meta.html#a423bfc8cb323ec1ea27188d6f7f3e66a">deduce_as_t</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1meta.html#a5fbb03e25a0bdf4c07c14d08409b0549">deduce_as</a> = {}</td></tr>
 <tr class="separator:a5fbb03e25a0bdf4c07c14d08409b0549"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e6701203d522ba0cc14b791d66f18af"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6e6701203d522ba0cc14b791d66f18af"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacegraphle_1_1meta.html#a9e3f0da3e4a77fdb1e63f03a648cf557">deduce_as_lvalue_t</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1meta.html#a6e6701203d522ba0cc14b791d66f18af">deduce_as_lvalue</a> = {}</td></tr>
+<tr class="separator:a6e6701203d522ba0cc14b791d66f18af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac908c467334a669c9b66aa578ad2ce16"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ac908c467334a669c9b66aa578ad2ce16"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegraphle_1_1meta.html#ac908c467334a669c9b66aa578ad2ce16">is_none_v</a> = <a class="el" href="structgraphle_1_1meta_1_1is__none.html">is_none</a>&lt;T&gt;<a class="el" href="namespacegraphle_1_1meta.html#a74d44e2cd52999dbe5a84ce8aaa2a329">::value</a></td></tr>
 <tr class="separator:ac908c467334a669c9b66aa578ad2ce16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +178,25 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Metaprogramming utilities. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a9e3f0da3e4a77fdb1e63f03a648cf557" name="a9e3f0da3e4a77fdb1e63f03a648cf557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e3f0da3e4a77fdb1e63f03a648cf557">&#9670;&#160;</a></span>deduce_as_lvalue_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacegraphle_1_1meta.html#a9e3f0da3e4a77fdb1e63f03a648cf557">graphle::meta::deduce_as_lvalue_t</a> = typedef <a class="el" href="namespacegraphle_1_1meta.html#a423bfc8cb323ec1ea27188d6f7f3e66a">deduce_as_t</a>&lt;std::remove_reference_t&lt;T&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Equivalent to deduce_as_t but always deduces as an lvalue. </p>
+
+<p class="definition">Definition at line <a class="el" href="value_8hpp_source.html#l00035">35</a> of file <a class="el" href="value_8hpp_source.html">value.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a423bfc8cb323ec1ea27188d6f7f3e66a" name="a423bfc8cb323ec1ea27188d6f7f3e66a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a423bfc8cb323ec1ea27188d6f7f3e66a">&#9670;&#160;</a></span>deduce_as_t</h2>
 
@@ -353,6 +378,35 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a6e6701203d522ba0cc14b791d66f18af" name="a6e6701203d522ba0cc14b791d66f18af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6701203d522ba0cc14b791d66f18af">&#9670;&#160;</a></span>deduce_as_lvalue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacegraphle_1_1meta.html#a9e3f0da3e4a77fdb1e63f03a648cf557">deduce_as_lvalue_t</a>&lt;T&gt; graphle::meta::deduce_as_lvalue = {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<p >Equivalent to deduce_as_t but always deduces as an lvalue.   </p>
+
+<p class="definition">Definition at line <a class="el" href="value_8hpp_source.html#l00037">37</a> of file <a class="el" href="value_8hpp_source.html">value.hpp</a>.</p>
+
+</div>
+</div>
 <a id="ac908c467334a669c9b66aa578ad2ce16" name="ac908c467334a669c9b66aa578ad2ce16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac908c467334a669c9b66aa578ad2ce16">&#9670;&#160;</a></span>is_none_v</h2>
 
@@ -378,7 +432,7 @@ template&lt;typename T &gt; </div>
 <p></p>
 <p >Checks if a type is <a class="el" href="structgraphle_1_1meta_1_1none.html">meta::none</a>   </p>
 
-<p class="definition">Definition at line <a class="el" href="value_8hpp_source.html#l00038">38</a> of file <a class="el" href="value_8hpp_source.html">value.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="value_8hpp_source.html#l00043">43</a> of file <a class="el" href="value_8hpp_source.html">value.hpp</a>.</p>
 
 </div>
 </div>
@@ -407,7 +461,7 @@ template&lt;typename T &gt; </div>
 <p></p>
 <p >Checks if a type is <a class="el" href="structgraphle_1_1meta_1_1placeholder.html">meta::placeholder</a>   </p>
 
-<p class="definition">Definition at line <a class="el" href="value_8hpp_source.html#l00043">43</a> of file <a class="el" href="value_8hpp_source.html">value.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="value_8hpp_source.html#l00048">48</a> of file <a class="el" href="value_8hpp_source.html">value.hpp</a>.</p>
 
 </div>
 </div>
