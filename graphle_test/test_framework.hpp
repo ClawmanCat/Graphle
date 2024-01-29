@@ -65,14 +65,14 @@ throw graphle::test::assertion_failure { __VA_ARGS__ }
  * Fails the current test if the given condition is not true.
  */
 #define ASSERT_TRUE(...) \
-if (!bool(__VA_ARGS__)) FAIL(#__VA_ARGS__)
+if (!bool(__VA_ARGS__)) FAIL("Condition was not true: " #__VA_ARGS__)
 
 /**
  * @def ASSERT_FALSE(...)
  * Fails the current test if the given condition is true.
  */
 #define ASSERT_FALSE(...) \
-if (bool(__VA_ARGS__)) FAIL(#__VA_ARGS__)
+if (bool(__VA_ARGS__)) FAIL("Condition was not false: " #__VA_ARGS__)
 
 
 namespace graphle::test {
