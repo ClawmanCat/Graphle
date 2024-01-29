@@ -11,8 +11,27 @@
 #include <iostream>
 
 
+// Check for MSVC for workaround, see below. __clang__ check is required to exclude clang-cl.
+#if defined(_MSC_VER) && !defined(__clang__)
+    #define GRAPHLE_MSVC_WORKAROUND
+#endif
+
+
 namespace graphle::meta {
     namespace detail {
+        /**
+         * Workaround for MSVC which really hates syntax of the form type_list<value<Indices>...> for some reason,
+         * except when it is placed into a separate typedef like this.
+         * Clang works with the original version of this code, but fails (cannot mangle this name) when using this workaround,
+         * so add a compiler check before using it.
+         *
+         * @note: Bug last confirmed present on Visual Studio 2022, version 17.8.4.
+         */
+        template <typename Sequence> using indices_as_list = decltype([] <std::size_t... Is> (std::index_sequence<Is...>) {
+            return type_list<value<Is>...>{};
+        } (Sequence {}));
+
+
         /** Converts a pack of meta::value to an std::index_sequence of those values. */
         template <typename... Ts> struct values_to_sequence {
             using type = std::index_sequence<Ts::value...>;
@@ -27,14 +46,22 @@ namespace graphle::meta {
             } else {
                 [&] <std::size_t... Is> (std::index_sequence<Is...>) {
                     ([&] <std::size_t I> (value<I>) {
-                        using remaining_list = type_list<value<Remaining>...>;
+                        #ifdef GRAPHLE_MSVC_WORKAROUND
+                            using remaining_list = indices_as_list<decltype(remaining)>;
+                        #else
+                            using remaining_list = type_list<value<Remaining>...>;
+                        #endif
 
 
                         foreach_tuple_permutation(
                             tuple,
                             fn,
                             // Append the Ith element of Remaining to current.
-                            typename type_list<value<Current>...>
+                            #ifdef GRAPHLE_MSVC_WORKAROUND
+                                typename indices_as_list<decltype(current)>
+                            #else
+                                typename type_list<value<Current>...>
+                            #endif
                                 ::template append<typename remaining_list::template at<I>>
                                 ::template to<values_to_sequence>
                                 ::type {},
