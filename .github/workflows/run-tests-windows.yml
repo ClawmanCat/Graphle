@@ -16,6 +16,7 @@ jobs:
       matrix:
         build_type: [Debug, Release]
         cxx_compiler: [clang-cl, cl]
+        generator: [Ninja, "Visual Studio 17 2022"]
 
     steps:
     - uses: actions/checkout@v3
@@ -25,23 +26,23 @@ jobs:
       shell: bash
       run: echo "build-output-dir=${{ github.workspace }}/out" >> "$GITHUB_OUTPUT"
 
-    - name: Update MSVC
-      run: choco upgrade visualstudio2022buildtools
-
-    - name: Update LLVM
-      run: choco upgrade llvm
+    - name: Update / Install Toolchain
+      run: |
+        choco upgrade visualstudio2022buildtools
+        choco upgrade llvm
+        choco upgrade ninja
 
     - name: Create output directory
       run: mkdir out
 
     - name: Configure CMake
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      env:
-        CC: ${{ matrix.cxx_compiler }}
-        CXX: ${{ matrix.cxx_compiler }}
       run: >
         cmake
+        -G ${{ matrix.generator }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        -DCMAKE_C_COMPILER=${{ matrix.cxx_compiler }}
+        -DCMAKE_CXX_COMPILER=${{ matrix.cxx_compiler }}
         -DGRAPHLE_TESTS=ON
         ../
 
