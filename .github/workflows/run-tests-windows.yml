@@ -39,6 +39,7 @@ jobs:
     - name: Update / Install Toolchain
       run: |
         choco upgrade ${{ matrix.dependencies }} -y
+        %programfiles%\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat
 
     - name: Create output directory
       run: mkdir out
