@@ -15,7 +15,12 @@ jobs:
 
       matrix:
         build_type: [Debug, Release]
-        cxx_compiler: [clang-17, g++-13]
+        cxx_compiler: [clang++-17, g++-13]
+      include:
+        - cxx_compiler: g++-13
+          c_compiler: gcc-13
+        - cxx_compiler: clang++-17
+          c_compiler: clang-17
 
     steps:
     - uses: actions/checkout@v3
@@ -38,7 +43,7 @@ jobs:
     - name: Configure CMake
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       env:
-        CC: ${{ matrix.cxx_compiler }}
+        CC: ${{ matrix.c_compiler }}
         CXX: ${{ matrix.cxx_compiler }}
       run: >
         cmake

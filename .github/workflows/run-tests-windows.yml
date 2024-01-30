@@ -17,6 +17,16 @@ jobs:
         build_type: [Debug, Release]
         cxx_compiler: [clang-cl, cl]
         generator: [Ninja, "Visual Studio 17 2022"]
+      include:
+        - cxx_compiler: clang-cl
+          dependencies: "llvm ninja"
+        - cxx_compiler: cl
+          dependencies: "visualstudio2022buildtools visualstudio2022-workload-vctools ninja"
+      exclude:
+        # Using Visual Studio generator with Clang requires it to be installed through VS Build Tools instead.
+        # TODO: Configure this later.
+        - cxx_compiler: clang-cl
+          generator: "Visual Studio 17 2022"
 
     steps:
     - uses: actions/checkout@v3
@@ -28,10 +38,7 @@ jobs:
 
     - name: Update / Install Toolchain
       run: |
-        choco upgrade visualstudio2022buildtools
-        choco upgrade visualstudio2022-workload-vctools
-        choco upgrade llvm
-        choco upgrade ninja
+        choco upgrade ${{ matrix.dependencies }} -y
 
     - name: Create output directory
       run: mkdir out
