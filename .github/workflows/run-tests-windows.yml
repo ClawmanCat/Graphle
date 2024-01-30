@@ -28,7 +28,7 @@ jobs:
 
     - name: Update / Install Toolchain
       run: |
-        choco upgrade visualstudio2022buildtools
+        choco upgrade visualstudio2022buildtools --package-parameters "--allWorkloads --includeRecommended"
         choco upgrade llvm
         choco upgrade ninja
 
@@ -39,7 +39,7 @@ jobs:
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: >
         cmake
-        -G ${{ matrix.generator }}
+        -G "${{ matrix.generator }}"
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -DCMAKE_C_COMPILER=${{ matrix.cxx_compiler }}
         -DCMAKE_CXX_COMPILER=${{ matrix.cxx_compiler }}

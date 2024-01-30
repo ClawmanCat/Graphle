@@ -29,7 +29,7 @@ jobs:
       run: |
         sudo wget https://apt.llvm.org/llvm.sh
         sudo chmod +x llvm.sh
-        sudo ./llvm.sh 17
+        sudo ./llvm.sh 17 all
         sudo apt-get install g++-13
 
     - name: Create output directory
