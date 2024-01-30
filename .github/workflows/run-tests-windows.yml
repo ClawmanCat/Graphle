@@ -28,7 +28,7 @@ jobs:
 
     - name: Update / Install Toolchain
       run: |
-        choco upgrade visualstudio2022buildtools --package-parameters "--allWorkloads --includeRecommended"
+        choco upgrade visualstudio2022-workload-vctools
         choco upgrade llvm
         choco upgrade ninja
 
