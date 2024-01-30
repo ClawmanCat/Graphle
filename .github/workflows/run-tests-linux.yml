@@ -26,7 +26,7 @@ jobs:
       run: echo "build-output-dir=${{ github.workspace }}/out" >> "$GITHUB_OUTPUT"
 
     - name: Update LLVM
-      run: bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+      run: sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
     - name: Update GCC
       run: sudo apt-get install g++
