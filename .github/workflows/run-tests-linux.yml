@@ -16,11 +16,11 @@ jobs:
       matrix:
         build_type: [Debug, Release]
         cxx_compiler: [clang++-17, g++-13]
-      include:
-        - cxx_compiler: g++-13
-          c_compiler: gcc-13
-        - cxx_compiler: clang++-17
-          c_compiler: clang-17
+        include:
+          - cxx_compiler: g++-13
+            c_compiler: gcc-13
+          - cxx_compiler: clang++-17
+            c_compiler: clang-17
 
     steps:
     - uses: actions/checkout@v3
