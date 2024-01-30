@@ -28,6 +28,7 @@ jobs:
 
     - name: Update / Install Toolchain
       run: |
+        choco upgrade visualstudio2022buildtools
         choco upgrade visualstudio2022-workload-vctools
         choco upgrade llvm
         choco upgrade ninja
