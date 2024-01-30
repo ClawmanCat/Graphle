@@ -1,0 +1,54 @@
+name: Build & Run Tests (Windows)
+
+on:
+  push:
+    branches: [ "master", "ci" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        build_type: [Debug, Release]
+        cxx_compiler: [clang-cl, cl]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set reusable strings
+      id: strings
+      shell: bash
+      run: echo "build-output-dir=${{ github.workspace }}/out" >> "$GITHUB_OUTPUT"
+
+    - name: Update MSVC
+      run: choco upgrade visualstudio2022buildtools
+
+    - name: Update LLVM
+      run: choco upgrade llvm
+
+    - name: Create output directory
+      run: mkdir out
+
+    - name: Configure CMake
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      env:
+        CC: ${{ matrix.cxx_compiler }}
+        CXX: ${{ matrix.cxx_compiler }}
+      run: >
+        cmake
+        -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        -DGRAPHLE_TESTS=ON
+        ../
+
+    - name: Build
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: cmake --build . --config ${{ matrix.build_type }}
+
+    - name: Test
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: ctest --build-config ${{ matrix.build_type }}
