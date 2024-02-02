@@ -1,0 +1,59 @@
+name: Build & Run Tests (Linux | Clang)
+
+on:
+  push:
+    branches: [ "master", "dev", "ci" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        # Note: build matrix split between run-tests-linux-gcc.yml and run-tests-linux-clang.yml
+        #  so that we can generate separate badges for both of them.
+        build_type: [Debug, Release]
+        cxx_compiler: [clang++-17]
+        include:
+          - cxx_compiler: clang++-17
+            c_compiler: clang-17
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set reusable strings
+      id: strings
+      shell: bash
+      run: echo "build-output-dir=${{ github.workspace }}/out" >> "$GITHUB_OUTPUT"
+
+    - name: Update / Install Toolchain
+      run: |
+        sudo wget https://apt.llvm.org/llvm.sh
+        sudo chmod +x llvm.sh
+        sudo ./llvm.sh 17 all
+
+    - name: Create output directory
+      run: mkdir out
+
+    - name: Configure CMake
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      env:
+        CC: ${{ matrix.c_compiler }}
+        CXX: ${{ matrix.cxx_compiler }}
+      run: >
+        cmake
+        -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        -DGRAPHLE_TESTS=ON
+        ../
+
+    - name: Build
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: cmake --build . --config ${{ matrix.build_type }}
+
+    - name: Test
+      working-directory: ${{ steps.strings.outputs.build-output-dir }}
+      run: ctest --build-config ${{ matrix.build_type }}
