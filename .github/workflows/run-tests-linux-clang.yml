@@ -1,8 +1,8 @@
-name: Build & Run Tests (Linux)
+name: Build & Run Tests (Linux | Clang)
 
 on:
   push:
-    branches: [ "master", "ci" ]
+    branches: [ "master", "dev", "ci" ]
   pull_request:
     branches: [ "master" ]
 
@@ -14,11 +14,11 @@ jobs:
       fail-fast: false
 
       matrix:
+        # Note: build matrix split between run-tests-linux-gcc.yml and run-tests-linux-clang.yml
+        #  so that we can generate separate badges for both of them.
         build_type: [Debug, Release]
-        cxx_compiler: [clang++-17, g++-13]
+        cxx_compiler: [clang++-17]
         include:
-          - cxx_compiler: g++-13
-            c_compiler: gcc-13
           - cxx_compiler: clang++-17
             c_compiler: clang-17
 
@@ -35,7 +35,6 @@ jobs:
         sudo wget https://apt.llvm.org/llvm.sh
         sudo chmod +x llvm.sh
         sudo ./llvm.sh 17 all
-        sudo apt-get install g++-13
 
     - name: Create output directory
       run: mkdir out

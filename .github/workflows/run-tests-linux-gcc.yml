@@ -1,28 +1,26 @@
-name: Build & Run Tests (Windows)
+name: Build & Run Tests (Linux | GCC)
 
 on:
   push:
-    branches: [ "master", "ci" ]
+    branches: [ "master", "dev", "ci" ]
   pull_request:
     branches: [ "master" ]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
 
       matrix:
+        # Note: build matrix split between run-tests-linux-gcc.yml and run-tests-linux-clang.yml
+        #  so that we can generate separate badges for both of them.
         build_type: [Debug, Release]
-        cxx_compiler: [clang-cl, cl]
+        cxx_compiler: [g++-13]
         include:
-          - cxx_compiler: clang-cl
-            dependencies: "visualstudio2022buildtools visualstudio2022-workload-vctools ninja llvm"
-            generator: Ninja
-          - cxx_compiler: cl
-            dependencies: "visualstudio2022buildtools visualstudio2022-workload-vctools"
-            generator: "Visual Studio 17 2022"
+          - cxx_compiler: g++-13
+            c_compiler: gcc-13
 
     steps:
     - uses: actions/checkout@v3
@@ -33,21 +31,19 @@ jobs:
       run: echo "build-output-dir=${{ github.workspace }}/out" >> "$GITHUB_OUTPUT"
 
     - name: Update / Install Toolchain
-      run: choco upgrade ${{ matrix.dependencies }} -y
+      run: sudo apt-get install g++-13
 
     - name: Create output directory
       run: mkdir out
 
     - name: Configure CMake
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      shell: cmd
+      env:
+        CC: ${{ matrix.c_compiler }}
+        CXX: ${{ matrix.cxx_compiler }}
       run: >
-        call "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat" &&
         cmake
-        -G "${{ matrix.generator }}"
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-        -DCMAKE_C_COMPILER=${{ matrix.cxx_compiler }}
-        -DCMAKE_CXX_COMPILER=${{ matrix.cxx_compiler }}
         -DGRAPHLE_TESTS=ON
         ../
 
