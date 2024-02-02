@@ -4,7 +4,7 @@ This library is currently a work-in-progress.
 
 |   |   |   |   |
 |---|---|---|---|
-| ![Windows | MSVC](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-windows-msvc.yml/badge.svg) | ![Windows | Clang](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-windows-clang.yml/badge.svg) | ![Linux | GCC](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-linux-gcc.yml/badge.svg) | ![Linux | Clang](https://github.com/github/ClawmanCat/Graphle/workflows/run-tests-linux-clang.yml/badge.svg) |
+| ![Windows &#124; MSVC](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-windows-msvc.yml/badge.svg) | ![Windows &#124; Clang](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-windows-clang.yml/badge.svg) | ![Linux &#124; GCC](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-linux-gcc.yml/badge.svg) | ![Linux &#124; Clang](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-linux-clang.yml/badge.svg) |
 
 
 ### Motivation & Design
