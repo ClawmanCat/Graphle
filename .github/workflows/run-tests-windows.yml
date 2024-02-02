@@ -20,12 +20,12 @@ jobs:
           - cxx_compiler: clang-cl
             cmake_params: "-T ClangCL"
             choco_params: >
-              --params \"
+              --params "
               --add Microsoft.VisualStudio.Component.VC.Llvm.Clang 
               --add Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset 
               --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Llvm.Clang 
               --add Microsoft.VisualStudio.Component.VC.CMake.Project
-              \"
+              "
           - cxx_compiler: cl
             cmake_params: ""
             choco_params: ""
