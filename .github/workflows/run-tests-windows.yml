@@ -16,17 +16,19 @@ jobs:
       matrix:
         build_type: [Debug, Release]
         cxx_compiler: [clang-cl, cl]
-        generator: [Ninja, "Visual Studio 17 2022"]
         include:
           - cxx_compiler: clang-cl
-            dependencies: "llvm ninja"
+            cmake_params: "-T ClangCL"
+            choco_params: >
+              --params \"
+              --add Microsoft.VisualStudio.Component.VC.Llvm.Clang 
+              --add Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset 
+              --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Llvm.Clang 
+              --add Microsoft.VisualStudio.Component.VC.CMake.Project
+              \"
           - cxx_compiler: cl
-            dependencies: "visualstudio2022buildtools visualstudio2022-workload-vctools ninja"
-        exclude:
-          # Using Visual Studio generator with Clang requires it to be installed through VS Build Tools instead.
-          # TODO: Configure this later.
-          - cxx_compiler: clang-cl
-            generator: "Visual Studio 17 2022"
+            cmake_params: ""
+            choco_params: ""
 
     steps:
     - uses: actions/checkout@v3
@@ -37,7 +39,9 @@ jobs:
       run: echo "build-output-dir=${{ github.workspace }}/out" >> "$GITHUB_OUTPUT"
 
     - name: Update / Install Toolchain
-      run: choco upgrade ${{ matrix.dependencies }} -y
+      run: |
+        choco upgrade visualstudio2022buildtools ${{ matrix.choco_params }} -y
+        choco upgrade visualstudio2022-workload-vctools -y
         
     - name: Run vcvarsall.bat
       run: Start-Process -FilePath "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat" -Wait
@@ -49,7 +53,8 @@ jobs:
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: >
         cmake
-        -G "${{ matrix.generator }}"
+        -G "Visual Studio 17 2022"
+        ${{ matrix.cmake_params }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -DCMAKE_C_COMPILER=${{ matrix.cxx_compiler }}
         -DCMAKE_CXX_COMPILER=${{ matrix.cxx_compiler }}
