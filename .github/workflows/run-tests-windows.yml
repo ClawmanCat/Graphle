@@ -18,17 +18,11 @@ jobs:
         cxx_compiler: [clang-cl, cl]
         include:
           - cxx_compiler: clang-cl
-            cmake_params: "-T ClangCL"
-            choco_params: >
-              --params "
-              --add Microsoft.VisualStudio.Component.VC.Llvm.Clang 
-              --add Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset 
-              --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Llvm.Clang 
-              --add Microsoft.VisualStudio.Component.VC.CMake.Project
-              "
+            dependencies: "visualstudio2022buildtools visualstudio2022-workload-vctools ninja llvm"
+            generator: Ninja
           - cxx_compiler: cl
-            cmake_params: ""
-            choco_params: ""
+            dependencies: "visualstudio2022buildtools visualstudio2022-workload-vctools"
+            generator: "Visual Studio 17 2022"
 
     steps:
     - uses: actions/checkout@v3
@@ -40,8 +34,7 @@ jobs:
 
     - name: Update / Install Toolchain
       run: |
-        choco upgrade visualstudio2022buildtools -y ${{ matrix.choco_params }}
-        choco upgrade visualstudio2022-workload-vctools -y
+        choco upgrade ${{ matrix.dependencies }} -y
         Start-Process -FilePath "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat" -Wait
 
     - name: Create output directory
@@ -51,8 +44,7 @@ jobs:
       working-directory: ${{ steps.strings.outputs.build-output-dir }}
       run: >
         cmake
-        -G "Visual Studio 17 2022"
-        ${{ matrix.cmake_params }}
+        -G "${{ matrix.generator }}"
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -DCMAKE_C_COMPILER=${{ matrix.cxx_compiler }}
         -DCMAKE_CXX_COMPILER=${{ matrix.cxx_compiler }}
