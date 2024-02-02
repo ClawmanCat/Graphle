@@ -2,6 +2,10 @@
 Graphle is a small C++20 header-only graph library.
 This library is currently a work-in-progress.
 
+|   |   |   |   |
+|---|---|---|---|
+| ![Windows &#124; MSVC](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-windows-msvc.yml/badge.svg) | ![Windows &#124; Clang](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-windows-clang.yml/badge.svg) | ![Linux &#124; GCC](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-linux-gcc.yml/badge.svg) | ![Linux &#124; Clang](https://github.com/ClawmanCat/Graphle/actions/workflows/run-tests-linux-clang.yml/badge.svg) |
+
 
 ### Motivation & Design
 This library came forth out of my frustration trying to use BGL in my game engine project. 
