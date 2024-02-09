@@ -3,6 +3,7 @@
 #include <common.hpp>
 #include <meta/concepts.hpp>
 #include <meta/value.hpp>
+#include <meta/trait_definition.hpp>
 #include <graph/vertex_compare.hpp>
 #include <graph/graph_concepts.hpp>
 #include <graph/constraint_debug_helper.hpp>
@@ -16,6 +17,8 @@ namespace graphle {
     /**
      * @ingroup Graph
      * Non-owning view of an existing data structure for treating it as a graph.
+     * Users can provide one or several of the listed getter methods to specify how to retrieve data from the graph.
+     * Each Graphle algorithm specifies what data it needs to be used with a given graph view.
      *
      * @note:
      *  For directed graphs a pair [A, B] is considered an edge from A to B and is distinct from an edge [B, A] from B to A.
@@ -37,7 +40,8 @@ namespace graphle {
      *  The comparators and hashers are always provided together, since they must be mutually consistent
      *  (E.g. if vertices are compared by value they should not be hashed by address).
      * @tparam Error       Will be set to an error from @ref graph_constraint_errors if one of the constraints is not satisfied.
-     *  This error will show up in any error messages involving the graph's type.
+     *  This error will show up in any error messages involving the graph's type
+     *  (This is required because some compilers will not show which class constraints were not satisfied in their error messages).
      */
     template <
         typename Vertex,
@@ -70,9 +74,9 @@ namespace graphle {
 
 
         // Required for template argument deduction. See README for more info.
-        meta::deduce_as_t<Vertex> deduce_vertex_type;
+        meta::deduce_as_t<Vertex>     deduce_vertex_type;
         meta::deduce_as_t<IsDirected> deduce_is_directed;
-        meta::deduce_as_t<CompareAs> deduce_compare_as;
+        meta::deduce_as_t<CompareAs>  deduce_compare_as;
 
         // Note: can be initialized using aggregate initialization / designated initializers.
         GetVertices get_vertices;
@@ -82,52 +86,42 @@ namespace graphle {
     };
 
 
-    /** Concept for template instantiations of graphle::graph. @ingroup Graph */
-    template <typename G> concept graph_type = meta::is_template_v<graph, G>;
+    /** Checks if the given type is a template instantiation of graphle::graph. @ingroup Graph */
+    GRAPHLE_BOOL_TRAIT_DEF(is_graph, graph_type, typename G, meta::is_template_v<graph, G>);
     /** Equivalent to graph_type but with universal-reference-like behaviour. @ingroup Graph */
-    template <typename G> concept graph_ref  = graph_type<std::remove_cvref_t<G>>;
+    GRAPHLE_BOOL_TRAIT_DEF(is_graph_ref, graph_ref, typename G, graph_type<std::remove_cvref_t<G>>);
+
 
     /** The vertex type associated with the graph type G. @ingroup Graph */
-    template <graph_ref G> using vertex_of = typename std::remove_cvref_t<G>::vertex_type;
+    GRAPHLE_TYPE_TRAIT_DEF(vertex_of, graph_ref G, typename std::remove_cvref_t<G>::vertex_type);
     /** The edge type associated with the graph type G. @ingroup Graph */
-    template <graph_ref G> using edge_of   = typename std::remove_cvref_t<G>::edge_type;
+    GRAPHLE_TYPE_TRAIT_DEF(edge_of, graph_ref G, typename std::remove_cvref_t<G>::edge_type);
     /** The vertex comparator associated with the graph type G. @ingroup Graph */
-    template <graph_ref G> using vertex_compare_of = typename std::remove_cvref_t<G>::vertex_compare_t;
+    GRAPHLE_TYPE_TRAIT_DEF(vertex_compare_of, graph_ref G, typename std::remove_cvref_t<G>::vertex_compare_t);
     /** The edge comparator associated with the graph type G. @ingroup Graph */
-    template <graph_ref G> using edge_compare_of = typename std::remove_cvref_t<G>::edge_compare_t;
+    GRAPHLE_TYPE_TRAIT_DEF(edge_compare_of, graph_ref G, typename std::remove_cvref_t<G>::edge_compare_t);
     /** The vertex hasher associated with the graph type G. @ingroup Graph */
-    template <graph_ref G> using vertex_hash_of = typename std::remove_cvref_t<G>::vertex_hash_t;
+    GRAPHLE_TYPE_TRAIT_DEF(vertex_hash_of, graph_ref G, typename std::remove_cvref_t<G>::vertex_hash_t);
     /** The edge hasher associated with the graph type G. @ingroup Graph */
-    template <graph_ref G> using edge_hash_of = typename std::remove_cvref_t<G>::edge_hash_t;
+    GRAPHLE_TYPE_TRAIT_DEF(edge_hash_of, graph_ref G, typename std::remove_cvref_t<G>::edge_hash_t);
 
 
     /** Checks whether or not a graph is directed. @ingroup Graph */
-    template <graph_ref G> constexpr inline bool graph_is_directed     = std::remove_cvref_t<G>::is_directed;
+    GRAPHLE_BOOL_TRAIT_DEF(graph_is_directed, directed_graph, typename G, graph_ref<G> && std::remove_cvref_t<G>::is_directed);
+    /** Checks whether or not a graph is non-directed. @ingroup Graph */
+    GRAPHLE_BOOL_TRAIT_DEF(graph_is_non_directed, non_directed_graph, typename G, graph_ref<G> && !std::remove_cvref_t<G>::is_directed);
     /** Checks whether or not a graph provides a list of vertices. @ingroup Graph */
-    template <graph_ref G> constexpr inline bool graph_has_vertex_list = std::remove_cvref_t<G>::has_vertex_list;
+    GRAPHLE_BOOL_TRAIT_DEF(graph_has_vertex_list, vertex_list_graph, typename G, graph_ref<G> && std::remove_cvref_t<G>::has_vertex_list);
     /** Checks whether or not a graph provides a list of edges. @ingroup Graph */
-    template <graph_ref G> constexpr inline bool graph_has_edge_list   = std::remove_cvref_t<G>::has_edge_list;
+    GRAPHLE_BOOL_TRAIT_DEF(graph_has_edge_list, edge_list_graph, typename G, graph_ref<G> && std::remove_cvref_t<G>::has_edge_list);
     /** Checks whether or not a graph provides a list of out edges for a vertex. @ingroup Graph */
-    template <graph_ref G> constexpr inline bool graph_has_out_edges   = std::remove_cvref_t<G>::has_out_edges;
+    GRAPHLE_BOOL_TRAIT_DEF(graph_has_out_edges, out_edges_graph, typename G, graph_ref<G> && std::remove_cvref_t<G>::has_out_edges);
     /** Checks whether or not a graph provides a list of in edges for a vertex. @ingroup Graph */
-    template <graph_ref G> constexpr inline bool graph_has_in_edges    = std::remove_cvref_t<G>::has_in_edges;
-
-    /** Checks that a graph is directed. @ingroup Graph */
-    template <typename G> concept directed_graph     = graph_is_directed<G>;
-    /** Checks that a graph is not directed. @ingroup Graph */
-    template <typename G> concept non_directed_graph = !graph_is_directed<G>;
-    /** Checks whether or not a graph provides a list of vertices. @ingroup Graph */
-    template <typename G> concept vertex_list_graph  = graph_has_vertex_list<G>;
-    /** Checks whether or not a graph provides a list of edges. @ingroup Graph */
-    template <typename G> concept edge_list_graph    = graph_has_edge_list<G>;
-    /** Checks whether or not a graph provides a list of out edges for a vertex. @ingroup Graph */
-    template <typename G> concept out_edges_graph    = graph_has_out_edges<G>;
-    /** Checks whether or not a graph provides a list of in edges for a vertex. @ingroup Graph */
-    template <typename G> concept in_edges_graph     = graph_has_in_edges<G>;
-
+    GRAPHLE_BOOL_TRAIT_DEF(graph_has_in_edges, in_edges_graph, typename G, graph_ref<G> && std::remove_cvref_t<G>::has_in_edges);
+    
 
     /** Checks whether or not T is a valid vertex type. @ingroup Graph */
-    template <typename T> constexpr static inline bool is_vertex = std::is_pointer_v<T>;
+    GRAPHLE_BOOL_TRAIT_DEF(is_vertex, vertex_type, typename T, std::is_pointer_v<T>);
     /** Checks whether or not T is a valid edge type. @ingroup Graph */
-    template <typename T> constexpr static inline bool is_edge   = meta::is_template_v<std::pair, T> && is_vertex<typename T::first_type> && is_vertex<typename T::second_type>;
+    GRAPHLE_BOOL_TRAIT_DEF(is_edge, edge_type, typename T, meta::is_template_v<std::pair, T> && is_vertex_v<typename T::first_type> && is_vertex_v<typename T::second_type>);
 }

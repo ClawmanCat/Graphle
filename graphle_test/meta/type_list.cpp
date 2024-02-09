@@ -284,3 +284,44 @@ TEST(type_list, insert_at) {
         ASSERT_TYPE_EQ(list_icb::template insert_at<void, 1>,   type_list<int, void, char, bool>);
     }
 }
+
+
+template <typename... Ts> struct is_one_of {
+    template <typename X> struct type {
+        constexpr static inline bool value = (std::is_same_v<X, Ts> || ...);
+    };
+};
+
+
+TEST(type_list, filter) {
+    SUBTEST_SCOPE("all_true_trait") {
+        ASSERT_TYPE_EQ(list_empty::template filter_trait<std::is_integral>, type_list<>);
+        ASSERT_TYPE_EQ(list_i::template filter_trait<std::is_integral>,     type_list<int>);
+        ASSERT_TYPE_EQ(list_ic::template filter_trait<std::is_integral>,    type_list<int, char>);
+        ASSERT_TYPE_EQ(list_icb::template filter_trait<std::is_integral>,   type_list<int, char, bool>);
+    }
+
+
+    SUBTEST_SCOPE("one_true_trait") {
+        ASSERT_TYPE_EQ(list_empty::template filter_trait<is_one_of<int>::template type>, type_list<>);
+        ASSERT_TYPE_EQ(list_i::template filter_trait<is_one_of<int>::template type>,     type_list<int>);
+        ASSERT_TYPE_EQ(list_ic::template filter_trait<is_one_of<int>::template type>,    type_list<int>);
+        ASSERT_TYPE_EQ(list_icb::template filter_trait<is_one_of<int>::template type>,   type_list<int>);
+    }
+
+
+    SUBTEST_SCOPE("some_true_trait") {
+        ASSERT_TYPE_EQ(list_empty::template filter_trait<is_one_of<int, bool>::template type>, type_list<>);
+        ASSERT_TYPE_EQ(list_i::template filter_trait<is_one_of<int, bool>::template type>,     type_list<int>);
+        ASSERT_TYPE_EQ(list_ic::template filter_trait<is_one_of<int, bool>::template type>,    type_list<int>);
+        ASSERT_TYPE_EQ(list_icb::template filter_trait<is_one_of<int, bool>::template type>,   type_list<int, bool>);
+    }
+
+
+    SUBTEST_SCOPE("all_false_trait") {
+        ASSERT_TYPE_EQ(list_empty::template filter_trait<is_one_of<std::string>::template type>, type_list<>);
+        ASSERT_TYPE_EQ(list_i::template filter_trait<is_one_of<std::string>::template type>,     type_list<>);
+        ASSERT_TYPE_EQ(list_ic::template filter_trait<is_one_of<std::string>::template type>,    type_list<>);
+        ASSERT_TYPE_EQ(list_icb::template filter_trait<is_one_of<std::string>::template type>,   type_list<>);
+    }
+}

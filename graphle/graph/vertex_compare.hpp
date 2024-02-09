@@ -49,6 +49,7 @@ namespace graphle {
         constexpr inline std::size_t hash_combine(std::size_t a, std::size_t b) {
             // Shamelessly stolen from boost::hash_combine
             // https://www.boost.org/doc/libs/1_55_0/doc/html/hash/reference.html#boost.hash_combine
+            // (See Boost license at: https://www.boost.org/LICENSE_1_0.txt)
             return a ^ (b + 0x9E3779B9 + (a << 6) + (a >> 2));
         }
 

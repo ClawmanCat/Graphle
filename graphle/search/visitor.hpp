@@ -69,8 +69,8 @@ namespace graphle::search {
     template <typename Derived, graph_ref Graph> class search_visitor {
     public:
         using graph  = std::remove_reference_t<Graph>;
-        using vertex = vertex_of<Graph>;
-        using edge   = edge_of<Graph>;
+        using vertex = vertex_of_t<Graph>;
+        using edge   = edge_of_t<Graph>;
 
 
         /** Called when a vertex is first visited during search. */

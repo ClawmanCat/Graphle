@@ -29,20 +29,20 @@ namespace graphle::search {
     template <
         graph_ref G,
         search_visitor_ref<G> V,
-        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of<G>> PV
-            = store::default_provided_t<store::storage_type::VECTOR, vertex_of<G>>,
-        store::storage_provider_ref<store::storage_type::UNORDERED_SET, vertex_of<G>, vertex_hash_of<G>, vertex_compare_of<G>> PS
-            = store::default_provided_t<store::storage_type::UNORDERED_SET, vertex_of<G>, vertex_hash_of<G>, vertex_compare_of<G>>
+        store::storage_provider_ref<store::storage_type::VECTOR, vertex_of_t<G>> PV
+            = store::default_provider_t<store::storage_type::VECTOR, vertex_of_t<G>>,
+        store::storage_provider_ref<store::storage_type::UNORDERED_SET, vertex_of_t<G>, vertex_hash_of_t<G>, vertex_compare_of_t<G>> PS
+            = store::default_provider_t<store::storage_type::UNORDERED_SET, vertex_of_t<G>, vertex_hash_of_t<G>, vertex_compare_of_t<G>>
     > requires (
         edge_list_graph<G> ||
         out_edges_graph<G> ||
         (non_directed_graph<G> && in_edges_graph<G>)
     ) constexpr inline bool depth_first_search(
         G&& graph,
-        vertex_of<G> root,
+        vertex_of_t<G> root,
         V&& visitor,
-        PV&& stack_provider = store::get_default_storage_provider<store::storage_type::VECTOR, vertex_of<G>>(),
-        PS&& set_provider   = store::get_default_storage_provider<store::storage_type::UNORDERED_SET, vertex_of<G>, vertex_hash_of<G>, vertex_compare_of<G>>()
+        PV&& stack_provider = store::get_default_storage_provider<store::storage_type::VECTOR, vertex_of_t<G>>(),
+        PS&& set_provider   = store::get_default_storage_provider<store::storage_type::UNORDERED_SET, vertex_of_t<G>, vertex_hash_of_t<G>, vertex_compare_of_t<G>>()
     ) {
         return detail::search<store::storage_type::VECTOR>(
             graph,

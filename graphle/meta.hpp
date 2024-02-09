@@ -7,6 +7,7 @@
 #include <meta/concepts.hpp>
 #include <meta/const_pointer.hpp>
 #include <meta/if_constexpr.hpp>
+#include <meta/trait_definition.hpp>
 #include <meta/tuple.hpp>
 #include <meta/type_list.hpp>
 #include <meta/value.hpp>

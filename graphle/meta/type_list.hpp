@@ -122,6 +122,29 @@ namespace graphle::meta {
         template <typename T, std::size_t N> requires (N <= size) using insert_at = typename pop_back<(size - N)>
             ::template append<T>
             ::template append_list<pop_front<N>>;
+
+
+        /**
+         * Filters the pack to all types for which the provided type trait is true.
+         * @tparam Filter A type trait to filter the pack by.
+         * @return A pack of all types T in the pack for which Filter<T>::value is true.
+         */
+        template <template <typename...> typename Filter> consteval static inline auto filter_trait_impl(void) {
+            if constexpr (empty) return type_list<>{};
+
+            else if constexpr (Filter<head>::value) {
+                return typename type_list<head>
+                    ::template append_list<
+                        typename tail::template filter_trait<Filter>
+                    > {};
+            }
+
+            else return tail::template filter_trait_impl<Filter>();
+        }
+
+
+        /** @copydoc filter_trait_impl */
+        template <template <typename...> typename Filter> using filter_trait = decltype(filter_trait_impl<Filter>());
     };
 
 

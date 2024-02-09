@@ -7,7 +7,7 @@
 
 namespace graphle {
     namespace detail {
-        template <rng::input_range R> requires (rng::view<R> && is_edge<rng::range_value_t<R>>)
+        template <rng::input_range R> requires (rng::view<R> && is_edge_v<rng::range_value_t<R>>)
         class edge_duplication_view : public rng::view_interface<edge_duplication_view<R>> {
         public:
             using edge_type = rng::range_value_t<R>;

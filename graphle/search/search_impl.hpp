@@ -42,22 +42,22 @@ namespace graphle::detail {
         search::search_visitor_ref<G> V,
         typename EmplacePP,
         typename TakePP,
-        store::storage_provider_ref<ST, vertex_of<G>> PP
-            = store::default_provided_t<ST, vertex_of<G>>,
-        store::storage_provider_ref<store::storage_type::UNORDERED_SET, vertex_of<G>, vertex_hash_of<G>, vertex_compare_of<G>> PS
-            = store::default_provided_t<store::storage_type::UNORDERED_SET, vertex_of<G>, vertex_hash_of<G>, vertex_compare_of<G>>
+        store::storage_provider_ref<ST, vertex_of_t<G>> PP
+            = store::default_provider_t<ST, vertex_of_t<G>>,
+        store::storage_provider_ref<store::storage_type::UNORDERED_SET, vertex_of_t<G>, vertex_hash_of_t<G>, vertex_compare_of_t<G>> PS
+            = store::default_provider_t<store::storage_type::UNORDERED_SET, vertex_of_t<G>, vertex_hash_of_t<G>, vertex_compare_of_t<G>>
     > requires (
         edge_list_graph<G> ||
         out_edges_graph<G> ||
         (non_directed_graph<G> && in_edges_graph<G>)
     ) constexpr inline bool search(
         G&& graph,
-        vertex_of<G> root,
+        vertex_of_t<G> root,
         V&& visitor,
         EmplacePP&& emplace,
         TakePP&& take,
-        PP&& pending_provider = store::get_default_storage_provider<ST, vertex_of<G>>(),
-        PS&& set_provider     = store::get_default_storage_provider<store::storage_type::UNORDERED_SET, vertex_of<G>, vertex_hash_of<G>, vertex_compare_of<G>>()
+        PP&& pending_provider = store::get_default_storage_provider<ST, vertex_of_t<G>>(),
+        PS&& set_provider     = store::get_default_storage_provider<store::storage_type::UNORDERED_SET, vertex_of_t<G>, vertex_hash_of_t<G>, vertex_compare_of_t<G>>()
     ) {
         using VR  = search::visitor_result;
         using NVR = search::nonlocal_visitor_result;
@@ -74,7 +74,7 @@ namespace graphle::detail {
 
 
         while (!rng::empty(pending)) {
-            vertex_of<G> next = take(pending);
+            vertex_of_t<G> next = take(pending);
 
 
             switch (visitor.discover_vertex_base(next, graph)) {
@@ -84,7 +84,7 @@ namespace graphle::detail {
             }
 
             // Concepts 'branch' and 'leaf' don't make sense for a non-directed graph so ignore these visitor callbacks.
-            if constexpr (graph_is_directed<G>) {
+            if constexpr (graph_is_directed_v<G>) {
                 if (util::is_branch(graph, next)) {
                     switch (visitor.discover_branch_base(next, graph)) {
                         case VR::STOP_SEARCH: return false;

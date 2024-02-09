@@ -47,10 +47,11 @@ namespace graphle::store {
      * @ingroup Store
      * Concept to check if a type is vector-like.
      */
-    template <typename S, typename T> concept vector_storage_type = requires (S storage, T value) {
+    template <typename S, typename T> concept vector_storage_type = requires (S storage, T value, std::size_t n) {
         { storage.clear()          };
         { storage.push_back(value) };
         { storage.pop_back()       };
+        { storage[n]               } -> std::convertible_to<T&>;
         { storage.front()          } -> std::convertible_to<T&>;
         { storage.back()           } -> std::convertible_to<T&>;
         { rng::size(storage)       } -> std::convertible_to<std::size_t>;

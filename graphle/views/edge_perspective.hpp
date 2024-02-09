@@ -10,7 +10,7 @@
 
 namespace graphle {
     namespace detail {
-        template <rng::input_range R, typename Projection> requires (rng::view<R> && is_edge<rng::range_value_t<R>>)
+        template <rng::input_range R, typename Projection> requires (rng::view<R> && is_edge_v<rng::range_value_t<R>>)
         class vertex_perspective_view : public rng::view_interface<vertex_perspective_view<R, Projection>> {
         public:
             using vertex_type = typename rng::range_value_t<R>::first_type;

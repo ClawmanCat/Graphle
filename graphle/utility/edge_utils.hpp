@@ -11,17 +11,17 @@
 namespace graphle::util {
     /** Filter that compares the given field of an edge to the provided vertex. @ingroup Utils */
     template <graph_ref G, auto Field> struct edge_field_filter {
-        vertex_of<G> vertex;
+        vertex_of_t<G> vertex;
 
-        constexpr bool operator()(edge_of<G> edge) const {
-            return vertex_compare_of<G>{}(edge.*Field, vertex);
+        constexpr bool operator()(edge_of_t<G> edge) const {
+            return vertex_compare_of_t<G>{}(edge.*Field, vertex);
         }
     };
 
     /** Filter that keeps all edges coming from the given vertex. @ingroup Utils */
-    template <graph_ref G> using edge_from_filter = edge_field_filter<G, &edge_of<G>::first>;
+    template <graph_ref G> using edge_from_filter = edge_field_filter<G, &edge_of_t<G>::first>;
     /** Filter that keeps all edges going to the given vertex. @ingroup Utils */
-    template <graph_ref G> using edge_to_filter   = edge_field_filter<G, &edge_of<G>::second>;
+    template <graph_ref G> using edge_to_filter   = edge_field_filter<G, &edge_of_t<G>::second>;
 
 
     /**
@@ -39,9 +39,9 @@ namespace graphle::util {
         edge_list_graph<G> ||
         in_edges_graph<G>  ||
         (non_directed_graph<G> && out_edges_graph<G>)
-    ) constexpr inline auto in_edges(G&& graph, vertex_of<G> vertex) {
+    ) constexpr inline auto in_edges(G&& graph, vertex_of_t<G> vertex) {
         using GL   = std::remove_cvref_t<G>;
-        using edge = edge_of<G>;
+        using edge = edge_of_t<G>;
 
         if constexpr (GL::has_in_edges) {
             return graph.get_in_edges(vertex);
@@ -72,9 +72,9 @@ namespace graphle::util {
         edge_list_graph<G> ||
         out_edges_graph<G> ||
         (non_directed_graph<G> && in_edges_graph<G>)
-    ) constexpr inline auto out_edges(G&& graph, vertex_of<G> vertex) {
+    ) constexpr inline auto out_edges(G&& graph, vertex_of_t<G> vertex) {
         using GL   = std::remove_cvref_t<G>;
-        using edge = edge_of<G>;
+        using edge = edge_of_t<G>;
 
         if constexpr (GL::has_out_edges) {
             return graph.get_out_edges(vertex);
@@ -105,9 +105,9 @@ namespace graphle::util {
         edge_list_graph<G> ||
         in_edges_graph<G>  ||
         (non_directed_graph<G> && out_edges_graph<G>)
-    ) constexpr inline std::size_t in_degree(G&& graph, vertex_of<G> vertex) {
+    ) constexpr inline std::size_t in_degree(G&& graph, vertex_of_t<G> vertex) {
         using GL   = std::remove_cvref_t<G>;
-        using edge = edge_of<G>;
+        using edge = edge_of_t<G>;
 
         if constexpr (GL::has_in_edges) {
             return rng::size(graph.get_in_edges(vertex));
@@ -138,9 +138,9 @@ namespace graphle::util {
         edge_list_graph<G> ||
         out_edges_graph<G> ||
         (non_directed_graph<G> && in_edges_graph<G>)
-    ) constexpr inline std::size_t out_degree(G&& graph, vertex_of<G> vertex) {
+    ) constexpr inline std::size_t out_degree(G&& graph, vertex_of_t<G> vertex) {
         using GL   = std::remove_cvref_t<G>;
-        using edge = edge_of<G>;
+        using edge = edge_of_t<G>;
 
         if constexpr (GL::has_out_edges) {
             return rng::size(graph.get_out_edges(vertex));
@@ -168,7 +168,7 @@ namespace graphle::util {
      * }
      */
     template <directed_graph G> requires (edge_list_graph<G> || in_edges_graph<G>)
-    constexpr inline bool is_root(G&& graph, vertex_of<G> vertex) {
+    constexpr inline bool is_root(G&& graph, vertex_of_t<G> vertex) {
         return in_degree(graph, vertex) == 0;
     }
 
@@ -185,7 +185,7 @@ namespace graphle::util {
      * }
      */
     template <directed_graph G> requires (edge_list_graph<G> || out_edges_graph<G>)
-    constexpr inline bool is_branch(G&& graph, vertex_of<G> vertex) {
+    constexpr inline bool is_branch(G&& graph, vertex_of_t<G> vertex) {
         return out_degree(graph, vertex) > 0;
     }
 
@@ -202,7 +202,7 @@ namespace graphle::util {
      * }
      */
     template <directed_graph G> requires (edge_list_graph<G> || out_edges_graph<G>)
-    constexpr inline bool is_leaf(G&& graph, vertex_of<G> vertex) {
+    constexpr inline bool is_leaf(G&& graph, vertex_of_t<G> vertex) {
         return out_degree(graph, vertex) == 0;
     }
 }

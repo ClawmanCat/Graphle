@@ -135,5 +135,5 @@ namespace graphle::store {
 
 
     /** Equal to the type returned by @ref get_default_storage_provider */
-    template <storage_type ST, typename... Args> using default_provided_t = decltype(get_default_storage_provider<ST, Args...>());
+    template <storage_type ST, typename... Args> using default_provider_t = decltype(get_default_storage_provider<ST, Args...>());
 }
